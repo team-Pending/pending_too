@@ -5,13 +5,25 @@ const bcrypt = require('bcrypt');
 const userSchema = new Schema({
   firstName: {
     type: String,
-    required: true,
     trim: true
   },
   lastName: {
     type: String,
-    required: true,
     trim: true
+  },
+  cart: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Product"
+  }],
+  seller: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  username: {
+    type: String,
+    required: true, 
+    unique: true,
   },
   email: {
     type: String,
