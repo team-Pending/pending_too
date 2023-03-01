@@ -40,12 +40,12 @@
 
 .main-search {
     border-left: 2px solid black;
-    padding-left: 5rem;
+    padding-left: 1rem;
     display: flex;
     width: 15rem;
     height: 2rem;
     transition: 700ms;
-    padding-top: .25rem;
+    padding-top: .75rem;
 }
 
 .main-search>input {
