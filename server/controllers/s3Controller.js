@@ -2,6 +2,14 @@ require('dotenv').config();
 const S3 = require('aws-sdk/clients/s3');
 const fs = require('fs');
 
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+const util = require('util');
+const unlinkFile = util.promisify(fs.unlink);
+const { uploadFile, getFileStream, deletePhoto } = require('../s3');
+const uploadImage = require('../../utils/uploadImg');
+const Note = require('../../models/Note');
+
 const bucketName = process.env.AWS_BUCKET_NAME;
 const region = process.env.AWS_BUCKET_REGION;
 const accessKeyId = process.env.AWS_ACCESS_KEY;
@@ -23,16 +31,19 @@ module.exports = {
 			Body: fileStream,
 			Key: req.filename,
 		};
-		return s3.upload(uploadParams).promise();
+		const result = s3.upload(uploadParams).promise();
+		// this image path will need to be changed just not sure how i want to do it yet
+		return res.send({ imagePath: `/images/${result.key}` });
 	},
 	// downloads a file from s3
 	getFileStream(req, res) {
+		const key = req.params.key;
 		const downloadParams = {
-			Key: req.params.key,
+			Key: key,
 			Bucket: bucketName,
 		};
-
-		return s3.getObject(downloadParams).createReadStream();
+		const readStream = s3.getObject(downloadParams).createReadStream();
+		return readStream.pipe(res);
 	},
 	deletePhoto(req, res) {
 		const deleteParams = {
@@ -47,32 +58,16 @@ module.exports = {
 	},
 };
 
-// const multer = require('multer');
-// const upload = multer({ dest: 'uploads/' });
-// const fs = require('fs');
-// const util = require('util');
-// const unlinkFile = util.promisify(fs.unlink);
-// const { uploadFile, getFileStream, deletePhoto } = require('../s3');
-// const uploadImage = require('../../utils/uploadImg');
-// const Note = require('../../models/Note');
-
-// router.get('/images/:key', (req, res) => {
-//   const key = req.params.key;
-//   const readStream = getFileStream(key);
-
-//   readStream.pipe(res);
-// });
-
-// router.post('/image', upload.single('image'), async function (req, res) {
-//   const result = await uploadImage(req.file);
-//   res.send({ imagePath: `/images/${result.key}` });
-//   const userData = await Note.create({
-//     user_id: req.session.user_id,
-//     title: req.body.title,
-//     description: req.body.description,
-//     key: result.key,
-//   });
-// });
+router.post('/image', upload.single('image'), async function (req, res) {
+	const result = await uploadImage(req.file);
+	res.send({ imagePath: `/images/${result.key}` });
+	const userData = await Note.create({
+		user_id: req.session.user_id,
+		title: req.body.title,
+		description: req.body.description,
+		key: result.key,
+	});
+});
 
 // // creates a method to delete previously made notes based on their unique id.
 // router.delete('/notes/:key', async (req, res) => {
