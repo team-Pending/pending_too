@@ -58,18 +58,18 @@ module.exports = {
 	},
 };
 
-router.post('/image', upload.single('image'), async function (req, res) {
-	const result = await uploadImage(req.file);
-	res.send({ imagePath: `/images/${result.key}` });
-	const userData = await Note.create({
-		user_id: req.session.user_id,
-		title: req.body.title,
-		description: req.body.description,
-		key: result.key,
-	});
-});
+// router.post('/image', upload.single('image'), async function (req, res) {
+// 	const result = await uploadImage(req.file);
+// 	res.send({ imagePath: `/images/${result.key}` });
+// 	const userData = await Note.create({
+// 		user_id: req.session.user_id,
+// 		title: req.body.title,
+// 		description: req.body.description,
+// 		key: result.key,
+// 	});
+// });
 
-// // creates a method to delete previously made notes based on their unique id.
+// creates a method to delete previously made notes based on their unique id.
 // router.delete('/notes/:key', async (req, res) => {
 //   try {
 //     const noteData = await Note.destroy({
