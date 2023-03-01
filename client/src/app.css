@@ -1,0 +1,46 @@
+:root {
+    --black: #000;  
+    --jet: #353535ff;
+    --blue: #3c6e71ff;
+    --white: #ffffffff;
+    --platinum: #d9d9d9ff;
+    --indigo: #284b63ff;
+    --bright: #a9def9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "urbanist";
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+@font-face {
+    font-family: 'urbanist';
+    src: url(./assets/fonts/Urbanist-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'urbanist-italic';
+    src: url(./assets/fonts/Urbanist-Italic-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'sacramento';
+    src: url(./assets/fonts/Sacramento-Regular.ttf);
+}
+
+@media screen and (prefers-reduced-motion: reduce) {  
+    * {
+      /* Very short durations means JavaScript that relies on events still works */
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
