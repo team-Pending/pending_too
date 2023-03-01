@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
-const bcrypt = require('bcrypt');
+const { Schema, model } = require('mongoose');
 
 const productSchema = new Schema({
   productName: {
@@ -20,11 +18,16 @@ const productSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category"
   },
-   reviews: [{
-     type: String,
-   }],
+   reviews: [
+    {
+     type: String
+   },
+],
   rating: {
-    type: Number,
+    type: Number
+  },
+  fileType: {
+    type: RegExp
   },
    key: {
     type: String,
@@ -32,6 +35,6 @@ const productSchema = new Schema({
    },
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Product = model('Product', productSchema);
 
 module.exports = Product;
