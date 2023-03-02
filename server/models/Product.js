@@ -18,21 +18,21 @@ const productSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category"
   },
-   reviews: [
+  reviews: [
     {
-     type: String
-   },
-],
+      type: String
+    },
+  ],
   rating: {
     type: Number
   },
   fileType: {
     type: RegExp
   },
-   key: {
+  s3key: {
     type: String,
     required: true
-   },
+  },
 });
 
 const Product = model('Product', productSchema);

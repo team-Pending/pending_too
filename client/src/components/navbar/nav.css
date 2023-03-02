@@ -1,6 +1,7 @@
 .navbar {
     position: sticky;
     top: 0;
+    z-index: 10000;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -10,6 +11,7 @@
     background-color: white;
     /* box-shadow: 1px 1px 1px black; */
 }
+
 
 .navbar>h1 {
     padding-left: 1rem;
@@ -44,6 +46,7 @@
     display: flex;
     width: 15rem;
     height: 2rem;
+    border-right: 2px solid black;
     transition: 700ms;
     padding-top: .75rem;
 }
@@ -58,8 +61,9 @@
     margin-left: 5px;
     padding-left: 5px;
     color: var(--black);
-    width: 100px;
+    width: 190px;
     height: 30px;
+    line-height: 30px;
     display: block;
     background: linear-gradient(to right, var(--bright) 50%, white 50%);
     background-size: 200% 100%;
@@ -70,6 +74,7 @@
 .main-search>input::placeholder {
     opacity: 1;
     font-weight: bold;
+    
 }
 
 .main-search>input:focus {

@@ -23,12 +23,12 @@ function Navbar() {
                 </li>
                 <li>|</li>
                 <li>
-                    <Link>
+                    <Link to='account'>
                         Account
                     </Link>
                 </li>
             </ul>
-            <ul>
+            <ul className='hamburger'>
                 <li>
                     {/* https://hamburger-react.netlify.app/ */}
                     <Hamburger size={30} />
