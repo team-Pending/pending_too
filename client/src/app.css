@@ -67,20 +67,18 @@ li {
   
 .btnLD {
     border: none;
-    color:#fff;
+    color:#bdc0c5;
     display: flex;
     align-items: center;
-    gap:6px;
-    background-color: #bdc0c5;
-    border-radius: 5px;
+    background-color: #fff;
     padding: 6px 15px;
     margin: 0 10px;
   }
 
 .like-active { 
-    background-color: lightgreen;
+    color: #F46524;
   }
   
 .dislike-active { 
-background-color: lightcoral;
+    color: #0b9adb;
 }
