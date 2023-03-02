@@ -1,0 +1,81 @@
+.card {
+    height: 100vh;
+    width: 75vw;
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    text-shadow: 1px 1px 5px black;
+    box-shadow: 1px 1px 5px black;
+    margin: 1rem;
+}
+
+.card>h1 {
+    position: relative;
+    top: -30%;
+    left: -40%;
+    font-size: x-large;
+    z-index: 2;
+    color: var(--orange);
+}
+
+.card>h2 {
+    position: relative;
+    width: 15rem;
+    top: -32%;
+    left: 40%;
+    font-size: x-large;
+    z-index: 2;
+    color: var(--orange);
+}
+
+.info {
+    position: relative;
+    top: 40%;
+    left: 40%;
+    z-index: 2;
+    line-height: 2rem;
+    font-size: larger;
+    color: aliceblue;
+    padding-right: 2rem;
+}
+
+.like {
+    position: relative;
+    scale: 200%;
+    top: 20%;
+    left: -45%;
+    z-index: 2;
+    line-height: 2rem;
+    font-size: larger;
+    color: aliceblue;
+}
+
+.thumb {
+    color: var(--white);
+    text-shadow: 1px 1px 2px var(--black);
+}
+
+.like-count {
+    position: relative;
+    z-index: 10;
+    top: 15%;
+    left: -40%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2px;
+    color: var(--white);
+    background-color: var(--orange);
+    padding: 0 10px;
+    box-shadow: 2px 2px 20px var(--bright);
+    display: none;
+}
+
+.thumb:hover + .like-count {
+    display: block;
+}
