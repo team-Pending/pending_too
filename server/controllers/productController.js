@@ -1,50 +1,49 @@
-const { User, Thought } = require('../models');
+const { Product, Review } = require('../models');
 
-const userController = {
-  // get all users
-  getUsers(req, res) {
-    User.find()
+const productController = {
+  // get all products
+  getProducts(req, res) {
+    Product.find()
       .select('-__v')
-      .then((dbUserData) => {
-        res.json(dbUserData);
+      .then((dbProductData) => {
+        res.json(dbProductData);
       })
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
       });
   },
-  // get single user by id
-  getSingleUser(req, res) {
-    User.findOne({ _id: req.params.userId })
+  // get single product by id
+  getSingleProduct(req, res) {
+    Product.findOne({ _id: req.params.productId })
       .select('-__v')
-      .populate('friends')
-      .populate('thoughts')
-      .then((dbUserData) => {
-        if (!dbUserData) {
-          return res.status(404).json({ message: 'No user with this id!' });
+      .populate('reviews')
+      .then((dbProductData) => {
+        if (!dbProductData) {
+          return res.status(404).json({ message: 'No product with this id!' });
         }
-        res.json(dbUserData);
+        res.json(dbProductData);
       })
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
       });
   },
-  // create a new user
-  createUser(req, res) {
-    User.create(req.body)
-      .then((dbUserData) => {
-        res.json(dbUserData);
+  // create a new product
+  createProduct(req, res) {
+    Product.create(req.body)
+      .then((dbProductData) => {
+        res.json(dbProductData);
       })
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
       });
   },
-  // update a user
-  updateUser(req, res) {
-    User.findOneAndUpdate(
-      { _id: req.params.userId },
+  // update a product
+  updateProduct(req, res) {
+    Product.findOneAndUpdate(
+      { _id: req.params.productId },
       {
         $set: req.body,
       },
@@ -53,59 +52,30 @@ const userController = {
         new: true,
       }
     )
-      .then((dbUserData) => {
-        if (!dbUserData) {
-          return res.status(404).json({ message: 'No user with this id!' });
+      .then((dbProductData) => {
+        if (!dbProductData) {
+          return res.status(404).json({ message: 'No product with this id!' });
         }
-        res.json(dbUserData);
+        res.json(dbProductData);
       })
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
       });
   },
-  // delete user (BONUS: and delete associated thoughts)
-  deleteUser(req, res) {
-    User.findOneAndDelete({ _id: req.params.userId })
-      .then((dbUserData) => {
-        if (!dbUserData) {
-          return res.status(404).json({ message: 'No user with this id!' });
+  // delete product
+  deleteProduct(req, res) {
+    Product.findOneAndDelete({ _id: req.params.productId })
+      .then((dbProductData) => {
+        if (!dbProductData) {
+          return res.status(404).json({ message: 'No product with this id!' });
         }
 
-        // BONUS: get ids of user's `thoughts` and delete them all
-        return Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
+        // Get ids of product's `reviews` and delete them all
+        return Review.deleteMany({ _id: { $in: dbProductData.reviews } });
       })
       .then(() => {
-        res.json({ message: 'User and associated thoughts deleted!' });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  },
-
-  // add friend to friend list
-  addFriend(req, res) {
-    User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.params.friendId } }, { new: true })
-      .then((dbUserData) => {
-        if (!dbUserData) {
-          return res.status(404).json({ message: 'No user with this id!' });
-        }
-        res.json(dbUserData);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  },
-  // remove friend from friend list
-  removeFriend(req, res) {
-    User.findOneAndUpdate({ _id: req.params.userId }, { $pull: { friends: req.params.friendId } }, { new: true })
-      .then((dbUserData) => {
-        if (!dbUserData) {
-          return res.status(404).json({ message: 'No user with this id!' });
-        }
-        res.json(dbUserData);
+        res.json({ message: 'Product and associated reviews deleted!' });
       })
       .catch((err) => {
         console.log(err);
@@ -114,4 +84,4 @@ const userController = {
   },
 };
 
-module.exports = userController;
+module.exports = productController;
