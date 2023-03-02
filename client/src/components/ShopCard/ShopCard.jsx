@@ -27,7 +27,7 @@ function ShopCard() {
             <a href="" className="thumb"><FontAwesomeIcon icon={faThumbsDown}/></a>
         </li>
       </ul>
-      <div className="like-count" ><p>{content.likes}</p></div>
+      <div className="like-count" ><p>TEST</p></div>
     </section>
   )
 })

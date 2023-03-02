@@ -61,7 +61,7 @@
     text-shadow: 1px 1px 2px var(--black);
 }
 
-.like-count {
+/* .like-count {
     position: relative;
     z-index: 10;
     top: 15%;
@@ -73,9 +73,8 @@
     background-color: var(--orange);
     padding: 0 10px;
     box-shadow: 2px 2px 20px var(--bright);
-    display: none;
 }
 
-.thumb:hover + .like-count {
-    display: block;
-}
+.thumb:hover {
+
+} */
