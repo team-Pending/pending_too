@@ -1,12 +1,12 @@
 {
-  "name": "mern-server",
-  "version": "1.0.0",
+  "name": "mediaphile-server",
+  "version": "0.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
+    "seed": "node config/seeds.js",
     "start": "node server.js",
-    "watch": "nodemon",
-    "seed": "node config/seeds.js"
+    "watch": "nodemon"
   },
   "keywords": [],
   "author": "",

@@ -2,52 +2,52 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-	firstName: {
-		type: String,
-		trim: true,
-	},
-	lastName: {
-		type: String,
-		trim: true,
-	},
-	cart: [
-		{
-			type: Schema.Types.ObjectId,
-			ref: 'Product',
-		},
-	],
-	seller: {
-		type: Boolean,
-		required: true,
-		default: false,
-	},
-	isAdmin: {
-		type: Boolean,
-		required: true,
-		default: false,
-	},
-	username: {
-		type: String,
-		required: true,
-		unique: true,
-	},
-	email: {
-		type: String,
-		required: true,
-		unique: true,
-		match: [/.+@.+\..+/, 'Not a valid email'],
-	},
-	password: {
-		type: String,
-		required: true,
-		minlength: 5,
-	},
-	purchased: [
-		{
-			type: Schema.Types.ObjectId,
-			ref: 'Product',
-		},
-	],
+  firstName: {
+    type: String,
+    trim: true
+  },
+  lastName: {
+    type: String,
+    trim: true
+  },
+  cart: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: "Product"
+  },
+],
+  seller: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  isAdmin: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  username: {
+    type: String,
+    required: true, 
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Not a valid email']
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5
+  },
+  purchased: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: "Product"
+  },
+],
 });
 
 // set up pre-save middleware to create password
