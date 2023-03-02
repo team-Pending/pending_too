@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import { Twirl as Hamburger} from 'hamburger-react';
+import Search from '../Search';
 
 import './nav.css'
 
@@ -29,21 +28,21 @@ function Navbar() {
                     </Link>
                 </li>
             </ul>
-            <ul>
+            <ul className='hamburger'>
                 <li>
                     {/* https://hamburger-react.netlify.app/ */}
                     <Hamburger size={30} />
                 </li>
                 <li>
-
-                    <section className='main-search'>
+                <Search/>
+                    {/* <section className='main-search'>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                         <input
                             type="text"
                             placeholder='Search'
                             className='main-search'
                         />
-                    </section>
+                    </section> */}
                 </li>
             </ul>
         </nav>

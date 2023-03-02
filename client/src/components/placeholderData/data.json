@@ -1,0 +1,18 @@
+[
+    {
+        "title": "yo bro is it safe down there in the woods? yeah man it's cool",
+        "image": "./images/tomislav-jagnjic-001.jpg",
+        "username": "Tomislav Jagnjic",
+        "price": "25",
+        "information": "1920 X 991 213.5kb",
+        "likes": "500"
+    },
+    {
+        "title": "Stuff Being Thrown at my Head nbr 7",
+        "image": "./images/kaija-straumanis-7.jpg",
+        "username": "Kaija Straumanis",
+        "price":"60",
+        "information": "880 X 642 89.3kb",
+        "likes": "70"
+    }
+]

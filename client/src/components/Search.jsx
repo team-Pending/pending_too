@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 
 function Search() {
     // array copied for testing
@@ -28,37 +30,24 @@ function Search() {
         setFiltered(searchList)
     };
 
-    // filter items in search
-    const filterChange = (event) => {
-
-    }
 
     // copied for testing 
     return (
         <div className="container">
-          <h2>Search Filter Array of Objects</h2>
           
-          <div className="list-wrapper">
-            <div className="filter-container">
+          <section className='main-search'>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
               <input
-                type="text"
-                name="search"
-                placeholder="Search"
-                value={search}
-                onChange={useSearch}
+                  type="text"
+                  placeholder='Search'
+                  className='main-search'
+                  value={search}
+                  onChange={useSearch}
               />
-              <div>
-                <select name="size" onChange={filterChange}>
-                  <option value="">Filter by Size</option>
-                  <option value="2000">Greater Than 2000km</option>
-                  <option value="6000">Greater Than 6000km</option>
-                  <option value="10000">Greater Than 10000km</option>
-                  <option value="25000">Greater Than 25000km</option>
-                </select>
-              </div>
-            </div>
-    
-            {filtered.map((item, index) => {
+          </section>
+
+
+          {/* {filtered.map((item, index) => {
               return (
                 <div className="card" key={index}>
                   <p className="num-text">{item.id}</p>
@@ -70,8 +59,7 @@ function Search() {
                   </div>
                 </div>
               );
-            })}
-          </div>
+            })} */}
         </div>
       );
     }
