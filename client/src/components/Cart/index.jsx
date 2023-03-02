@@ -4,9 +4,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import Auth from '../../utils/auth';
-import CartItem from '../CartItem';
+import CartItem from '../cartItem';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
-import { useStoreContext } from '../../utils/GlobalState';
+import { useStoreContext } from '../../utils/globalState';
 import './cart.css';
 
 // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
