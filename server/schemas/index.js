@@ -1,7 +1,7 @@
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server-express');
 
 const Object = require('./object');
 const Response = require('./response');
