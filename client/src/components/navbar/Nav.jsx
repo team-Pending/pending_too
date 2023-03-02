@@ -29,7 +29,7 @@ function Navbar() {
                     </Link>
                 </li>
             </ul>
-            <ul>
+            <ul className='hamburger'>
                 <li>
                     {/* https://hamburger-react.netlify.app/ */}
                     <Hamburger size={30} />

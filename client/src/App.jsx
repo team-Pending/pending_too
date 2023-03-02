@@ -1,20 +1,24 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Navbar from "./components/navbar/Nav";
+import ShopCard from "./components/ShopCard/ShopCard";
 import About from "./components/About";
 import "./app.css"
 
 function App() {
 
   return (
-    <body className="container">
+      <div>
       <Navbar/>
+
+    <div className="container">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<ShopCard />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      </div>
 
-    </body>
+    </div>
   )
 }
 

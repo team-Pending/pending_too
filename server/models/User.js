@@ -12,7 +12,7 @@ const userSchema = new Schema({
   },
   cart: [
     {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "Product"
   },
 ],
@@ -44,7 +44,7 @@ const userSchema = new Schema({
   },
   purchased: [
     {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "Product"
   },
 ],
