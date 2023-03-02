@@ -1,31 +1,36 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import placeholder from './img1.jpg';
-import './ShopCard.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons"
+import content from '../placeholderData/data.json'
+import './ShopCard.css';
 
 function ShopCard() {
-  return (
-    <section className='card' style={{backgroundImage: `url(${placeholder})`}}>
-      <h1>Username</h1>
-      <h2>Title</h2>
-      {/* <img className='card-img' src={placeholder} alt="" /> */}
+    return(
+
+        content.map(content => {
+            
+            return (
+                <section key={content.index} className='card' style={{backgroundImage: `url(${content.image})`}}>
+      <h1>{content.username}</h1>
+      <h2>{content.title}</h2>
       <ul className='info'>
-        <li>Price</li>
-        <li>iLink to store</li>
-        <li>Information</li>
+        <li>{content.price}</li>
+        <li>{content.username}</li>
+        <li>{content.information}</li>
         <li>Add to cart</li>
       </ul>
       <ul className='like'>
         <li>
-            <FontAwesomeIcon icon={faThumbsUp}/>
+            <a href="" className='thumb'><FontAwesomeIcon icon={faThumbsUp}/></a>
         </li>
         <li>
-            <FontAwesomeIcon icon={faThumbsDown}/>
+            <a href="" className="thumb"><FontAwesomeIcon icon={faThumbsDown}/></a>
         </li>
       </ul>
     </section>
   )
+})
+)
 }
 
 export default ShopCard
