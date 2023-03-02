@@ -48,7 +48,7 @@
 .like {
     position: relative;
     scale: 200%;
-    top: 30%;
+    top: 20%;
     left: -45%;
     z-index: 2;
     line-height: 2rem;
@@ -57,5 +57,25 @@
 }
 
 .thumb {
-    color: var(--orange);
+    color: var(--white);
+    text-shadow: 1px 1px 2px var(--black);
+}
+
+.like-count {
+    position: relative;
+    z-index: 10;
+    top: 15%;
+    left: -40%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2px;
+    color: var(--white);
+    background-color: var(--orange);
+    padding: 0 10px;
+    box-shadow: 2px 2px 20px var(--bright);
+    display: none;
+}
+
+.thumb:hover + .like-count {
+    display: block;
 }
