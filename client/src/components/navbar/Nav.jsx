@@ -23,7 +23,7 @@ function Navbar() {
                 </li>
                 <li>|</li>
                 <li>
-                    <Link>
+                    <Link to='account'>
                         Account
                     </Link>
                 </li>
