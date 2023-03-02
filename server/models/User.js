@@ -16,7 +16,7 @@ const userSchema = new Schema({
     ref: "Product"
   },
 ],
-  seller: {
+  isSeller: {
     type: Boolean,
     required: true,
     default: false,
