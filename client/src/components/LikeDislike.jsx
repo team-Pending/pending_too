@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
+import { faThumbsDown } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function LikeDislike() {
     const [ like , setLike ] = useState(0);
@@ -46,23 +49,21 @@ function LikeDislike() {
         }
     };
 
-    // copied for testing purposes
+    
     return (
-        <div className="container">
-          <div className="btn-container">
+        <div>
+          <div className="btnLD-container">
             <button
-              className={`btn ${activeBtn === 'like' ? 'like-active' : ''}`}
-              onClick={likeCount}
-            >
-              <span className="material-symbols-rounded">thumb_up</span>
+              className={`btnLD ${activeBtn === 'like' ? 'like-active' : ''}`}
+              onClick={likeCount}>
+              <FontAwesomeIcon icon={faThumbsUp}/>
               Like {like}
             </button>
     
             <button
-              className={`btn ${activeBtn === 'dislike' ? 'dislike-active' : ''}`}
-              onClick={dislikeCount}
-            >
-              <span className="material-symbols-rounded">thumb_down</span>
+              className={`btnLD ${activeBtn === 'dislike' ? 'dislike-active' : ''}`}
+              onClick={dislikeCount}>
+              <FontAwesomeIcon icon={faThumbsDown}/>
               Dislike {dislike}
             </button>
           </div>
