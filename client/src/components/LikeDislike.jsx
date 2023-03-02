@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
-import { faThumbsDown } from "@fortawesome/free-regular-svg-icons";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function LikeDislike() {
-    const [ like , setLike ] = useState(0);
-    const [ dislike , setDislike ] = useState(0);
+    const [ like , setLike ] = useState('');
+    const [ dislike , setDislike ] = useState('');
 
     const [ activeBtn , setActiveBtn ] = useState("none");
 
@@ -49,22 +49,22 @@ function LikeDislike() {
         }
     };
 
-    
+
     return (
         <div>
           <div className="btnLD-container">
             <button
               className={`btnLD ${activeBtn === 'like' ? 'like-active' : ''}`}
               onClick={likeCount}>
-              <FontAwesomeIcon icon={faThumbsUp}/>
-              Like {like}
+              <FontAwesomeIcon icon={faThumbsUp} style={{ height: "40px"}}/>
+              {/* {like} */}
             </button>
     
             <button
               className={`btnLD ${activeBtn === 'dislike' ? 'dislike-active' : ''}`}
               onClick={dislikeCount}>
-              <FontAwesomeIcon icon={faThumbsDown}/>
-              Dislike {dislike}
+              <FontAwesomeIcon icon={faThumbsDown} style={{ height: "40px"}}/>
+              {/* {dislike} */}
             </button>
           </div>
         </div>
