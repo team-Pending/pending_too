@@ -9,6 +9,7 @@ function Thumbnail() {
             return (
                 <div key={content.index} className="thumbnail">
                     <p>{content.title}</p>
+                    <button className='thumb-button'><span className='edit'>Edit</span></button>
                     <img src={content.image} alt={content.title} />
                 </div >
             )

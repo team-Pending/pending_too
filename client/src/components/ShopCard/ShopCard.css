@@ -47,9 +47,10 @@
 
 .like {
     position: relative;
+    display: flex;
     scale: 200%;
-    top: 20%;
-    left: -45%;
+    top: 30%;
+    left: -40%;
     z-index: 2;
     line-height: 2rem;
     font-size: larger;
@@ -57,8 +58,19 @@
 }
 
 .thumb {
-    color: var(--white);
+    border: none;
+    color: var(--platinum);
     text-shadow: 1px 1px 2px var(--black);
+    background: none;
+    margin: 5px;
+}
+
+.like-active { 
+    color: #F46524;
+  }
+  
+.dislike-active { 
+    color: #0b9adb;
 }
 
 /* .like-count {

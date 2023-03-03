@@ -55,30 +55,3 @@ li {
       transition-duration: 0.001ms !important;
     }
   }
-
-/* Like/Dislike button styling */
-.btnLD-container {
-    display: flex;
-    flex-direction: 'row';
-    align-items: center;
-    background-color: #fff;
-    padding: 30px 50px;
-  }
-  
-.btnLD {
-    border: none;
-    color:#bdc0c5;
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    padding: 6px 15px;
-    margin: 0 10px;
-  }
-
-.like-active { 
-    color: #F46524;
-  }
-  
-.dislike-active { 
-    color: #0b9adb;
-}
