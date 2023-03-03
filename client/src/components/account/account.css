@@ -21,28 +21,64 @@
 }
 
 .thumbnail {
-    /* border: 2px solid black; */
+    position: relative;
     margin: 1rem;
+    max-width: 30rem;
     display: flex;
     flex-direction: row;
     background-color: var(--orange);
     color: var(--white);
     border-radius: 15px;
-    box-shadow: 2px 2px 10px black;
+    box-shadow: 5px 5px 20px black;
 }
 
 .thumbnail>p {
-    width: 15rem;
-    height: 10rem;
+    max-width: 15rem;
+    min-height: 10rem;
     font-size: large;
     text-align: center;
     justify-content: center;
     margin: 1rem;
     font-weight: bold;
+    overflow: visible;
 }
 
+ .thumbnail>button {
+    position: absolute;
+    background: var(--bright);
+    padding: 1em;
+    border-radius: 25px;
+    box-shadow: 2px 3px 5px black;
+    top: 8rem;
+    z-index: 1000;
+    left: 5rem;
+    height: 3rem;
+    width: 3rem;
+ }
+
 .thumbnail>img {
-    height: 15rem;
-    width: 15rem;
+    min-height: 15rem;
+    max-width: 15rem;
     border-radius: 0  15px 15px 0;   
+}
+
+.edit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    rotate: 180deg;
+    scale: 0%;
+    font-weight: bolder;
+    transition: 500ms;
+    color: var(--bright);
+    text-shadow: 5px 5px 10px black;
+}
+
+.thumb-button:hover .edit {
+    rotate: 45deg;
+    top: -.5em;
+    left: 1.5em;
+    font-size: x-large;
+    scale: 100%;
+    letter-spacing: .1em;
 }
