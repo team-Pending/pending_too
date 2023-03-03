@@ -1,7 +1,7 @@
 import React from "react"; //6.9k (gzipped: 2.7k)
 import { Container, Row } from "reactstrap";
 
-import useAuth from ""
+import useAuth from "../custom-hooks/useAuth"
 import { NavLink } from "react-router-dom";
 
 const admin__nav = [
@@ -23,7 +23,7 @@ const admin__nav = [
     },
 ]
 const AdminNav = () => {
-    const { currentUser } = useAuth();
+    // const { currentUser } = useAuth();
 
     return (
         <>
@@ -40,7 +40,7 @@ const AdminNav = () => {
                             </div>
                             <div className="admin__nav-top-right">
                                 <span><i class="ri-settings-2-line"></i></span>
-                                <img src={ currentUser && currentUser.photoURL} alt="" />
+                                {/* <img src={ currentUser && currentUser.photoURL} alt="" /> */}
                             </div>
                         </div>
                     </Container>

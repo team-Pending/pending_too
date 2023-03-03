@@ -1,4 +1,7 @@
 import React from "react";
+import AdminNav from "./AdminNav";
+import Routers from "../routers/Routers";
+
 import { Container, Row, Col } from "reactstrap";
 
 import useGetData from "../custom-hooks/useGetData";
@@ -12,6 +15,8 @@ const Dashboard = () => {
         <>
             <section>
                 <Container>
+                    <AdminNav />
+                    <Routers />
                     <Row>
                         <Col className="lg-3">
                             <div className="revenue__box">

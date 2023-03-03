@@ -2,7 +2,7 @@ import React from "react"; //6.9k (gzipped: 2.75)
 import { Container, Row, Col } from "reactstrap";
 
 //  import database here from here we decide to hide it.
-// import { db } from "";
+import { idbPromise } from "../utils/helpers";
 
 // import where we are holding docs to delete from here
 // import { doc, deleteDoc } from "";
@@ -14,7 +14,7 @@ const AllProducts = () => {
     const { data: productsData, loading } = useGetData("products");
 
     const deleteProduct = async id => {
-        await deletDoc(doc(db, "products", id))
+        await deletDoc(doc(idbPromise, "products", id))
         toast.success("Deleted!");
     }
 

@@ -32,3 +32,7 @@ module.exports = {
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
+
+
+// Trial for auth requirement for Admin page, inserted by Laura
+

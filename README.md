@@ -123,6 +123,8 @@ If you followed tutorials, include links to those here as well.
 
 * [Hooks](https://reactjs.org/docs/hooks-effect.html)
 * [Toastify](https://www.npmjs.com/package/react-toastify)
+* [jwt-decode help](https://www.npmjs.com/package/jwt-decode)
+
 
 
 ## License
