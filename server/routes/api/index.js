@@ -10,4 +10,3 @@ router.use('/review', reviewRoutes);
 router.use('/product', productRoutes);
 
 module.exports = router;
-
