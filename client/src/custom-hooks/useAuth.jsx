@@ -25,10 +25,16 @@
 // export default useAuth;
 
 // Trial for a hook to grab auth data needed for Admin page inserted by Laura
-import { useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import jwt_decode from 'jwt-decode';
 
-function useAuth() {
+const AuthContext = createContext();
+
+export function useAuth() {
+  return useContext(AuthContext);
+}
+
+export function AuthProvider({ children }) {
   const [authData, setAuthData] = useState(null);
 
   useEffect(() => {
@@ -47,7 +53,18 @@ function useAuth() {
     }
   }, []);
 
-  return authData;
+  const hasAccess = (permission) => {
+    if (authData && authData.permissions) {
+      return authData.permissions.includes(permission);
+    }
+    return false;
+  }
+
+  return (
+    <AuthContext.Provider value={{ authData, hasAccess }}>
+      {children}
+    </AuthContext.Provider>
+  )
 }
 
-export default useAuth;
+export default { AuthProvider, useAuth };

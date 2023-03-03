@@ -1,7 +1,7 @@
 import React from "react"; //6.9k (gzipped: 2.7k)
 import { Container, Row } from "reactstrap";
 
-import useAuth from "../custom-hooks/useAuth"
+import { useAuth } from "../custom-hooks/useAuth"
 import { NavLink } from "react-router-dom";
 
 const admin__nav = [
@@ -22,8 +22,15 @@ const admin__nav = [
         path: '/dashboard/users'
     },
 ]
-const AdminNav = () => {
+function AdminNav () {
+    const { hasAccess } = useAuth();
     // const { currentUser } = useAuth();
+
+    if (!hasAccess('admin')) {
+        return <div>
+            You do not have permission to access this page.
+        </div>;
+    }
 
     return (
         <>
@@ -32,7 +39,7 @@ const AdminNav = () => {
                     <Container>
                         <div className="admin__nav-wrapper-top">
                             <div className="logo">
-                                Pending Too
+                                Admin Page
                             </div>
                             <div className="search__box">
                                 <input type="text" placeholder="Search...." />
