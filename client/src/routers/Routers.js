@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import Cart from "../components/Cart/index";
 
 // Need to import Home, Shop, ProductDetails, Cart, Checkout
 // import Home from "";
 // import Shop from "";
-// import Cart from "";
 // import ProductDetails from "";
 // import Checkout from "";
 // import Login from "";
@@ -18,7 +18,7 @@ import Users from "../admin/Users";
 const Routers = () => {
     return (
         <Routes>
-            <Route path="/" elemernt={<Navigate to="home" />} />
+            <Route path="/" element={<Navigate to="home" />} />
             <Route path="home" element={<Home />} />
             <Route path="shop" element={<Shop />} />
             <Route path="shop/:id" element={<ProductDetails />} />
