@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons"
 import content from '../placeholderData/data.json'
 import './ShopCard.css';
+import LikeDislike from '../LikeDislike/LikeDislike';
 
 function ShopCard() {
     return(
@@ -20,12 +21,7 @@ function ShopCard() {
         <li>Add to cart</li>
       </ul>
       <ul className='like'>
-        <li>
-            <a href="" className='thumb'><FontAwesomeIcon icon={faThumbsUp}/></a>
-        </li>
-        <li>
-            <a href="" className="thumb"><FontAwesomeIcon icon={faThumbsDown}/></a>
-        </li>
+        <LikeDislike/>
       </ul>
       <div className="like-count" ><p>TEST</p></div>
     </section>
