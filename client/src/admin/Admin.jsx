@@ -6,7 +6,7 @@ import { Container, Row, Col } from "reactstrap";
 
 import useGetData from "../custom-hooks/useGetData";
 
-const Dashboard = () => {
+const Admin = () => {
 
     const { data: products } = useGetData("products")
     const { data: users } = useGetData("users")
@@ -49,4 +49,4 @@ const Dashboard = () => {
     )
 };
 
-export default Dashboard;
+export default Admin;
