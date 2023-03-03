@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import useGetData from "../custom-hooks/useGetData";
+// import useGetData from "../custom-hooks/useGetData";
 
 // Need to pull info from where stored so can be deleted
 // import { deleteDoc, doc } from "";
@@ -8,10 +8,10 @@ import useGetData from "../custom-hooks/useGetData";
 import {toast} from "react-toastify";
 
 const Users = () => {
-    const {data: usersData, loading} = useGetData('users')
-
+    // const {data: usersData, loading} = useGetData('users')
+    const usersData=[]
     const deleteUser = async (id)=>{
-        await deleteDoc(doc(db, "users", id))
+        // await deleteDoc(doc(db, "users", id))
         toast.success("User Deleted!")
     }
 
