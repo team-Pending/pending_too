@@ -82,3 +82,36 @@
     scale: 100%;
     letter-spacing: .1em;
 }
+
+/* login form styles */
+
+.login-form {
+    /* outline: 2px solid orange; */
+    margin-top: 7rem;
+    border-radius: 15px;
+    background-color: orange;
+}
+
+.login-form>h2 {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.login-form>form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    /* outline: 2px solid lime; */
+    padding: 2rem;
+}
+.login-form>form>input {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.login-form>form>button {
+    margin-bottom: 5px;
+    border-radius: 5px;
+
+}

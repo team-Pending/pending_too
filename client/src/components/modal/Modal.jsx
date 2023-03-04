@@ -1,4 +1,5 @@
 import React from "react";
+import LoginForm from "../account/LoginForm";
 import "./modal.css";
 
 const Modal = ({ onClose }) => {
@@ -10,9 +11,7 @@ const Modal = ({ onClose }) => {
   return (
     <div className="modal" onClick={handleBackdropClick}>
       <div className="modal-content">
-        <h2>Modal Title</h2>
-        <p>Modal content goes here.</p>
-        <button onClick={onClose}>Close Modal</button>
+        <LoginForm />
       </div>
     </div>
   );

@@ -8,7 +8,6 @@ import LikeDislike from '../LikeDislike/LikeDislike';
 function ShopCard() {
   return (
 
-<<<<<<< Updated upstream
     content.map(content => {
 
       return (
@@ -29,7 +28,6 @@ function ShopCard() {
       )}))
     }
     
-=======
         content.map(content => {
             
             return (
@@ -49,8 +47,5 @@ function ShopCard() {
     </section>
   )
 })
-)
-}
->>>>>>> Stashed changes
 
 export default ShopCard
