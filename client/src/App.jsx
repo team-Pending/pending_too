@@ -5,18 +5,19 @@ import ShopCard from "./components/ShopCard/ShopCard";
 import About from "./components/About";
 import Account from "./components/account/Account";
 import "./app.css";
+import LoginForm from "./components/account/LoginForm";
 import Admin from "./components/admin/Admin.jsx";
 
 function App() {
 
   return (
       <div>
-      <Navbar />
+      <Navbar/>
 
     <div className="container">
       <Routes>
         <Route path="/" element={<ShopCard />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<LoginForm />} />
         <Route path='/account' element={<Account />} />
         <Route path='/admin' element={<Admin />} />
       </Routes>

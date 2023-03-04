@@ -28,5 +28,24 @@ function ShopCard() {
       )}))
     }
     
+        content.map(content => {
+            
+            return (
+                <section key={content.key} className='card' style={{backgroundImage: `url(${content.image})`}}>
+      <h1>{content.username}</h1>
+      <h2>{content.title}</h2>
+      <ul className='info'>
+        <li>{content.price}</li>
+        <li>{content.username}</li>
+        <li>{content.information}</li>
+        <li>Add to cart</li>
+      </ul>
+      <ul className='like'>
+        <LikeDislike/>
+      </ul>
+      <div className="like-count" ><p>TEST</p></div>
+    </section>
+  )
+})
 
 export default ShopCard
