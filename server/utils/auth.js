@@ -35,11 +35,11 @@ module.exports = {
 
 
 // Trial for auth requirement for Admin page, inserted by Laura
-app.post('/login', (req, res) => {
-  // validate user credentials and generate JWT 
-  const user = { id: 1, username: 'admin' };
-  const token = jwt.sign({ sub: user.id, permissions: subAdminPermissions }, secretKey, { expiresIn: '1h' });
+// app.post('/login', (req, res) => {
+//   // validate user credentials and generate JWT 
+//   const user = { id: 1, username: 'admin' };
+//   const token = jwt.sign({ sub: user.id, permissions: subAdminPermissions }, secretKey, { expiresIn: '1h' });
 
-  //Send JWT to client
-  res.json({ token });
-});
+//   //Send JWT to client
+//   res.json({ token });
+// });
