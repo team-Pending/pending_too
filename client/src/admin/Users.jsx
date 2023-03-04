@@ -5,7 +5,7 @@ import { Container, Row, Col } from "reactstrap";
 // Need to pull info from where stored so can be deleted
 // import { deleteDoc, doc } from "";
 // import { db } from "";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 const Users = () => {
     // const {data: usersData, loading} = useGetData('users')

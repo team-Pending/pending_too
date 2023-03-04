@@ -1,6 +1,7 @@
 import React, { useState } from "react"; //6.9k (gzipped: 2.7k)
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { toast } from "react-toastify";
+import "../admin/admin.css";
 
 const AddProducts = () => {
 

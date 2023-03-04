@@ -3,6 +3,7 @@ import { Container, Row } from "reactstrap";
 
 import { useAuth } from "../custom-hooks/useAuth"
 import { NavLink } from "react-router-dom";
+import "../admin/admin.css";
 
 const admin__nav = [
     {
@@ -54,7 +55,7 @@ function AdminNav () {
                 </div>
             </header>
 
-            <section className="admin__menu">
+            <section className="admin__menu p-0">
                 <Container>
                     <Row>
                         <div className="admin__navigation">
