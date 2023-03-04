@@ -2,7 +2,12 @@ import React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { Twirl as Hamburger } from 'hamburger-react';
 import Search from '../Search';
+<<<<<<< Updated upstream
 // import { useAuth } from "../../custom-hooks/useAuth";
+=======
+import ModalButton from '../modal/ModalButton';
+
+>>>>>>> Stashed changes
 
 import './nav.css'
 
@@ -66,7 +71,17 @@ function Navbar() {
                     <Hamburger size={30} />
                 </li>
                 <li>
+                    <ModalButton />
+                </li>
+                <li>
+<<<<<<< Updated upstream
                     <Search />
+=======
+                    <ModalButton />
+                </li>
+                <li>
+                <Search/>
+>>>>>>> Stashed changes
                     {/* <section className='main-search'>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                         <input
