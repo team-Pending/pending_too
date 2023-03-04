@@ -16,6 +16,7 @@ import ShopCard from "./components/ShopCard/ShopCard";
 import About from "./components/About";
 import Account from "./components/account/Account";
 import "./app.css";
+import LoginForm from "./components/account/LoginForm";
 import Admin from "./components/admin/Admin.jsx";
 
 // Laura adding regarding pulling auth path
@@ -46,23 +47,21 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      {/* <Router> */}
-        <>
-          <div>
-            <Navbar />
+      <>
+        <div>
+          <Navbar />
 
-            <div className="container">
-              <Routes>
-                <Route path="/" element={<ShopCard />} />
-                <Route path="/about" element={<About />} />
-                <Route path='/account' element={<Account />} />
-                <Route path='/admin' element={<Admin />} />
-              </Routes>
-            </div>
-
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<ShopCard />} />
+              <Route path="/about" element={<LoginForm />} />
+              <Route path='/account' element={<Account />} />
+              <Route path='/admin' element={<Admin />} />
+            </Routes>
           </div>
-        </>
-      {/* </Router> */}
+
+        </div>
+      </>
     </ApolloProvider>
   );
 }

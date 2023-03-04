@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Twirl as Hamburger } from 'hamburger-react';
 import Search from '../Search';
 // import { useAuth } from "../../custom-hooks/useAuth";
+import ModalButton from '../modal/ModalButton';
+
 
 import './nav.css'
 
@@ -64,6 +66,9 @@ function Navbar() {
                 <li>
                     {/* https://hamburger-react.netlify.app/ */}
                     <Hamburger size={30} />
+                </li>
+                <li>
+                    <ModalButton />
                 </li>
                 <li>
                     <Search />
