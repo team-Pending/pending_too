@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Twirl as Hamburger } from 'hamburger-react';
 import Search from '../Search';
-import { useAuth } from "../../custom-hooks/useAuth/";
+import { useAuth } from "../../custom-hooks/useAuth";
 
 import './nav.css'
 
@@ -10,8 +10,8 @@ function Navbar() {
     // Laura added for auth requirement
     const { authData, logout } = useAuth();
 
-    return (
-
+    return ( 
+        
         // Laura Adding Auth requirement to nav bar. 
         <nav>
             <ul>
