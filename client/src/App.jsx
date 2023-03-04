@@ -5,14 +5,11 @@ import ShopCard from "./components/ShopCard/ShopCard";
 import About from "./components/About";
 import Account from "./components/account/Account";
 import "./app.css";
-import Admin from "./admin/Admin";
-import AdminNav from "./admin/AdminNav";
-import { AuthProvider } from "./custom-hooks/useAuth"
+import Admin from "./components/admin/Admin.jsx";
 
 function App() {
 
   return (
-    <AuthProvider>
       <div>
       <Navbar />
 
@@ -22,12 +19,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path='/account' element={<Account />} />
         <Route path='/admin' element={<Admin />} />
-        {/* <Route path='/adminNav' element={<AdminNav />} /> */}
       </Routes>
       </div>
 
     </div>
-    </AuthProvider>
   )
 }
 
