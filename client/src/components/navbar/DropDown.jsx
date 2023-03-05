@@ -1,23 +1,24 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import ModalButton from '../modal/ModalButton'
+// import { useState, useEffect } from 'react'
+// import ModalButton from '../modal/ModalButton'
+import './dropdown.css'
 
-const DropDown = () => {
-    const [slide, setSlide] = useState(true);
+function DropDown() {
+  function DropdownItem(props){
+    <a href="#" className="menu-item">
+      {props.children}
+    </a>
 
-    useEffect(() => {
-        setSlide(true);
-    }, []);
+  }
+    // const [slide, setSlide] = useState(true);
+
+    // useEffect(() => {
+    //     setSlide(true);
+    // }, []);
 
   return (
-    <div className={slide ? "slide-in dropdown" : 'dropdown'} >
-      <ModalButton />
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-
+    <div className='dropdown'>
+      <DropdownItem></DropdownItem>
     </div>
   )
 }
