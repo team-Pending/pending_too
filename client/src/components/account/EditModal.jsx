@@ -1,8 +1,8 @@
 import React from "react";
-import LoginForm from "../account/LoginForm";
-import "./modal.css";
+import Edit from "./Edit";
+import "./account.css";
 
-const LoginModal = ({ onClose }) => {
+const EditModal = ({ onClose }) => {
     const handleBackdropClick = (event) => {
         if (event.target === event.currentTarget) {
           onClose();
@@ -10,11 +10,9 @@ const LoginModal = ({ onClose }) => {
       };
   return (
     <div className="modal" onClick={handleBackdropClick}>
-      <div className="modal-content">
-        <LoginForm />
-      </div>
+        <Edit />
     </div>
   );
 };
 
-export default LoginModal;
+export default EditModal;
