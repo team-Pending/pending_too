@@ -5,8 +5,8 @@ import ShopCard from "./components/ShopCard/ShopCard";
 import About from "./components/About";
 import Account from "./components/account/Account";
 import "./app.css";
-import LoginForm from "./components/account/LoginForm";
 import Admin from "./components/admin/Admin.jsx";
+import Edit from "./components/account/Edit";
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
     <div className="container">
       <Routes>
         <Route path="/" element={<ShopCard />} />
-        <Route path="/about" element={<LoginForm />} />
+        <Route path="/about" element={<Edit />} />
         <Route path='/account' element={<Account />} />
         <Route path='/admin' element={<Admin />} />
       </Routes>

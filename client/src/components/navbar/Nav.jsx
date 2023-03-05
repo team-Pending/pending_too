@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { Twirl as Hamburger } from 'hamburger-react';
 import Search from '../Search';
@@ -7,8 +8,10 @@ import ModalButton from '../modal/ModalButton';
 
 
 import './nav.css'
+import DropDown from './DropDown';
 
 function Navbar() {
+    const [isOpen, setOpen]=useState(false)
     // Laura added for auth requirement
     // const { authData, logout } = useAuth();
 
@@ -65,10 +68,7 @@ function Navbar() {
             <ul className='hamburger'>
                 <li>
                     {/* https://hamburger-react.netlify.app/ */}
-                    <Hamburger size={30} />
-                </li>
-                <li>
-                    <ModalButton />
+                    <Hamburger size={30} toggled={isOpen} toggle={setOpen} />
                 </li>
                 <li>
                     <Search />
@@ -82,6 +82,7 @@ function Navbar() {
                     </section> */}
                 </li>
             </ul>
+            {isOpen && <DropDown />}
         </nav>
     );
 }
