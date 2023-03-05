@@ -8,6 +8,7 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const BUILD_PATH = path.resolve('../client');
 const server = new ApolloServer({
 	typeDefs,
 	resolvers,
@@ -26,6 +27,11 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+// wildcard path catch
+app.get("*", (req, res) => {
+	res.sendFile(path.resolve(BUILD_PATH, "index.html"));
 });
 
 // Create a new instance of an Apollo server with the GraphQL schema
