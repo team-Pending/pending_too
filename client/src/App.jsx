@@ -4,16 +4,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { createHttpLink } from "@apollo/client/link/http";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { AuthProvider } from './utils/auth';
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-import Navbar from "./components/navbar/Nav";
-import ShopCard from "./components/ShopCard/ShopCard";
-import About from "./components/About";
-import Account from "./components/account/Account";
-import "./app.css";
-import Admin from "./components/admin/Admin.jsx";
-import Edit from "./components/account/Edit";
-import LoginForm from "./components/account/LoginForm";
+import Navbar from './components/navbar/Nav';
+import ShopCard from './components/ShopCard/ShopCard';
+import About from './components/About';
+import Account from './components/account/Account';
+import './app.css';
+import Admin from './components/admin/Admin.jsx';
+import Edit from './components/account/Edit';
+import LoginForm from './components/account/LoginForm';
+import NotFound from './components/NotFound.jsx';
 
 // Laura adding regarding pulling auth path
 // Construct our main GraphQL API endpoint
@@ -42,23 +44,25 @@ const client = new ApolloClient({
 
 function App() {
 	return (
-		<ApolloProvider client={client}>
-			<>
-				<div>
-					<Navbar />
+		<AuthProvider>
+			<ApolloProvider client={client}>
+				<>
+					<div>
+						<Navbar />
 
-					<div className="container">
-						<Routes>
-							<Route path="/" element={<ShopCard />} />
-							<Route path="/about" element={<LoginForm />} />
-							<Route path="/account" element={<Account />} />
-							<Route path="/admin" element={<Admin />} />
-							<Route path="/*" element={<NotFound />} />
-						</Routes>
+						<div className="container">
+							<Routes>
+								<Route path="/" element={<ShopCard />} />
+								<Route path="/about" element={<LoginForm />} />
+								<Route path="/account" element={<Account />} />
+								<Route path="/admin" element={<Admin />} />
+								<Route path="/*" element={<NotFound />} />
+							</Routes>
+						</div>
 					</div>
-				</div>
-			</>
-		</ApolloProvider>
+				</>
+			</ApolloProvider>
+		</AuthProvider>
 	);
 }
 
