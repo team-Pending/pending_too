@@ -21,7 +21,7 @@ const resolvers = {
 		},
 
 		// Laura added to pull product info as well as user
-		product: async (parent, args, context) => {
+		products: async (parent, args, context) => {
 			if (context.product) {
 				const product = await Product.findById(context.product._id).populate({
 					path: 'orders.product',
