@@ -32,6 +32,11 @@ li {
     flex-direction: column;
 }
 
+button:active {
+    scale: 93%;
+    box-shadow: 1px 1px 1px black;
+}
+
 @font-face {
     font-family: 'urbanist';
     src: url(./assets/fonts/Urbanist-VariableFont_wght.ttf);
