@@ -9,6 +9,7 @@ import ModalButton from '../modal/ModalButton';
 
 import './nav.css'
 import DropDown from './DropDown';
+import Mediaphile from '../Mediaphile';
 
 function Navbar() {
     const [isOpen, setOpen]=useState(false)
@@ -45,8 +46,7 @@ function Navbar() {
         // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
         <nav className='navbar'>
-            <h1>Media<span className='phile'>phile</span></h1>
-            <ul>
+<Mediaphile />            <ul>
                 <li>
                     <Link to="/">
                         Home

@@ -7,6 +7,7 @@ import Account from "./components/account/Account";
 import "./app.css";
 import Admin from "./components/admin/Admin.jsx";
 import Edit from "./components/account/Edit";
+import LoginForm from "./components/account/LoginForm";
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
     <div className="container">
       <Routes>
         <Route path="/" element={<ShopCard />} />
-        <Route path="/about" element={<Edit />} />
+        <Route path="/about" element={<LoginForm />} />
         <Route path='/account' element={<Account />} />
         <Route path='/admin' element={<Admin />} />
       </Routes>

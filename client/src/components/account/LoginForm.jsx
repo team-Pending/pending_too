@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Mediaphile from "../Mediaphile";
 
 const LoginForm = () => {
   const [signUp, setSignUp] = useState(false);
@@ -41,6 +42,9 @@ const LoginForm = () => {
           <button type="submit">Signup</button>
           <button onClick={handleSwitchToLogin}>Back to Login</button>
         </form>
+        <div className="title-container">
+          <Mediaphile />
+        </div>
       </div>
     );
   }
@@ -63,6 +67,9 @@ const LoginForm = () => {
         <button type="submit">Login</button>
         <button onClick={handleSwitchToSignUp}>Sign up Instead</button>
       </form>
+      <div className="title-container">
+        <Mediaphile />
+      </div>
     </div>
   );
 };

@@ -44,6 +44,15 @@
     color: aliceblue;
     padding-right: 2rem;
 }
+.add-to-cart {
+    cursor: pointer;
+}
+.add-to-cart:hover {
+    color: var(--orange);
+}
+.add-to-cart:active {
+    color: var(--bright);
+}
 
 .like {
     position: relative;
@@ -73,10 +82,12 @@
     color: #0b9adb;
 }
 
-/* .like-count {
+
+
+.like-count { 
     position: relative;
     z-index: 10;
-    top: 15%;
+    top: 18%;
     left: -40%;
     border: 2px solid black;
     border-radius: 5px;
@@ -84,9 +95,8 @@
     color: var(--white);
     background-color: var(--orange);
     padding: 0 10px;
+}
+.like-count:hover {
+    scale: 125%;
     box-shadow: 2px 2px 20px var(--bright);
 }
-
-.thumb:hover {
-
-} */
