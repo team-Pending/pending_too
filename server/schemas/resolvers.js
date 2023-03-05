@@ -1,4 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
+const { Product } = require('../models');
 const User = require('../models/User');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
@@ -14,6 +15,22 @@ const resolvers = {
 				user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
 				return user;
+			}
+
+			throw new AuthenticationError('Not logged in');
+		},
+
+		// Laura added to pull product info as well as user
+		products: async (parent, args, context) => {
+			if (context.product) {
+				const product = await Product.findById(context.product._id).populate({
+					path: 'orders.product',
+					populate: 'category',
+				});
+
+				product.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+
+				return product;
 			}
 
 			throw new AuthenticationError('Not logged in');

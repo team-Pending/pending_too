@@ -1,28 +1,39 @@
 const { gql } = require('apollo-server-express');
 
+// laura added for sort feature in admin page
 const typeDefs = gql`
+	type User {
+		_id: ID
+		firstName: String
+		lastName: String
+		email: String
+		isAmin: Boolean
+	}
 
-  type User {
-    _id: ID
-    firstName: String
-    lastName: String
-    email: String
-  }
+	type Auth {
+		token: ID
+		user: User
+	}
 
-  type Auth {
-    token: ID
-    user: User
-  }
+	type Products {
+		id: ID
+		title: String
+		category: String
+		price: Float
+		thumbsUp: Int
+		thumbsDown: Int
+	}
 
-  type Query {
-    user: User
-  }
+	type Query {
+		user: [User!]!
+		products: [Products!]!
+	}
 
-  # type Mutation {
-  #   addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-  #   updateUser(firstName: String, lastName: String, email: String, password: String): User
-  #   login(email: String!, password: String!): Auth
-  # }
+	# type Mutation {
+	#   addUser(firstName: String!, lastName: String!, email: String!, password: String! isAdmin: Boolean!): Auth
+	#   updateUser(firstName: String, lastName: String, email: String, password: String, isAdmin: Boolean): User
+	#   login(email: String!, password: String!): Auth
+	# }
 `;
 
 module.exports = typeDefs;
