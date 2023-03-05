@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "server.js",
+  "proxy": "http://localhost:3001/",
   "scripts": {
     "seed": "node config/seeds.js",
     "start": "node server.js",
@@ -12,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.7.9",
     "apollo-server-express": "^3.6.1",
     "aws-sdk": "^2.1327.0",
     "bcrypt": "^4.0.1",
