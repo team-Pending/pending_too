@@ -1,117 +1,291 @@
 .account {
-    padding: 5rem;
-    margin: 5rem;
+  padding: 5rem;
+  margin: 5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.account>form {
-    margin: 5rem;
-    border: 2px solid black;
+
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 45rem;
+  background: rgb(244, 101, 36);
+  background: radial-gradient(
+    circle at top center,
+    rgba(244, 101, 36, 1) 0%,
+    rgb(253, 81, 29) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  color: var(--white);
+  border-radius: 15px;
+  box-shadow: 5px 5px 20px black;
+}
+
+.store-button {
+  border-radius: 15px;
+  font-size: large;
+  font-weight: bold;
+  box-shadow: 1px 1px 5px black;
+  background: rgb(9, 117, 121);
+  background: linear-gradient(
+    90deg,
+    rgba(9, 117, 121, 1) 0%,
+    rgba(0, 212, 255, 1) 49%,
+    rgba(9, 117, 121, 1) 100%
+  );
+}
+
+.info-container>* {
+  padding: .5rem;
+}
+
+.account > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem 0;
+  min-height: 25rem;
+  background: rgb(244, 101, 36);
+  background: radial-gradient(
+    circle at top center,
+    rgba(244, 101, 36, 1) 0%,
+    rgb(253, 81, 29) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  color: var(--white);
+  border-radius: 15px;
+  box-shadow: 5px 5px 20px black;
+
 }
 
 .upload {
-    border: 2px solid black;
-    padding: 1rem;
-    border-radius: 15px;
-    margin: 1rem;
+  border: 2px solid black;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 15px;
+  margin: 1rem;
+  min-height: 15rem;
 }
 
 .submit {
-    margin-right: 1rem;
-    padding: .25rem;
+  padding: 0.25rem;
+  width: 5rem;
+  margin-top: 2rem;
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px black;
+  background: rgb(9, 117, 121);
+  background: linear-gradient(
+    90deg,
+    rgba(9, 117, 121, 1) 0%,
+    rgba(0, 212, 255, 1) 49%,
+    rgba(9, 117, 121, 1) 100%
+  );
+
+
 }
 
 .thumbnail {
-    position: relative;
-    margin: 1rem;
-    max-width: 30rem;
-    display: flex;
-    flex-direction: row;
-    background-color: var(--orange);
-    color: var(--white);
-    border-radius: 15px;
-    box-shadow: 5px 5px 20px black;
+  position: relative;
+  margin: 1rem;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: row;
+  background: rgb(244, 101, 36);
+  background: radial-gradient(
+    circle at top center,
+    rgba(244, 101, 36, 1) 0%,
+    rgb(253, 81, 29) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+
+  color: var(--white);
+  border-radius: 15px;
+  box-shadow: 5px 5px 20px black;
 }
 
-.thumbnail>p {
-    max-width: 15rem;
-    min-height: 10rem;
-    font-size: large;
-    text-align: center;
-    justify-content: center;
-    margin: 1rem;
-    font-weight: bold;
-    overflow: visible;
+.thumbnail > p {
+  max-width: 15rem;
+  min-height: 10rem;
+  font-size: large;
+  text-align: center;
+  justify-content: center;
+  margin: 1rem;
+  font-weight: bold;
+  overflow: visible;
 }
 
- .thumbnail>button {
-    position: absolute;
-    background: var(--bright);
-    padding: 1em;
-    border-radius: 25px;
-    box-shadow: 2px 3px 5px black;
-    top: 8rem;
-    z-index: 1000;
-    left: 5rem;
-    height: 3rem;
-    width: 3rem;
- }
+.thumbnail > button {
+  position: absolute;
+  background: var(--bright);
+  padding: 1em;
+  border-radius: 25px;
+  box-shadow: 2px 3px 5px black;
+  top: 8rem;
+  z-index: 1000;
+  left: 5rem;
+  height: 3rem;
+  width: 3rem;
+}
 
-.thumbnail>img {
-    min-height: 15rem;
-    max-width: 15rem;
-    border-radius: 0  15px 15px 0;   
+.thumbnail > img {
+  min-height: 15rem;
+  max-width: 15rem;
+  border-radius: 0 15px 15px 0;
 }
 
 .edit {
-    position: absolute;
-    top: 0;
-    left: 0;
-    rotate: 180deg;
-    scale: 0%;
-    font-weight: bolder;
-    transition: 500ms;
-    color: var(--bright);
-    text-shadow: 5px 5px 10px black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  rotate: 180deg;
+  scale: 0%;
+  font-weight: bolder;
+  transition: 500ms;
+  color: var(--bright);
+  text-shadow: 5px 5px 10px black;
 }
 
 .thumb-button:hover .edit {
-    rotate: 45deg;
-    top: -.5em;
-    left: 1.5em;
-    font-size: x-large;
-    scale: 100%;
-    letter-spacing: .1em;
+  rotate: 45deg;
+  top: -0.5em;
+  left: 1.5em;
+  font-size: x-large;
+  scale: 100%;
+  letter-spacing: 0.1em;
+}
+
+/* modal for editing content */
+
+.edit-modal {
+    margin: 5rem 0;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px black;
+    width: 50rem;
+    height: 30rem;
+    background: rgb(244, 101, 36);
+    background: radial-gradient(
+      circle at bottom center,
+      rgba(244, 101, 36, 1) 0%,
+      rgb(253, 81, 29) 50%,
+      rgba(252, 176, 69, 1) 100%
+    );  
+}
+
+.edit-modal>form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-modal>h2 {
+    padding-bottom: 1rem;
+    letter-spacing: .2rem;
+    text-shadow: 1px 1px 5px black;
+}
+
+.edit-modal>form>input {
+    margin-bottom: 1rem;
+    height: 2rem;
+    font-size: larger;
+    border-radius: 10px;
+}
+.edit-modal>form>input::placeholder {
+  padding-left: 1rem;
+}
+.edit-modal>form>textarea {
+  margin-bottom: 3rem;
+  height: 10rem;
+  font-size: larger;
+  border-radius: 10px;
+}
+
+.edit-modal>form>textarea::placeholder {
+  padding-left: 1rem ;
+}
+
+.editButton {
+  height: 2rem;
+  font-size: larger;
+    box-shadow: 1px 1px 5px black;
+    background: rgb(9, 117, 121);
+    background: linear-gradient(
+      90deg,
+      rgba(9, 117, 121, 1) 0%,
+      rgba(0, 212, 255, 1) 49%,
+      rgba(9, 117, 121, 1) 100%
+    );
+  
+
 }
 
 /* login form styles */
 
 .login-form {
-    /* outline: 2px solid orange; */
-    margin-top: 7rem;
-    border-radius: 15px;
-    background-color: orange;
+  border-radius: 15px;
+  color: var(--white);
+  width: 30rem;
+  height: 40rem;
+  box-shadow: 5px 5px 10px black;
+  background: rgb(244, 101, 36);
+  background: radial-gradient(
+    circle at bottom center,
+    rgba(244, 101, 36, 1) 0%,
+    rgb(253, 81, 29) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
 }
 
-.login-form>h2 {
-    text-align: center;
-    padding-top: 1rem;
+.login-form > h2 {
+  text-align: center;
+  padding-top: 2rem;
+  text-shadow: 2px 2px 10px black;
+  font-size: xx-large;
+    letter-spacing: .2rem;
 }
 
-.login-form>form {
-    display: flex;
-    flex-direction: column;
-    margin: 2rem;
-    /* outline: 2px solid lime; */
-    padding: 2rem;
+.login-form > form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem 2rem;
+  /* outline: 2px solid lime; */
+  padding: 2rem;
 }
-.login-form>form>input {
-    padding: 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
+.login-form > form > input {
+  padding: 5px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  height: 2.5rem;
+  box-shadow: 1px 1px 5px black;
+}
+.login-form > form > input::placeholder {
+  font-size: x-large;
 }
 
-.login-form>form>button {
-    margin-bottom: 5px;
-    border-radius: 5px;
+.login-form > form > button {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  height: 2.5rem;
+  font-size: x-large;
+  box-shadow: 1px 1px 5px black;
+  background: rgb(9, 117, 121);
+  background: linear-gradient(
+    90deg,
+    rgba(9, 117, 121, 1) 0%,
+    rgba(0, 212, 255, 1) 49%,
+    rgba(9, 117, 121, 1) 100%
+  );
+}
 
+
+.title-container {
+  text-align: center;
+  position: absolute;  
+  top: 66%;
+  left: 47%;
+  text-shadow: 2px 2px 10px black;
 }

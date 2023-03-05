@@ -1,0 +1,33 @@
+.slide-in {
+    transform: translateY(-100%);
+    animation: slide-in 0.5s forwards;
+    z-index: 10;
+  }
+  
+  @keyframes slide-in {
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 58px;
+    width: 300px;
+    transform: translateX(-45%);
+    background-color: var(--black);
+    border: var(--black);
+    border-radius: 5px;
+    padding: 1rem;
+    overflow: hidden;
+  } 
+  
+  .menu-item {
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background-color: var(--bright);
+
+  }
+  

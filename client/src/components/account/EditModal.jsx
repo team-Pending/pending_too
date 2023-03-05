@@ -1,7 +1,8 @@
 import React from "react";
-import "./modal.css";
+import Edit from "./Edit";
+import "./account.css";
 
-const Modal = ({ onClose }) => {
+const EditModal = ({ onClose }) => {
     const handleBackdropClick = (event) => {
         if (event.target === event.currentTarget) {
           onClose();
@@ -9,11 +10,9 @@ const Modal = ({ onClose }) => {
       };
   return (
     <div className="modal" onClick={handleBackdropClick}>
-      <div className="modal-content">
-        <LoginForm />
-      </div>
+        <Edit />
     </div>
   );
 };
 
-export default Modal;
+export default EditModal;

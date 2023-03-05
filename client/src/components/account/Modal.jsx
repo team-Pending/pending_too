@@ -1,7 +1,8 @@
 import React from "react";
+import LoginForm from "../account/LoginForm";
 import "./modal.css";
 
-const Modal = ({ onClose }) => {
+const LoginModal = ({ onClose }) => {
     const handleBackdropClick = (event) => {
         if (event.target === event.currentTarget) {
           onClose();
@@ -16,4 +17,4 @@ const Modal = ({ onClose }) => {
   );
 };
 
-export default Modal;
+export default LoginModal;

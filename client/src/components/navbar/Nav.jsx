@@ -1,78 +1,69 @@
-import React from 'react';
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Twirl as Hamburger } from 'hamburger-react';
-import Search from '../Search';
+import HamburgerMenu from "./HamburgerMenu";
+import Search from "../Search";
 // import { useAuth } from "../../custom-hooks/useAuth";
-import ModalButton from '../modal/ModalButton';
 
-
-import './nav.css'
+import "./nav.css";
+import DropDown from "./DropDown";
+import Mediaphile from "../Mediaphile";
 
 function Navbar() {
-    // Laura added for auth requirement
-    // const { authData, logout } = useAuth();
+  // Laura added for auth requirement
+  // const { authData, logout } = useAuth();
 
-    return ( 
-        
-        // Laura Adding Auth requirement to nav bar. 
-        // <nav>
-        //     <ul>
-        //         {authData ? (
-        //         <>
-        //             <li>
-        //                 Welcome, {authData.username}!
-        //             </li>
-        //             <li>
-        //                 <button onClick={logout}>Log Out</button>
-        //             </li>
-        //         </>
-        //     ) : (
-        //         <>
-        //             <li>
-        //                 <a href="/login">Log In</a>
-        //             </li>
-        //             <li>
-        //                 <a href="/signup">Sign Up</a>
-        //             </li>
-        //         </>
-        //     )}
+  return (
+    // Laura Adding Auth requirement to nav bar.
+    // <nav>
+    //     <ul>
+    //         {authData ? (
+    //         <>
+    //             <li>
+    //                 Welcome, {authData.username}!
+    //             </li>
+    //             <li>
+    //                 <button onClick={logout}>Log Out</button>
+    //             </li>
+    //         </>
+    //     ) : (
+    //         <>
+    //             <li>
+    //                 <a href="/login">Log In</a>
+    //             </li>
+    //             <li>
+    //                 <a href="/signup">Sign Up</a>
+    //             </li>
+    //         </>
+    //     )}
 
-        //     </ul>
-        // </nav>,
-        // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    //     </ul>
+    // </nav>,
+    // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-        <nav className='navbar'>
-            <h1>Media<span className='phile'>phile</span></h1>
-            <ul>
-                <li>
-                    <Link to="/">
-                        Home
-                    </Link>
-                </li>
-                <li>|</li>
-                <li>
-                    <Link to="about">
-                        About
-                    </Link>
-                </li>
-                <li>|</li>
-                <li>
-                    <Link to='account'>
-                        Account
-                    </Link>
-                </li>
-            </ul>
-            <ul className='hamburger'>
-                <li>
-                    {/* https://hamburger-react.netlify.app/ */}
-                    <Hamburger size={30} />
-                </li>
-                <li>
-                    <ModalButton />
-                </li>
-                <li>
-                    <Search />
-                    {/* <section className='main-search'>
+    <nav className="navbar">
+      <Mediaphile />{" "}
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>|</li>
+        <li>
+          <Link to="about">About</Link>
+        </li>
+        <li>|</li>
+        <li>
+          <Link to="account">Account</Link>
+        </li>
+      </ul>
+      <ul className="hamburger">
+        <li>
+          <HamburgerMenu>
+            <DropDown />
+          </HamburgerMenu>
+        </li>
+        <li>
+          <Search />
+          {/* <section className='main-search'>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                         <input
                             type="text"
@@ -80,10 +71,10 @@ function Navbar() {
                             className='main-search'
                         />
                     </section> */}
-                </li>
-            </ul>
-        </nav>
-    );
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
 export default Navbar;
