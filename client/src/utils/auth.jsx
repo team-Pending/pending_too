@@ -22,9 +22,9 @@ const getTokenUser = (token) => {
 	return data;
 };
 
-const useAuth = (props) => {
+export const useAuth = (props) => {
 	const [login] = useMutation(LOGIN_USER);
-	const [errork, setError] = useState();
+	const [error, setError] = useState();
 	const [token, setToken] = useState();
 	const user = token ? getTokenUser(token) : null;
 	const handleLogin = async ({ email, password }) => {
