@@ -24,7 +24,7 @@ const getTokenUser = (token) => {
 
 const useAuth = (props) => {
 	const [login] = useMutation(LOGIN);
-	const [errork, setError] = useState();
+	const [error, setError] = useState();
 	const [token, setToken] = useState();
 	const user = token ? getTokenUser(token) : null;
 	const handleLogin = async ({ email, password }) => {
