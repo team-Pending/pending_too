@@ -7,6 +7,13 @@ import { setContext } from '@apollo/client/link/context';
 import { AuthProvider } from './utils/auth';
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+import Navbar from "./components/navbar/Nav";
+import ShopCard from "./components/ShopCard/ShopCard";
+import Account from "./components/account/Account";
+import "./app.css";
+import Admin from "./components/admin/Admin.jsx";
+import LoginForm from "./components/account/LoginForm";
+import CategoryMenu from "./components/CategoryMenu";
 import Navbar from './components/navbar/Nav';
 import ShopCard from './components/ShopCard/ShopCard';
 import About from './components/About';
