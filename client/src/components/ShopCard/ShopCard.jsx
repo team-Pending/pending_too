@@ -23,10 +23,10 @@ function ShopCard() {
         </ul>
         <ul className="like">
           <LikeDislike />
-        </ul>
         <div className="like-count">
           <p>{content.likes}</p>
         </div>
+        </ul>
       </section>
     );
   });

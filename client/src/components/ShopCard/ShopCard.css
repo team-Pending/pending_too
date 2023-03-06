@@ -1,102 +1,102 @@
 .card {
-    height: 100vh;
-    width: 75vw;
-    display: flex;
-    border: 1px solid black;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 15px;
-    text-shadow: 1px 1px 5px black;
-    box-shadow: 1px 1px 5px black;
-    margin: 1rem;
+  height: 100vh;
+  width: 75vw;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-columns: 3.5fr auto 1fr;
+  border: 1px solid black;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 15px;
+  text-shadow: 1px 1px 5px black;
+  box-shadow: 1px 1px 5px black;
+  margin: 1rem;
 }
 
-.card>h1 {
-    position: relative;
-    top: -25%;
-    left: -40%;
-    font-size: x-large;
-    z-index: 2;
-    color: var(--orange);
+.card > h1 {
+  grid-row: 1;
+  grid-column: 1;
+  font-size: x-large;
+  z-index: 2;
+  color: var(--orange);
 }
 
-.card>h2 {
-    position: relative;
-    width: 15rem;
-    top: -32%;
-    left: 40%;
-    font-size: x-large;
-    z-index: 2;
-    color: var(--orange);
+.card > h2 {
+  grid-row: 1;
+  grid-column: 3;
+  width: 15rem;
+  font-size: x-large;
+  z-index: 2;
+  color: var(--orange);
 }
 
 .info {
-    position: relative;
-    top: 40%;
-    left: 40%;
-    z-index: 2;
-    line-height: 2rem;
-    font-size: larger;
-    color: aliceblue;
-    padding-right: 2rem;
+  grid-row: 3;
+  grid-column: 3;
+  z-index: 2;
+  line-height: 2rem;
+  font-size: larger;
+  color: aliceblue;
+  padding-right: 2rem;
 }
 .add-to-cart {
-    cursor: pointer;
+  cursor: pointer;
 }
 .add-to-cart:hover {
-    color: var(--orange);
+  color: var(--orange);
 }
 .add-to-cart:active {
-    color: var(--bright);
+  color: var(--bright);
 }
 
 .like {
-    position: relative;
-    display: flex;
-    scale: 200%;
-    top: 30%;
-    left: -40%;
-    z-index: 2;
-    line-height: 2rem;
-    font-size: larger;
-    color: aliceblue;
+  grid-row: 3;
+  grid-column: 1;
+  z-index: 2;
+  line-height: 2rem;
+  font-size: larger;
+  color: aliceblue;
 }
 
 .thumb {
-    border: none;
-    color: var(--platinum);
-    text-shadow: 1px 1px 2px var(--black);
-    background: none;
-    margin: 5px;
+  scale: 200%;
+  border: none;
+  padding: 1rem;
+  color: var(--platinum);
+  text-shadow: 1px 1px 2px var(--black);
+  background: none;
+  margin: 5px;
 }
 
-.like-active { 
-    color: #F46524;
-  }
-  
-.dislike-active { 
-    color: #0b9adb;
+.like-active {
+  color: #f46524;
 }
 
+.dislike-active {
+  color: #0b9adb;
+}
 
-
-.like-count { 
-    position: relative;
-    z-index: 10;
-    top: 18%;
-    left: -40%;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 2px;
-    color: var(--white);
-    background-color: var(--orange);
-    padding: 0 10px;
+.like-count {
+  width: fit-content;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 2px;
+  color: var(--white);
+  background-color: var(--orange);
+  padding: 0 10px;
 }
 .like-count:hover {
-    scale: 125%;
-    box-shadow: 2px 2px 20px var(--bright);
+  scale: 125%;
+  box-shadow: 2px 2px 20px var(--bright);
+}
+
+@media (max-width: 40rem) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

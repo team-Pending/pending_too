@@ -13,12 +13,11 @@ import { setContext } from "@apollo/client/link/context";
 
 import Navbar from "./components/navbar/Nav";
 import ShopCard from "./components/ShopCard/ShopCard";
-import About from "./components/About";
 import Account from "./components/account/Account";
 import "./app.css";
 import Admin from "./components/admin/Admin.jsx";
-import Edit from "./components/account/Edit";
 import LoginForm from "./components/account/LoginForm";
+import CategoryMenu from "./components/CategoryMenu";
 
 // Laura adding regarding pulling auth path
 // Construct our main GraphQL API endpoint

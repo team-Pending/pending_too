@@ -1,26 +1,43 @@
-import React from 'react'
-// import { useState, useEffect } from 'react'
-// import ModalButton from '../modal/ModalButton'
-import './dropdown.css'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion"
+import {
+  faMoon,
+  faMusic,
+  faCamera,
+  faPalette,
+  faBook,
+  faCouch,
+} from "@fortawesome/free-solid-svg-icons";
+
+import "./dropdown.css";
 
 function DropDown() {
-  function DropdownItem(props){
-    <a href="#" className="menu-item">
-      {props.children}
-    </a>
-
-  }
-    // const [slide, setSlide] = useState(true);
-
-    // useEffect(() => {
-    //     setSlide(true);
-    // }, []);
-
   return (
-    <div className='dropdown'>
-      <DropdownItem></DropdownItem>
-    </div>
-  )
+    <motion.div 
+    animate={{ y: 10}} 
+    transition={{ type: "spring", bounce: 0.75 }}
+    className="dropdown">
+            <a href="#" className="menu-item">
+        <FontAwesomeIcon icon={faMoon} />
+      </a>
+      <a href="#" className="menu-item">
+        <FontAwesomeIcon icon={faMusic} />
+      </a>
+      <a href="#" className="menu-item">
+        <FontAwesomeIcon icon={faCamera} />
+      </a>
+      <a href="#" className="menu-item">
+        <FontAwesomeIcon icon={faPalette} />
+      </a>
+      <a href="#" className="menu-item">
+        <FontAwesomeIcon icon={faBook} />
+      </a>
+      <a href="#" className="menu-item">
+        <FontAwesomeIcon icon={faCouch} />
+      </a>
+    </motion.div>
+  );
 }
 
-export default DropDown
+export default DropDown;
