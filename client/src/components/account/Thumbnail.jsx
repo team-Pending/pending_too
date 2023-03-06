@@ -28,8 +28,6 @@ function Thumbnail() {
                     initial={false}
                     wait={true}
                     >
-
-
                     {isModalVisible && <EditModal onClose={handleEditModalClose} />}
                     </AnimatePresence>
 

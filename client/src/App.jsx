@@ -16,9 +16,8 @@ import ShopCard from "./components/ShopCard/ShopCard";
 import Account from "./components/account/Account";
 import "./app.css";
 import Admin from "./components/admin/Admin.jsx";
-import LoginForm from "./components/account/LoginForm";
 import CategoryMenu from "./components/CategoryMenu";
-
+import GraphQLFetch from "./components/ApiCall/AxiosGet";
 // Laura adding regarding pulling auth path
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -55,7 +54,7 @@ function App() {
     <div className="container">
       <Routes>
         <Route path="/" element={<ShopCard />} />
-        <Route path="/about" element={<LoginForm />} />
+        <Route path="/about" element={<GraphQLFetch />} />
         <Route path='/account' element={<Account />} />
         <Route path='/admin' element={<Admin />} />
       </Routes>
