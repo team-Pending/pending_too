@@ -11,7 +11,7 @@ const typeDefs = gql`
 	}
 
 	type Auth {
-		token: ID
+		token: ID!
 		user: User
 	}
 
@@ -28,11 +28,15 @@ const typeDefs = gql`
 		user: [User!]!
 		products: [Products!]!
 	}
+
+	type Mutation{
+		login(email: String!, password: String!): Auth
+	}
 `;
+
+module.exports = typeDefs;
 //  type Mutation {
 //    addUser(firstName: String!, lastName: String!, email: String!, password: String! isAdmin: Boolean!): Auth
 //    updateUser(firstName: String, lastName: String, email: String, password: String, isAdmin: Boolean): User
 //   login(email: String!, password: String!): Auth
 //  }
-
-module.exports = typeDefs;

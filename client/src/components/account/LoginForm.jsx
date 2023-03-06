@@ -13,7 +13,7 @@ const LoginForm = () => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
 		console.log(Object.fromEntries(formData));
-		handleLogin({ email });
+		handleLogin({ email, password });
 		setEmail('');
 		setPassword('');
 	};
