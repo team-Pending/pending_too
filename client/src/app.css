@@ -10,6 +10,7 @@
 }
 
 * {
+    /* outline: 2px solid lime; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -30,6 +31,11 @@ li {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+button:active {
+    scale: 93%;
+    box-shadow: 1px 1px 1px black;
 }
 
 @font-face {

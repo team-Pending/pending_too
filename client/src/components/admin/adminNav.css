@@ -1,0 +1,41 @@
+/* AdminNav.jsx 
+.admin__header{
+    width: 100%;
+    padding: 20px 0px;
+    height:auto;
+    background: var(--primary-color);
+}
+.admin__nav-top {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+}
+.admin__nav-wrapper-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 3rem;
+}
+.admin__nave-top-right img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+.admin__nave-top-right {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+}
+.admin__nave-top-right .search__box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.admin__nav-top-right span i {
+    color: whitesmoke;
+}
+.admin__nav-wrapper-top .logo h2 {
+    font-size: 1.2rem;
+    color: whitesmoke;
+    cursor: pointer;
+} */
