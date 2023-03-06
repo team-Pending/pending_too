@@ -13,9 +13,9 @@ const Edit = () => {
       <h2>Edit</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" id="name" placeholder="name" />
-        <input type="text" id="description" placeholder="description" />
         <input type="text" id="category" placeholder="category" />
-        <input className="editButton" type="button" value="delete" />
+        <textarea type="text" id="description" placeholder="description" />
+        <input className="editButton" type="button" value="Delete" />
         <input className="editButton" type="button" id="submit" value="Submit Changes" />
       </form>
     </div>
