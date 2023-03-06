@@ -9,7 +9,7 @@ function Admin(props) {
             <div className="admin__container">
                 <h1>Welcome to Admin Page</h1>
                 <UserList user={props.user} />
-                <ProductList products={props.products} />>
+                <ProductList products={props.products} />
             </div>
         </div>
     );
