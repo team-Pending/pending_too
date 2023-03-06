@@ -1,3 +1,4 @@
+require ('dotenv').config();
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
@@ -6,6 +7,7 @@ const routes = require('./routes');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const { handle404Error, handleErrors } = require('./utils/errorHandlers');
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -49,6 +51,8 @@ const startApolloServer = async (typeDefs, resolvers) => {
 	// Error handler middleware
 	app.use(handleErrors);
 };
+
+
 
 // Call the async function to start the server
 startApolloServer(typeDefs, resolvers);
