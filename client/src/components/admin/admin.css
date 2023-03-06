@@ -1,4 +1,4 @@
-/* Admin.jsx */
+Admin.jsx
 .revenue__box,
 .order__box,
 .product__box,
@@ -43,11 +43,11 @@
     font-size: 2rem;
 }
 
-/* AdminNav.jsx */
+AdminNav.jsx 
 .admin__header{
     width: 100%;
     padding: 20px 0px;
-    /* height:auto; */
+  height:auto;
     background: var(--primary-color);
 }
 .admin__nav-top {
@@ -61,11 +61,11 @@
     justify-content: space-between;
     column-gap: 3rem;
 }
-/* .admin__nave-top-right img{
+.admin__nave-top-right img{ 
     width: 40px;
     height: 40px;
     border-radius: 50px;
-} */
+} 
 .admin__nave-top-right {
     display: flex;
     align-items: center;
@@ -107,4 +107,4 @@
 }
 .active__admin-menu {
     background: whitesmoke;
-}
+} 
