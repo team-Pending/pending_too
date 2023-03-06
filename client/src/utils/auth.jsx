@@ -1,6 +1,6 @@
 // import { createContext, useContext, useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from './mutations';
+import { LOGIN } from './mutations';
 import jwtDecode from 'jwt-decode';
 
 // const AuthContext = createContext();
@@ -17,20 +17,28 @@ import jwtDecode from 'jwt-decode';
 // export { AuthProvider, useAuth };
 
 // use this to decode a token and get the user's information out of it
+const getTokenUser = (token) => {
+	const { data } = jwtDecode(token);
+	return data;
+};
 
-const AuthProvider = (props) => {
-	const { login } = useMutation(LOGIN_USER);
-	const { user, setUser } = useState();
+const useAuth = (props) => {
+	const [login] = useMutation(LOGIN_USER);
+	const [errork, setError] = useState();
+	const [token, setToken] = useState();
+	const user = token ? getTokenUser(token) : null;
 	const handleLogin = async ({ email, password }) => {
-		const { data } = await login({
-			variables: {
-				email,
-				password,
-			},
-		});
-		const decoded = jwtDecode(data.login.token);
-		const user = decoded.data;
-		console.log(decoded);
+		try {
+			const { data } = await login({
+				variables: {
+					email,
+					password,
+				},
+			});
+			const token = data.login.token;
+		} catch ({ message = 'An unexpected error occured' }) {
+			setError(message);
+		}
 	};
 	return <AuthContext.Provider value={{ user, handleLogin }} {...props} />;
 };
