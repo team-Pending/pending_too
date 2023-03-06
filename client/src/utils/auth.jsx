@@ -22,8 +22,8 @@ const getTokenUser = (token) => {
 	return data;
 };
 
-export const useAuth = (props) => {
-	const [login] = useMutation(LOGIN_USER);
+const useAuth = (props) => {
+	const [login] = useMutation(LOGIN);
 	const [error, setError] = useState();
 	const [token, setToken] = useState();
 	const user = token ? getTokenUser(token) : null;
@@ -88,4 +88,4 @@ class Auth {
 	}
 }
 
-export default new Auth();
+export default useAuth;
