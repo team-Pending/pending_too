@@ -7,6 +7,12 @@ const typeDefs = gql`
 		lastName: String
 		email: String
 		isAdmin: Boolean
+		orders: [Orders]
+	}
+	type Orders {
+		_id: ID
+		purchaseDate: String
+		products: [Products]
 	}
 
 	type Auth {
@@ -16,9 +22,11 @@ const typeDefs = gql`
 
 	type Products {
 		id: ID
-		title: String
+		name: String
+		description: String
 		category: String
 		price: Float
+		image: String
 		thumbsUp: Int
 		thumbsDown: Int
 	}

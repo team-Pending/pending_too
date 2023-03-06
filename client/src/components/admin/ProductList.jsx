@@ -5,22 +5,22 @@ import { Container, Row, Col } from "reactstrap";
 import "./admin.css"
 
 const QUERY_PRODUCTS = gql`
-query getProducts($category: ID) {
-  products(category: $category) {
-      id
-      title
-      price
-      category
-      thumbsUp
-      thumbsDown
-    }
+ {
+  products {
+    id
+    title
+    category
+    price
+    thumbsUp
+    thumbsDown
   }
+}
 `;
 
 
 function ProductList() {
   const { loading, error, data } = useQuery(QUERY_PRODUCTS);
-
+  console.log(error);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
