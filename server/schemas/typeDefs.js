@@ -1,13 +1,12 @@
 const { gql } = require('apollo-server-express');
 
-// laura added for sort feature in admin page
 const typeDefs = gql`
 	type User {
 		_id: ID
 		firstName: String
 		lastName: String
 		email: String
-		isAmin: Boolean
+		isAdmin: Boolean
 	}
 
 	type Auth {
