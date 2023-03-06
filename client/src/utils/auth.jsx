@@ -23,7 +23,7 @@ const getTokenUser = (token) => {
 };
 
 const useAuth = (props) => {
-	const [login] = useMutation(LOGIN_USER);
+	const [login] = useMutation(LOGIN);
 	const [errork, setError] = useState();
 	const [token, setToken] = useState();
 	const user = token ? getTokenUser(token) : null;
@@ -42,6 +42,7 @@ const useAuth = (props) => {
 	};
 	return <AuthContext.Provider value={{ user, handleLogin }} {...props} />;
 };
+ 
 
 // create a new class to instantiate for a user
 class Auth {
@@ -88,4 +89,4 @@ class Auth {
 	}
 }
 
-export default new Auth();
+export default useAuth;
