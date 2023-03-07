@@ -2,19 +2,19 @@ const db = require('./connection');
 const { User, Product, Category, Review } = require('../models');
 
 db.once('open', async () => {
-    await Category.deleteMany();
+	await Category.deleteMany();
 
-    const categories = await Category.insertMany([
-        { name: 'Music' },
-        { name: 'Photography' },
-        { name: 'Art Prints' },
-        { name: 'E-Books' },
-        { name: 'Decor' }
-    ]);
+	const categories = await Category.insertMany([
+		{ name: 'Music' },
+		{ name: 'Photography' },
+		{ name: 'Art Prints' },
+		{ name: 'E-Books' },
+		{ name: 'Decor' },
+	]);
 
-    console.log('categories seeded');
+	console.log('categories seeded');
 
-    await Product.deleteMany();
+	await Product.deleteMany();
 
     const products = await Product.insertMany([
         {
@@ -119,25 +119,25 @@ db.once('open', async () => {
         },
     ]);
 
-    console.log('products seeded');
+	console.log('products seeded');
 
-    await User.deleteMany();
+	await User.deleteMany();
 
-    await User.create({
-        firstName: 'Pamela',
-        lastName: 'Washington',
-        cart: [],
-        isSeller: false,
-        isAdmin: false,
-        username: "MissWashington",
-        email: 'pamela@testmail.com',
-        password: 'password12345',
-        purchased: [
-            {
-                products: [products[0]._id, products[0]._id, products[1]._id]
-            }
-        ]
-    });
+	await User.create({
+		firstName: 'Pamela',
+		lastName: 'Washington',
+		cart: [],
+		isSeller: false,
+		isAdmin: false,
+		username: 'MissWashington',
+		email: 'pamela@testmail.com',
+		password: 'password12345',
+		purchased: [
+			{
+				products: [products[0]._id, products[0]._id, products[1]._id],
+			},
+		],
+	});
 
     await User.create({
         firstName: 'Elijah',
@@ -155,7 +155,7 @@ db.once('open', async () => {
         ]
     });
 
-    console.log('users seeded');
+	console.log('users seeded');
 
-    process.exit();
+	process.exit();
 });

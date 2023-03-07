@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN } from './mutations';
 import jwtDecode from 'jwt-decode';
+import { LOGIN } from './mutations';
 
 const AuthContext = createContext();
 
@@ -18,13 +18,16 @@ const AuthProvider = (props) => {
 	const user = token ? getTokenUser(token) : null;
 	const handleLogin = async ({ email, password }) => {
 		try {
+			console.log('hello');
 			const { data } = await login({
 				variables: {
 					email,
 					password,
 				},
 			});
+			console.log('hello2');
 			const token = data.login.token;
+			console.log(token);
 		} catch ({ message = 'An unexpected error occured' }) {
 			setError(message);
 		}
