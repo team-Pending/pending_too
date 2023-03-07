@@ -4,10 +4,13 @@ export const QUERY_ALL_PRODUCT = gql`
   {
     product {
       _id
-      name
-      description
+      productName
+      productDescription
+      category
+      reviews
+      rating
       price
-      quantity
+      
       category {
         name
       }
@@ -36,11 +39,11 @@ export const QUERY_PRODUCT = gql`
   query getProduct($category: ID) {
     product(category: $category) {
       _id
-      title
-      description
+      productName
+      productDescription
       price
       quantity
-      image
+      fileType
       category {
         _id
       }
@@ -61,11 +64,11 @@ export const QUERY_USER = gql`
         purchaseDate
         product {
           _id
-          name
-          description
+          productName
+          productDescription
           category
           price
-          image
+          fileType
         }
       }
     }
@@ -83,11 +86,11 @@ export const QUERY_GET_USER = gql`
         purchaseDate
         product {
           _id
-          name
-          description
+          productName
+          productDescription
           price
           quantity
-          image
+          fileType
         }
       }
     }
@@ -109,11 +112,11 @@ export const QUERY_ADMINPRODUCT = gql`
   {
     product {
       _id
-      title
-      description
+      productName
+      productDescription
       price
       quantity
-      image
+      fileType
       category {
         _id
         name
