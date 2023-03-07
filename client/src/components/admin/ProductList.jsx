@@ -8,7 +8,7 @@ const QUERY_ADMINPRODUCT = gql`
  {
   product {
     id
-    title
+    productName
     category
     price
     thumbsUp
@@ -26,8 +26,9 @@ function ProductList() {
 
   const productList = data.product.map((product) => ({
     id: product.id,
-    name: product.title,
+    productName: product.productName,
     price: product.price,
+    // productDescription: product.productDescription,
     category: product.category,
     thumbsUp: product.thumbsUp,
     thumbsDown: product.thumbsDown,
@@ -43,11 +44,11 @@ function ProductList() {
               {productList.map((product) => (
                 <tr key={product.id}>
                   <td>ID: {product.id}</td>
-                  <td>Name: {product.name}</td>
-                  <td>Description: {product.description}</td>
+                  <td>Name: {product.productName}</td>
+                  {/* <td>Description: {product.productDescription}</td> */}
                   <td>Price: {product.price}</td>
                   <td>Quantity: {product.quantity}</td>
-                  <td>Image: {product.image}</td>
+                  <td>fileType: {product.fileType}</td>
                   <td>Category: {product.category}</td>
                   <td>Review: {product.thumbs ? 'Yes' : 'No'}</td>
                 </tr>
