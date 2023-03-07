@@ -13,7 +13,7 @@ const resolvers = {
 			//added for sake of testing without login
 			context.user = true;
 			if (context.user) {
-				const user = await User.findById(context.user._id);
+				const user = await User.find();
 
 				return user;
 			}
@@ -41,7 +41,7 @@ const resolvers = {
 			//added for sake of testing without login
 			context.product = true;
 			if (context.product) {
-				const product = await Product.findById(context.product._id);
+				const product = await Product.find();
 
 				return product;
 			}
@@ -49,9 +49,9 @@ const resolvers = {
 			throw new AuthenticationError('Not logged in');
 		},
 		products: async (parent, args, context) => {
-			return Product.find({productName: { $regex : args.name, $options: 'i'}});
-		}
-	},	
+			return Product.find({ productName: { $regex: args.name, $options: 'i' } });
+		},
+	},
 	Mutation: {
 		login: async (parent, { email, password }) => {
 			const user = await User.findOne({ email });
