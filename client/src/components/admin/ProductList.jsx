@@ -1,12 +1,12 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-// import { QUERY_PRODUCTS } from "../../utils/queries";
+// import { QUERY_ADMINPRODUCT } from "../../utils/queries";
 import { Container, Row, Col } from "reactstrap";
 import "./admin.css"
 
-const QUERY_PRODUCTS = gql`
+const QUERY_ADMINPRODUCT = gql`
  {
-  products {
+  product {
     id
     title
     category
@@ -19,7 +19,7 @@ const QUERY_PRODUCTS = gql`
 
 
 function ProductList() {
-  const { loading, error, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, error, data } = useQuery(QUERY_ADMINPRODUCT);
   console.log(error);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
