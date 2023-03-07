@@ -12,7 +12,7 @@ const typeDefs = gql`
 	type Orders {
 		_id: ID
 		purchaseDate: String
-		products: [Products]
+		product: [Product]
 	}
 
 	type Auth {
@@ -20,7 +20,7 @@ const typeDefs = gql`
 		user: User
 	}
 
-	type Products {
+	type Product {
 		id: ID
 		name: String
 		description: String
@@ -33,7 +33,9 @@ const typeDefs = gql`
 
 	type Query {
 		user: [User!]!
-		products: [Products!]!
+		adminUser: [User!]!
+		product: [Product!]!
+		adminProduct: [Product!]!
 	}
 
 	type Mutation{
