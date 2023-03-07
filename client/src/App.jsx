@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { createHttpLink } from "@apollo/client/link/http";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { AuthProvider } from './utils/auth';
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 import Navbar from './components/navbar/Nav';
@@ -43,21 +44,23 @@ const client = new ApolloClient({
 function App() {
 	return (
 		<ApolloProvider client={client}>
-			<>
-				<div>
-					<Navbar />
+			<AuthProvider>
+				<>
+					<div>
+						<Navbar />
 
-					<div className="container">
-						<Routes>
-							<Route path="/" element={<ShopCard />} />
-							<Route path="/about" element={<LoginForm />} />
-							<Route path="/account" element={<Account />} />
-							<Route path="/admin" element={<Admin />} />
-							<Route path="/*" element={<NotFound />} />
-						</Routes>
+						<div className="container">
+							<Routes>
+								<Route path="/" element={<ShopCard />} />
+								<Route path="/about" element={<LoginForm />} />
+								<Route path="/account" element={<Account />} />
+								<Route path="/admin" element={<Admin />} />
+								<Route path="/*" element={<NotFound />} />
+							</Routes>
+						</div>
 					</div>
-				</div>
-			</>
+				</>
+			</AuthProvider>
 		</ApolloProvider>
 	);
 }
