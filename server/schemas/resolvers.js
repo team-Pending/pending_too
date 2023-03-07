@@ -10,9 +10,11 @@ const AUTHENTICATION_ERROR = "AUTHENTICATION_ERROR";
 const resolvers = {
 	Query: {
 		user: async (parent, args, context) => {
+			//added for sake of testing without login
+			context.user = true
 			if (context.user) {
 				const user = await User.findById(context.user._id).populate({
-					path: 'orders.products',
+					path: 'orders.product',
 					populate: 'category',
 				});
 
@@ -23,9 +25,25 @@ const resolvers = {
 
 			throw new AuthenticationError('Not logged in');
 		},
+		// Laura added to pull adminUser info 
+		adminUser: async (_, __, context) => {
+			//added for sake of testing without login
+			context.adminUser = true
+				const user = await User.find();
+				return user;
+			// throw new AuthenticationError('Not logged in');
+		},
 
-		// Laura added to pull product info as well as user
-		products: async (parent, args, context) => {
+		adminProduct: async (_, __, context) => {
+			//added for sake of testing without login
+			context.adminProduct = true
+				const product = await Product.find();
+				return product;
+			// throw new AuthenticationError('Not logged in');
+		},
+		
+		product: async (parent, args, context) => {
+			//added for sake of testing without login
 			context.product = true
 			if (context.product) {
 				const product = await Product.findById(context.product._id).populate({
@@ -40,7 +58,7 @@ const resolvers = {
 
 			throw new AuthenticationError('Not logged in');
 		},
-	},
+	},	
 	Mutation: {
 		login: async (parent, { email, password }) => {
 			const user = await User.findOne({ email });
@@ -66,37 +84,3 @@ const resolvers = {
 };
 
 module.exports = resolvers;
-// Mutation: {
-//   addUser: async (parent, args) => {
-//     const user = await User.create(args);
-//     const token = signToken(user);
-
-//     return { token, user };
-//   },
-//   updateUser: async (parent, args, context) => {
-//     if (context.user) {
-//       return await User.findByIdAndUpdate(context.user._id, args, {
-//         new: true,
-//       });
-//     }
-
-//     throw new AuthenticationError("Not logged in");
-//   },
-//   login: async (parent, { email, password }) => {
-//     const user = await User.findOne({ email });
-
-//     if (!user) {
-//       throw new AuthenticationError("Incorrect credentials");
-//     }
-
-//     const correctPw = await user.isCorrectPassword(password);
-
-//     if (!correctPw) {
-//       throw new AuthenticationError("Incorrect credentials");
-//     }
-
-//     const token = signToken(user);
-
-//     return { token, user };
-//   },
-// },

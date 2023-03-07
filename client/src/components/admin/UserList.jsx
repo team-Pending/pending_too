@@ -1,10 +1,10 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Container, Row, Col } from "reactstrap";
-// import { QUERY_GET_USER } from "../../utils/queries";
+// import { QUERY_ADMINUSER } from "../../utils/queries";
 import "./admin.css"
 
-const QUERY_GET_USER = gql`
+const QUERY_ADMINUSER = gql`
 query getUser($category: ID) {
     user(category: $category) {
             _id
@@ -18,7 +18,7 @@ query getUser($category: ID) {
 
 const UserList = () => {
 
-    const { loading, error, data } = useQuery(QUERY_GET_USER);
+    const { loading, error, data } = useQuery(QUERY_ADMINUSER);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
