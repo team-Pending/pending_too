@@ -32,7 +32,7 @@ const productSchema = new Schema({
 	},
 	s3key: {
 		type: String,
-		required: true,
+		required: false,
 	},
 });
 
