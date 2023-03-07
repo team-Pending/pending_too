@@ -58,6 +58,9 @@ const resolvers = {
 
 			throw new AuthenticationError('Not logged in');
 		},
+		products: async (parent, args, context) => {
+			return Product.find({productName: { $regex : args.name, $options: 'i'}});
+		}
 	},	
 	Mutation: {
 		login: async (parent, { email, password }) => {

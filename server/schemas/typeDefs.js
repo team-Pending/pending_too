@@ -57,6 +57,7 @@ const typeDefs = gql`
 		adminUser: [User!]!
 		product: [Product!]!
 		adminProduct: [Product!]!
+		products(name: String): [Product!]!
 	}
 
 	type Mutation{
