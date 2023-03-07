@@ -2,19 +2,19 @@ const db = require('./connection');
 const { User, Product, Category, Review } = require('../models');
 
 db.once('open', async () => {
-    await Category.deleteMany();
+	await Category.deleteMany();
 
-    const categories = await Category.insertMany([
-        { name: 'Music' },
-        { name: 'Photography' },
-        { name: 'Art Prints' },
-        { name: 'E-Books' },
-        { name: 'Decor' }
-    ]);
+	const categories = await Category.insertMany([
+		{ name: 'Music' },
+		{ name: 'Photography' },
+		{ name: 'Art Prints' },
+		{ name: 'E-Books' },
+		{ name: 'Decor' },
+	]);
 
-    console.log('categories seeded');
+	console.log('categories seeded');
 
-    await Product.deleteMany();
+	await Product.deleteMany();
 
     const products = await Product.insertMany([
         {
@@ -24,7 +24,7 @@ db.once('open', async () => {
             category: categories[1]._id,
             reviews: ["Beautiful", "Love mine"],
             rating: 5,
-            fileType: jpg,
+            fileType: "jpg",
             s3key: ""
         },
         {
@@ -34,7 +34,7 @@ db.once('open', async () => {
             category: categories[0]._id,
             reviews: ["Classic", "Rock out!"],
             rating: 7,
-            fileType: mp3,
+            fileType: "mp3",
             s3key: ""
         },
         {
@@ -44,7 +44,7 @@ db.once('open', async () => {
             category: categories[2]._id,
             reviews: ["Beautiful", "so cute!"],
             rating: 6,
-            fileType: jpg,
+            fileType: "jpg",
             s3key: ""
         },
         {
@@ -54,7 +54,7 @@ db.once('open', async () => {
             category: categories[3]._id,
             reviews: ["Riveting", "Tender story"],
             rating: 3,
-            fileType: pdf,
+            fileType: "pdf",
             s3key: ""
         },
         {
@@ -64,7 +64,7 @@ db.once('open', async () => {
             category: categories[4]._id,
             reviews: ["Beautiful", "Powerful!"],
             rating: 4,
-            fileType: pdf,
+            fileType: "pdf",
             s3key: ""
         },
         {
@@ -74,7 +74,7 @@ db.once('open', async () => {
             category: categories[1]._id,
             reviews: ["Breathtaking", "Incredible shot!"],
             rating: 10,
-            fileType: jpg,
+            fileType: "jpg",
             s3key: ""
         },
         {
@@ -84,7 +84,7 @@ db.once('open', async () => {
             category: categories[0]._id,
             reviews: ["Beautiful", "Serene"],
             rating: 5,
-            fileType: mp3,
+            fileType: "mp3",
             s3key: ""
         },
         {
@@ -94,7 +94,7 @@ db.once('open', async () => {
             category: categories[3]._id,
             reviews: ["Intense!", "Great story!"],
             rating: 5,
-            fileType: pdf,
+            fileType: "pdf",
             s3key: ""
         },
         {
@@ -104,7 +104,7 @@ db.once('open', async () => {
             category: categories[2]._id,
             reviews: ["An escape!", "Peace in a frame!"],
             rating: 6,
-            fileType: jpg,
+            fileType: "jpg",
             s3key: ""
         },
         {
@@ -114,24 +114,40 @@ db.once('open', async () => {
             category: categories[4]._id,
             reviews: ["Beautiful", "Great decor for my kitchen"],
             rating: 8,
-            fileType: pdf,
+            fileType: "pdf",
             s3key: ""
         },
     ]);
 
-    console.log('products seeded');
+	console.log('products seeded');
 
-    await User.deleteMany();
+	await User.deleteMany();
+
+	await User.create({
+		firstName: 'Pamela',
+		lastName: 'Washington',
+		cart: [],
+		isSeller: false,
+		isAdmin: false,
+		username: 'MissWashington',
+		email: 'pamela@testmail.com',
+		password: 'password12345',
+		purchased: [
+			{
+				products: [products[0]._id, products[0]._id, products[1]._id],
+			},
+		],
+	});
 
     await User.create({
-        firstName: 'Pamela',
+        firstName: 'Elijah',
         lastName: 'Washington',
         cart: [],
         isSeller: false,
         isAdmin: false,
-        username: "MissWashington",
-        email: 'pamela@testmail.com',
-        password: 'password12345',
+        username: "eliwash",
+        email: 'elijah@testmail.com',
+        password: 'password1234567',
         purchased: [
             {
                 products: [products[0]._id, products[0]._id, products[1]._id]
@@ -139,14 +155,7 @@ db.once('open', async () => {
         ]
     });
 
-    await User.create({
-        firstName: 'Elijah',
-        lastName: 'Holt',
-        email: 'eholt@testmail.com',
-        password: 'password12345'
-    });
+	console.log('users seeded');
 
-    console.log('users seeded');
-
-    process.exit();
+	process.exit();
 });

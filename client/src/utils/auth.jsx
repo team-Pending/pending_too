@@ -1,32 +1,31 @@
-// import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN } from './mutations';
 import jwtDecode from 'jwt-decode';
+import { LOGIN, ADD_USER } from './mutations';
 
-// const AuthContext = createContext();
+const AuthContext = createContext();
 
-// const AuthProvider = (props) => {
-//     const user = {
-//         email: "",
-//     };
-//     return <AuthContext.Provider value={{ user }} {...props} />;
-// };
-
-// const useAuth = () => useContext(AuthContext);
-
-// export { AuthProvider, useAuth };
-
+const setStoredJwtToken = (token) => sessionStorage.setItem('jwt', token);
+const getStoredJwtToken = () => sessionStorage.getItem('jwt');
+const removeStoredJwtToken = () => sessionStorage.removeItem('jwt');
 // use this to decode a token and get the user's information out of it
 const getTokenUser = (token) => {
 	const { data } = jwtDecode(token);
+	console.log(data);
 	return data;
 };
 
-const useAuth = (props) => {
-	const [login] = useMutation(LOGIN_USER);
-	const [errork, setError] = useState();
+const AuthProvider = (props) => {
+	const [login] = useMutation(LOGIN);
+	const [addUser] = useMutation(ADD_USER);
+	const [error, setError] = useState();
 	const [token, setToken] = useState();
+
 	const user = token ? getTokenUser(token) : null;
+	useEffect(() => {
+		setToken(getStoredJwtToken());
+	});
+
 	const handleLogin = async ({ email, password }) => {
 		try {
 			const { data } = await login({
@@ -36,12 +35,50 @@ const useAuth = (props) => {
 				},
 			});
 			const token = data.login.token;
+			setToken(token);
+			setStoredJwtToken(token);
+			console.log(user);
 		} catch ({ message = 'An unexpected error occured' }) {
 			setError(message);
 		}
 	};
-	return <AuthContext.Provider value={{ user, handleLogin }} {...props} />;
+
+	const handleSignup = async ({ username, firstName, lastName, email, password }) => {
+		try {
+			console.log('hello');
+			const { data } = await addUser({
+				variables: {
+					username,
+					firstName,
+					lastName,
+					email,
+					password,
+				},
+			});
+			console.log('hello2');
+			const token = data.login.token;
+			setToken(token);
+			setStoredJwtToken(token);
+			console.log(user);
+		} catch ({ message = 'An unexpected error occured' }) {
+			setError(message);
+		}
+	};
+
+	const handleLogout = () => {
+		setToken();
+		removeStoredJwtToken();
+	};
+
+	return (
+		<AuthContext.Provider
+			value={{ user, handleLogin, handleLogout, handleSignup, error }}
+			{...props}
+		/>
+	);
 };
+
+const useAuth = () => useContext(AuthContext);
 
 // create a new class to instantiate for a user
 class Auth {
@@ -88,4 +125,4 @@ class Auth {
 	}
 }
 
-export default new Auth();
+export { AuthProvider, useAuth, Auth };

@@ -1,9 +1,8 @@
 import React from "react";
-import content from "../placeholderData/data.json";
 import "./ShopCard.css";
 import LikeDislike from "../LikeDislike/LikeDislike";
 
-function ShopCard() {
+function ShopCard({content}) {
   return content.map((content) => {
     return (
       <section

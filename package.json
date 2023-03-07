@@ -8,7 +8,7 @@
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
-    "start": "node server/server.js"
+    "start": "npm start --prefix server"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +28,6 @@
     "concurrently": "^5.1.0"
   },
   "engine": {
-    "node": "18.13.0"
+    "node": "^18.13.0"
   }
 }

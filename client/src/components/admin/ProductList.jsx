@@ -1,33 +1,34 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-// import { QUERY_PRODUCTS } from "../../utils/queries";
+// import { QUERY_ADMIN_PRODUCT } from "../../utils/queries";
 import { Container, Row, Col } from "reactstrap";
 import "./admin.css"
 
-const QUERY_PRODUCTS = gql`
-query getProducts($category: ID) {
-  products(category: $category) {
-      id
-      title
-      price
-      category
-      thumbsUp
-      thumbsDown
-    }
+const QUERY_ADMIN_PRODUCT = gql`
+ {
+  product {
+    id
+    productName
+    category
+    price
+    thumbsUp
+    thumbsDown
   }
+}
 `;
 
 
 function ProductList() {
-  const { loading, error, data } = useQuery(QUERY_PRODUCTS);
-
+  const { loading, error, data } = useQuery(QUERY_ADMIN_PRODUCT);
+  console.log(error);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   const productList = data.product.map((product) => ({
     id: product.id,
-    name: product.title,
+    productName: product.productName,
     price: product.price,
+    // productDescription: product.productDescription,
     category: product.category,
     thumbsUp: product.thumbsUp,
     thumbsDown: product.thumbsDown,
@@ -41,17 +42,20 @@ function ProductList() {
             <div className="product__box">
               <h2>Product List</h2>
               {productList.map((product) => (
-                <tr key={product.id}>
-                  <td>ID: {product.id}</td>
-                  <td>Name: {product.name}</td>
-                  <td>Description: {product.description}</td>
-                  <td>Price: {product.price}</td>
-                  <td>Quantity: {product.quantity}</td>
-                  <td>Image: {product.image}</td>
-                  <td>Category: {product.category}</td>
-                  <td>Review: {product.thumbs ? 'Yes' : 'No'}</td>
+                <table>
+                <tr key={product.id} className="product__id">
+                  <td className="unit">ID: {product.id}</td>
+                  <td className="unit">Name: {product.productName}</td>
+                  {/* <td>Description: {product.productDescription}</td> */}
+                  <td className="unit">Price: {product.price}</td>
+                  <td className="unit">Quantity: {product.quantity}</td>
+                  <td>fileType: {product.fileType}</td>
+                  <td className="unit">Category: {product.category}</td>
+                  <td className="unit">Review: {product.thumbs ? 'Yes' : 'No'}</td>
+                  <button type="submit">DELETE</button>
                 </tr>
-              ))};
+                </table>
+              ))}
             </div>
           </Col>
         </Row>

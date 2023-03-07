@@ -4,9 +4,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { createHttpLink } from "@apollo/client/link/http";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { AuthProvider } from './utils/auth';
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 import Navbar from "./components/navbar/Nav";
+import Home from './components/Home';
 import ShopCard from "./components/ShopCard/ShopCard";
 import Account from "./components/account/Account";
 import "./app.css";
@@ -35,30 +37,32 @@ const authLink = setContext((_, { headers }) => {
 const client = new ApolloClient({
 	// Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
 	// link: authLink.concat(httpLink),
+	uri: '/graphql',
 	cache: new InMemoryCache(),
 });
 
 function App() {
 	return (
 		<ApolloProvider client={client}>
-			<>
-				<div>
-					<Navbar />
+			<AuthProvider>
+				<>
+					<div>
+						<Navbar />
 
-
-    <div className="container">
-      <Routes>
-        <Route path="/" element={<ShopCard />} />
-        <Route path="/about" element={<GraphQLFetch />} />
-        <Route path='/account' element={<Account />} />
-        <Route path='/admin' element={<Admin />} />
-      </Routes>
-      </div>
-
-        </div>
-      </>
-    </ApolloProvider>
-  );
+						<div className="container">
+							<Routes>
+								<Route path="/" element={<Home />} />
+								<Route path="/about" element={<LoginForm />} />
+								<Route path="/account" element={<Account />} />
+								<Route path="/admin" element={<Admin />} />
+								<Route path="/*" element={<NotFound />} />
+							</Routes>
+						</div>
+					</div>
+				</>
+			</AuthProvider>
+		</ApolloProvider>
+	);
 }
 
 export default App;

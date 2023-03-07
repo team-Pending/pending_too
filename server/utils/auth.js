@@ -1,8 +1,9 @@
-const { jwt } = require('jsonwebtoken');
+const  jwt = require('jsonwebtoken');
 const { JWT_SECRET, JWT_EXPIRATION } = require('../config');
 
 module.exports = {
 	signToken: function ({ email }) {
+		console.log('this is a test');
 		const payload = { email };
 		return jwt.sign({ data: payload }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
 	},
