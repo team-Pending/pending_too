@@ -1,10 +1,10 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-// import { QUERY_ADMINPRODUCT } from "../../utils/queries";
+// import { QUERY_ADMIN_PRODUCT } from "../../utils/queries";
 import { Container, Row, Col } from "reactstrap";
 import "./admin.css"
 
-const QUERY_ADMINPRODUCT = gql`
+const QUERY_ADMIN_PRODUCT = gql`
  {
   product {
     id
@@ -19,7 +19,7 @@ const QUERY_ADMINPRODUCT = gql`
 
 
 function ProductList() {
-  const { loading, error, data } = useQuery(QUERY_ADMINPRODUCT);
+  const { loading, error, data } = useQuery(QUERY_ADMIN_PRODUCT);
   console.log(error);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -42,17 +42,20 @@ function ProductList() {
             <div className="product__box">
               <h2>Product List</h2>
               {productList.map((product) => (
-                <tr key={product.id}>
-                  <td>ID: {product.id}</td>
-                  <td>Name: {product.productName}</td>
+                <table>
+                <tr key={product.id} className="product__id">
+                  <td className="unit">ID: {product.id}</td>
+                  <td className="unit">Name: {product.productName}</td>
                   {/* <td>Description: {product.productDescription}</td> */}
-                  <td>Price: {product.price}</td>
-                  <td>Quantity: {product.quantity}</td>
+                  <td className="unit">Price: {product.price}</td>
+                  <td className="unit">Quantity: {product.quantity}</td>
                   <td>fileType: {product.fileType}</td>
-                  <td>Category: {product.category}</td>
-                  <td>Review: {product.thumbs ? 'Yes' : 'No'}</td>
+                  <td className="unit">Category: {product.category}</td>
+                  <td className="unit">Review: {product.thumbs ? 'Yes' : 'No'}</td>
+                  <button type="submit">DELETE</button>
                 </tr>
-              ))};
+                </table>
+              ))}
             </div>
           </Col>
         </Row>
