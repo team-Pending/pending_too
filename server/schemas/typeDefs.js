@@ -17,7 +17,7 @@ const typeDefs = gql`
 	type Orders {
 		_id: ID
 		purchaseDate: String
-		products: [Products]
+		product: [Product]
 	}
 
 	type Auth {
@@ -25,10 +25,10 @@ const typeDefs = gql`
 		user: [User]
 	}
 
-	type Products {
-		_id: ID
-		productName: String
-		productDescription: String
+	type Product {
+		id: ID
+		name: String
+		description: String
 		category: String
     reviews: String
     rating: Int
@@ -54,7 +54,9 @@ const typeDefs = gql`
 
 	type Query {
 		user: [User!]!
-		products: [Products!]!
+		adminUser: [User!]!
+		product: [Product!]!
+		adminProduct: [Product!]!
 	}
 
 	type Mutation{

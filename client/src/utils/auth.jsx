@@ -1,20 +1,9 @@
-// import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from './mutations';
 import jwtDecode from 'jwt-decode';
 
-// const AuthContext = createContext();
-
-// const AuthProvider = (props) => {
-//     const user = {
-//         email: "",
-//     };
-//     return <AuthContext.Provider value={{ user }} {...props} />;
-// };
-
-// const useAuth = () => useContext(AuthContext);
-
-// export { AuthProvider, useAuth };
+const AuthContext = createContext();
 
 // use this to decode a token and get the user's information out of it
 const getTokenUser = (token) => {
@@ -22,7 +11,7 @@ const getTokenUser = (token) => {
 	return data;
 };
 
-const useAuth = (props) => {
+const AuthProvider = (props) => {
 	const [login] = useMutation(LOGIN);
 	const [error, setError] = useState();
 	const [token, setToken] = useState();
@@ -40,8 +29,10 @@ const useAuth = (props) => {
 			setError(message);
 		}
 	};
-	return <AuthContext.Provider value={{ user, handleLogin }} {...props} />;
+	return <AuthContext.Provider value={{ user, handleLogin, error }} {...props} />;
 };
+
+const useAuth = () => useContext(AuthContext);
 
 // create a new class to instantiate for a user
 class Auth {
@@ -88,4 +79,4 @@ class Auth {
 	}
 }
 
-export default useAuth;
+export { AuthProvider, useAuth, Auth };
