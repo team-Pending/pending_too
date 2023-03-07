@@ -97,9 +97,9 @@ export const QUERY_GET_USER = gql`
     }
   }
 `;
-export const QUERY_ADMINUSER = gql`
-  {
-    user {
+export const QUERY_ADMIN_USER = gql`
+  query AminUser ($name: String) {
+    user(name: $name) {
       _id
       firstName
       lastName
@@ -109,9 +109,9 @@ export const QUERY_ADMINUSER = gql`
   }
 `;
 
-export const QUERY_ADMINPRODUCT = gql`
-  {
-    product {
+export const QUERY_ADMIN_PRODUCT = gql`
+  query AdminProduct ($name: String) {
+    product (name: $name) {
       _id
       productName
       productDescription
