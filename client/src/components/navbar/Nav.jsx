@@ -9,7 +9,7 @@ import DropDown from './DropDown';
 import Mediaphile from '../Mediaphile';
 
 function Navbar() {
-	const { user } = useAuth();
+	const { user, handleLogout } = useAuth();
 	// Laura added for auth requirement
 	// const { authData, logout } = useAuth();
 
@@ -55,6 +55,13 @@ function Navbar() {
 				<li>
 					<Link to="account">{user ? `${user.email}` : 'Account'}</Link>
 				</li>
+				{user != null && (
+				<li>|</li>)}
+				{user != null && (
+					<li>
+						<button onClick={handleLogout}>Logout"</button>
+					</li>
+				)}
 			</ul>
 			<ul className="hamburger">
 				<li>
