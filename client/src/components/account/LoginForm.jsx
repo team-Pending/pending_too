@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import Mediaphile from '../Mediaphile';
-import useAuth from '../../utils/auth';
+import { useAuth } from '../../utils/auth';
 
 const LoginForm = () => {
-	const { handleLogin, error } = useAuth();
+	const { handleLogin, error } =  useAuth();
 	const [signUp, setSignUp] = useState(false);
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
