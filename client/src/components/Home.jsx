@@ -1,26 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ShopCard from './ShopCard/ShopCard';
+import placeholderContent from "./placeholderData/data.json";
+import Search from './Search';
+import { useQuery } from "@apollo/client";
+import {QUERY_SEARCH_PRODUCT} from '../utils/queries';
+import { QueryManager } from '@apollo/client/core/QueryManager';
+
 
 function Home() {
+  const [search, setSearch] = useState('');
+  const { data, loading } = useQuery(QUERY_SEARCH_PRODUCT, {variables: {name: search}});
+  console.log(data);
+  const content = data?.products;
   return (
     <div>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit atque ab eligendi deserunt dolor. Magnam totam voluptatibus, pariatur labore ducimus optio, aut a sed ratione eum nobis numquam excepturi.</h1>
+      <Search search={search} handleSearch={setSearch}/>
+      <h1>{search}</h1>
+      {/* <ShopCard content={placeholderContent}/> */}
+      <pre>{JSON.stringify(content, null, 2 )}</pre>
     
     </div>
   );

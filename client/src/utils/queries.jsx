@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+
 export const QUERY_ALL_PRODUCT = gql`
   {
     product {
@@ -123,4 +124,17 @@ export const QUERY_ADMINPRODUCT = gql`
       }
     }
   }
+`;
+
+export const QUERY_SEARCH_PRODUCT = gql`
+query SearchProduct ($name: String) {
+  products(name: $name) {
+    category
+    productDescription
+    id
+    productName
+    price
+  }
+}
+
 `;
