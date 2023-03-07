@@ -70,7 +70,34 @@ const resolvers = {
 					},
 				});
 			}
-			const token = signToken({ email: user.email });
+			const token = signToken({
+				email: email,
+			});
+			return { token };
+		},
+
+		addUser: async (parent, { username, firstName, lastName, email, password }) => {
+			const checkUser = await User.findOne({ email });
+			if (checkUser) {
+				console.log('email already exists');
+				throw new GraphQLError('A user with this email already exists!', {
+					extensions: {
+						code: AUTHENTICATION_ERROR,
+					},
+				});
+			} else {
+				const newUser = await new User({
+					email: email,
+					username: username,
+					firstName: firstName,
+					lastName: lastName,
+					password: password,
+				});
+				await newUser.save();
+			}
+			const token = signToken({
+				email: email,
+			});
 			return { token };
 		},
 	},

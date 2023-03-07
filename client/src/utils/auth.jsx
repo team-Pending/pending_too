@@ -1,13 +1,13 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import jwtDecode from 'jwt-decode';
-import { LOGIN } from './mutations';
+import { LOGIN, ADD_USER } from './mutations';
 
 const AuthContext = createContext();
 
 const setStoredJwtToken = (token) => sessionStorage.setItem('jwt', token);
 const getStoredJwtToken = () => sessionStorage.getItem('jwt');
-
+const removeStoredJwtToken = () => sessionStorage.removeItem('jwt');
 // use this to decode a token and get the user's information out of it
 const getTokenUser = (token) => {
 	const { data } = jwtDecode(token);
@@ -17,6 +17,7 @@ const getTokenUser = (token) => {
 
 const AuthProvider = (props) => {
 	const [login] = useMutation(LOGIN);
+	const [addUser] = useMutation(ADD_USER);
 	const [error, setError] = useState();
 	const [token, setToken] = useState();
 
@@ -27,9 +28,29 @@ const AuthProvider = (props) => {
 
 	const handleLogin = async ({ email, password }) => {
 		try {
-			console.log('hello');
 			const { data } = await login({
 				variables: {
+					email,
+					password,
+				},
+			});
+			const token = data.login.token;
+			setToken(token);
+			setStoredJwtToken(token);
+			console.log(user);
+		} catch ({ message = 'An unexpected error occured' }) {
+			setError(message);
+		}
+	};
+
+	const handleSignup = async ({ username, firstName, lastName, email, password }) => {
+		try {
+			console.log('hello');
+			const { data } = await addUser({
+				variables: {
+					username,
+					firstName,
+					lastName,
 					email,
 					password,
 				},
@@ -43,7 +64,18 @@ const AuthProvider = (props) => {
 			setError(message);
 		}
 	};
-	return <AuthContext.Provider value={{ user, handleLogin, error }} {...props} />;
+
+	const handleLogout = () => {
+		setToken();
+		removeStoredJwtToken();
+	};
+
+	return (
+		<AuthContext.Provider
+			value={{ user, handleLogin, handleLogout, handleSignup, error }}
+			{...props}
+		/>
+	);
 };
 
 const useAuth = () => useContext(AuthContext);
