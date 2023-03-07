@@ -1,13 +1,17 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import jwtDecode from 'jwt-decode';
 import { LOGIN } from './mutations';
 
 const AuthContext = createContext();
 
+const setStoredJwtToken = (token) => sessionStorage.setItem('jwt', token);
+const getStoredJwtToken = () => sessionStorage.getItem('jwt');
+
 // use this to decode a token and get the user's information out of it
 const getTokenUser = (token) => {
 	const { data } = jwtDecode(token);
+	console.log(data);
 	return data;
 };
 
@@ -15,7 +19,12 @@ const AuthProvider = (props) => {
 	const [login] = useMutation(LOGIN);
 	const [error, setError] = useState();
 	const [token, setToken] = useState();
+
 	const user = token ? getTokenUser(token) : null;
+	useEffect(() => {
+		setToken(getStoredJwtToken());
+	});
+
 	const handleLogin = async ({ email, password }) => {
 		try {
 			console.log('hello');
@@ -27,7 +36,9 @@ const AuthProvider = (props) => {
 			});
 			console.log('hello2');
 			const token = data.login.token;
-			console.log(token);
+			setToken(token);
+			setStoredJwtToken(token);
+			console.log(user);
 		} catch ({ message = 'An unexpected error occured' }) {
 			setError(message);
 		}
