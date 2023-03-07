@@ -6,9 +6,14 @@ const typeDefs = gql`
 		firstName: String
 		lastName: String
 		email: String
+    cart: String
 		isAdmin: Boolean
+    seller: Boolean
+    username: String
+    password: String
 		orders: [Orders]
 	}
+
 	type Orders {
 		_id: ID
 		purchaseDate: String
@@ -17,7 +22,7 @@ const typeDefs = gql`
 
 	type Auth {
 		token: ID!
-		user: User
+		user: [User]
 	}
 
 	type Product {
@@ -25,11 +30,27 @@ const typeDefs = gql`
 		name: String
 		description: String
 		category: String
+    reviews: String
+    rating: Int
 		price: Float
-		image: String
+		fileType: String
+    s3key: String
 		thumbsUp: Int
 		thumbsDown: Int
 	}
+
+  type Review {
+    _id: ID
+    reviewText: String
+    createdAt: String
+    userId: String
+    productId: String
+  }
+
+  type Category {
+    _id: ID
+    categoryName: String
+  }
 
 	type Query {
 		user: [User!]!

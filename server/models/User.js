@@ -42,7 +42,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  purchased: [
+  orders: [
     {
     type: Schema.Types.ObjectId,
     ref: "Product"
