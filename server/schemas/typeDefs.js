@@ -54,6 +54,7 @@ const typeDefs = gql`
 
 	type Query {
 		user: [User!]!
+		singleUser(email: String): User!
 		adminUser: [User!]!
 		product: [Product!]!
 		adminProduct: [Product!]!
@@ -77,5 +78,4 @@ const typeDefs = gql`
 
 module.exports = typeDefs;
 //    updateUser(firstName: String, lastName: String, email: String, password: String, isAdmin: Boolean): User
-//   login(email: String!, password: String!): Auth
-//  }
+

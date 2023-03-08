@@ -51,6 +51,18 @@ const resolvers = {
 		products: async (parent, args, context) => {
 			return Product.find({ productName: { $regex: args.name, $options: 'i' } });
 		},
+		singleUser: async (parent, { email }) => {
+			const user = await User.findOne({ email: email });
+			console.log(user);
+			if (!user) {
+				throw new GraphQLError('User does not exist!', {
+					extensions: {
+						code: AUTHENTICATION_ERROR,
+					},
+				});
+			}
+			return  user ;
+		},
 	},
 	Mutation: {
 		login: async (parent, { email, password }) => {
