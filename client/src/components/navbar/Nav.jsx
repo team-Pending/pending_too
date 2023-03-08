@@ -58,7 +58,7 @@ function Navbar() {
 				{user != null && (
 				<li>|</li>)}
 				{user != null && (
-					<li>
+					<li>1
 						<button onClick={handleLogout}>Logout"</button>
 					</li>
 				)}
@@ -68,17 +68,6 @@ function Navbar() {
 					<HamburgerMenu>
 						<DropDown />
 					</HamburgerMenu>
-				</li>
-				<li>
-					<Search />
-					{/* <section className='main-search'>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        <input
-                            type="text"
-                            placeholder='Search'
-                            className='main-search'
-                        />
-                    </section> */}
 				</li>
 			</ul>
 		</nav>
