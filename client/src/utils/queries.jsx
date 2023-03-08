@@ -138,3 +138,13 @@ query SearchProduct ($name: String) {
 }
 
 `;
+
+export const DELETE_USER = gql`
+  mutation deleteUser(
+    $userId: ID!) {
+      deleteUser(userId: $userId){
+        successd
+        message
+      }
+    }
+  `;

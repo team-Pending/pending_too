@@ -4,16 +4,18 @@
     padding: 5rem;
     margin: 5rem;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
  }
 
 .admin__container {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 5%;
+        /* justify-content: space-around; */
         width: auto;
         height: auto;
-        background: rgb(244, 101, 36);
+        /* background: rgb(244, 101, 36); */
         background: radial-gradient(
           circle at top center,
           rgba(244, 101, 36, 1) 0%,
@@ -25,27 +27,14 @@
         box-shadow: 5px 5px 20px black;
 }
 
-.product__id,
-.user__id {
-    align-items: center;
-    display: flex;
-}
-
-button, table, th, td {
-    border: 1px solid;
-    border-radius: 25px;;
-    align-items: center;
+table, th, td {
+    border-radius: 6px;;
     text-decoration: none;
-    display: flex;
-    width: auto;
+    width:fit-content;
     height: auto;
-    padding: 5px;
-    font-size: large;
-    font-weight: bold;
     margin-bottom: .5rem;
     box-shadow: 1px 1px 5px black;
     background: rgb(9, 117, 121);
-    justify-content: space-around;
     background: linear-gradient(
         90deg,
         rgba(9, 117, 121, 1) 0%,
@@ -53,106 +42,61 @@ button, table, th, td {
         rgba(9, 117, 121, 1) 100%
     );
 }
-
-.unit {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 15px;
+.contain {
+    max-width: 10rem;
+    min-width: 10rem;
+    max-height: 50px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out; 
 }
-.product__box,
-.user__box
-{
-    padding: 20px;
-    border-radius: 5px;
-
+.contain:hover {
+    max-height: none;
+    max-width: none;
 }
 
-.product__box {
-    background: var(--card-bg-03);
-}
-
-.users__box {
-    background: var(--card-bg-04);
+table {
+    width: 100%;
+    border-collapse: collapse;   
     
 }
 
-.product__box h5,
-.user__box h5{
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+td, th {
+    padding: 8px;
+    text-align: left;  
+}
+@media (max-width: 767px) {
+    td, th {
+        display: block;
+        width: 100%;
+    }
 }
 
-.product__box span,
-.user__box span{
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 2rem;
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    .table-container {
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .table-container {
+      font-size: 12px;
+    }
+  }
+@media (min-width: 600px) {
+    .conversion-rate-table {
+        display:table;
+    }
 }
 
-/* AdminNav.jsx  */
-.admin__header{
-    width: 100%;
-    padding: 20px 0px;
-  height:auto;
-    background: var(--primary-color);
+.product__box {
+    max-width: 80%;
 }
-.admin__nav-top {
-    width: 100%;
-    height: 100px;
-    line-height: 100px;
+
+.centered-button {
+    display: block;
+    margin: 0 auto;
 }
-.admin__nav-wrapper-top{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 3rem;
-}
-.admin__nave-top-right img{ 
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
-} 
-.admin__nave-top-right {
-    display: flex;
-    align-items: center;
-    column-gap: 2rem;
-}
-.admin__nave-top-right .search__box{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.admin__nav-top-right span i {
-    color: whitesmoke;
-}
-.admin__nav-wrapper-top .logo h2 {
-    font-size: 1.2rem;
-    color: whitesmoke;
-    cursor: pointer;
-}
-.admin__menu {
-    width: 100%;
-    height:70px;
-    line-height: 70px;
-    background: var(--card-bg-02);
-}
-.admin__navigation {
-    text-align: center;   
-}
-.admin__menu-list {
-    display: flex;
-    align-items: center;
-    column-gap: 2.7rem;
-} 
-.admin__menu-list .admin__menu-item a {
-    color: var(--primary-color);
-    font-weight: 500;
-    background: whitesmoke;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-.active__admin-menu {
-    background: whitesmoke;
-} 

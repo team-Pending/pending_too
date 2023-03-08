@@ -1,7 +1,6 @@
 // Laura adding to complete route for auth
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { createHttpLink } from "@apollo/client/link/http";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { AuthProvider } from './utils/auth';
@@ -9,12 +8,16 @@ import { AuthProvider } from './utils/auth';
 
 import Navbar from "./components/navbar/Nav";
 import Home from './components/Home';
-import ShopCard from "./components/ShopCard/ShopCard";
-import Account from "./components/account/Account";
-import "./app.css";
-import Admin from "./components/admin/Admin.jsx";
-import CategoryMenu from "./components/CategoryMenu";
-import GraphQLFetch from "./components/ApiCall/AxiosGet";
+import ShopCard from './components/ShopCard/ShopCard';
+import Account from './components/account/Account';
+import './app.css';
+import Admin from './components/admin/Admin.jsx';
+import LoginForm from './components/account/LoginForm';
+import CategoryMenu from './components/CategoryMenu';
+// import Cart from "../components/Cart/cart";
+import NotFound from './components/NotFound.jsx';
+import Placeholder from './components/placeholderData/Placeholder';
+
 // Laura adding regarding pulling auth path
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -55,7 +58,10 @@ function App() {
 								<Route path="/about" element={<LoginForm />} />
 								<Route path="/account" element={<Account />} />
 								<Route path="/admin" element={<Admin />} />
+								{/* <Route path="/cart" element={<Cart />} /> */}
 								<Route path="/*" element={<NotFound />} />
+							    <Route path="/:target" element={<Placeholder />}/>
+
 							</Routes>
 						</div>
 					</div>
