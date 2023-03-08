@@ -38,6 +38,7 @@ const typeDefs = gql`
 		s3key: String
 		thumbsUp: Int
 		thumbsDown: Int
+		userid: [User]
 	}
 
 	type Review {
@@ -84,9 +85,7 @@ const typeDefs = gql`
 		updateUser(firstName: String, lastName: String, email: String, password: String): User
 
 		updateProduct(_id: ID!, quantity: Int!): Product
-	}
-
-	type Mutation {
+		
 		deleteUser: DeleteUserResponse!
 	}
 

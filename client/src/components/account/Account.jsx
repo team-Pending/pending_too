@@ -7,6 +7,7 @@ import { useQuery } from '@apollo/client';
 
 async function Account() {
 	const { SingleUser } = useQuery(QUERY_GET_USER);
+	console.log(typeof SingleUser);
 	const { user } = useAuth();
 	console.log(user);
 	const userEmail = user.email;
