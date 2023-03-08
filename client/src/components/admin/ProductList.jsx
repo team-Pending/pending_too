@@ -42,18 +42,20 @@ function ProductList() {
             <div className="product__box">
               <h2>Product List</h2>
               {productList.map((product) => (
-                <table>
-                <tr key={product.id} className="product__id">
-                  <td className="unit">ID: {product.id}</td>
-                  <td className="unit">Name: {product.productName}</td>
-                  {/* <td>Description: {product.productDescription}</td> */}
-                  <td className="unit">Price: {product.price}</td>
-                  <td className="unit">Quantity: {product.quantity}</td>
-                  <td>fileType: {product.fileType}</td>
-                  <td className="unit">Category: {product.category}</td>
-                  <td className="unit">Review: {product.thumbs ? 'Yes' : 'No'}</td>
-                  <button type="submit">DELETE</button>
-                </tr>
+                <table key={product.id}>
+                  <tbody>
+                    <tr className="product__id">
+                      <td className="contain">ID: <br />{product.id}</td>
+                      <td className="contain">Name: <br />{product.productName}</td>
+                      {/* <td>Description: <br />{product.productDescription}</td> */}
+                      <td className="contain">Price: <br />{product.price}</td>
+                      {/* <td className="container">Quantity: <br />{product.quantity}</td> */}
+                      <td className="contain">fileType: <br />{product.fileType}</td>
+                      <td className="contain">Category: <br />{product.category}</td>
+                      <td className="contain">Review: <br />{product.thumbs ? 'Yes' : 'No'}</td>
+                      <td className="contain"><button type="submit">DELETE</button></td>
+                    </tr>
+                  </tbody>
                 </table>
               ))}
             </div>
