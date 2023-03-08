@@ -20,7 +20,7 @@ export const ADD_ORDER = gql`
 
 export const ADD_USER = gql`
   mutation addUser(
-    $username: String!
+    $userName: String!
     $firstName: String!
     $lastName: String!
     $email: String!
@@ -41,26 +41,16 @@ export const ADD_USER = gql`
   }
 `;
 
-export const REMOVE_USER = gql`
-  mutation removeUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-  ) {
-    removeUser(
-      firstName: $firstName
-      lastName: $lastName
-      email: $email
-      password: $password
-    ) {
-      token
-      user {
-        _id
+export const DELETE_USER = gql`
+  mutation deleteUser(
+    $userId: ID!) {
+      deleteUser(userId: $userId){
+        successd
+        message
       }
     }
-  }
-`;
+  `;
+
 
 
 export const LOGIN = gql`

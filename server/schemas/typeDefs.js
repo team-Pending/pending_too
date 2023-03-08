@@ -3,6 +3,7 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
 	type User {
 		_id: ID
+		userName: String
 		firstName: String
 		lastName: String
 		email: String
@@ -11,10 +12,10 @@ const typeDefs = gql`
 		seller: Boolean
 		username: String
 		password: String
-		orders: [Orders]
+		orders: [Order]
 	}
 
-	type Orders {
+	type Order {
 		_id: ID
 		purchaseDate: String
 		product: [Product]
@@ -52,6 +53,10 @@ const typeDefs = gql`
 		categoryName: String
 	}
 
+	type Checkout {
+		session: ID
+	}
+
 	type Query {
 		user: [User!]!
 		singleUser(email: String): User!
@@ -73,9 +78,23 @@ const typeDefs = gql`
 			email: String!
 			password: String!
 		): Auth
+
+		addOrder(products: [ID]!): Order
+
+		updateUser(firstName: String, lastName: String, email: String, password: String): User
+
+		updateProduct(_id: ID!, quantity: Int!): Product
+	}
+
+	type Mutation {
+		deleteUser: DeleteUserResponse!
+	}
+
+	type DeleteUserResponse {
+		success: Boolean!
+		message: String!
 	}
 `;
 
 module.exports = typeDefs;
 //    updateUser(firstName: String, lastName: String, email: String, password: String, isAdmin: Boolean): User
-

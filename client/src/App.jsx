@@ -1,7 +1,6 @@
 // Laura adding to complete route for auth
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { createHttpLink } from "@apollo/client/link/http";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { AuthProvider } from './utils/auth';
@@ -15,6 +14,7 @@ import './app.css';
 import Admin from './components/admin/Admin.jsx';
 import LoginForm from './components/account/LoginForm';
 import CategoryMenu from './components/CategoryMenu';
+// import Cart from "../components/Cart/cart";
 import NotFound from './components/NotFound.jsx';
 
 // Laura adding regarding pulling auth path
@@ -57,6 +57,7 @@ function App() {
 								<Route path="/about" element={<LoginForm />} />
 								<Route path="/account" element={<Account />} />
 								<Route path="/admin" element={<Admin />} />
+								{/* <Route path="/cart" element={<Cart />} /> */}
 								<Route path="/*" element={<NotFound />} />
 							</Routes>
 						</div>
