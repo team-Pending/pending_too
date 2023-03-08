@@ -11,25 +11,17 @@ function Home() {
   const { data, loading } = useQuery(QUERY_SEARCH_PRODUCT, {
     variables: { name: search },
   });
-  console.log(data);
+  if (loading) {
+    return <p>Loading...</p>
+  }
   const content = data?.products;
   console.log(content)
-  return content.map((content) => {
+  return content.map((item) => {
     return (
-      <>
-
-        <ShopCard key={content.id} content={content} />
-      </>
+        <ShopCard key={item.id} content={item} />
     );
   });
 
-  // return (
-  //   <div>
-  //     <Search search={search} handleSearch={setSearch}/>
-  //     <h1>{search}</h1>
-  //     <pre>{JSON.stringify(content, null, 2 )}</pre>
-  //     </div>
-  //     );
 }
 
 export default Home;
