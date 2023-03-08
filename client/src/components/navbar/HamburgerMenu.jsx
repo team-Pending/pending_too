@@ -26,7 +26,12 @@ function HamburgerMenu(props) {
     <div>
       {/* https://hamburger-react.netlify.app/ */}
       <Hamburger size={30} toggled={isOpen} toggle={setOpen} />
+      <AnimatePresence
+        initial={false}
+        wait={true}
+      >
         {isOpen && (<DropDown />)}
+      </AnimatePresence>
     </div>
   );
 }

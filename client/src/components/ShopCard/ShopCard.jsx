@@ -1,4 +1,4 @@
-import "./ShopCard.css";
+import "./shopCard";
 import LikeDislike from "../LikeDislike/LikeDislike";
 
 function ShopCard({content}) {
