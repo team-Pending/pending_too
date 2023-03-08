@@ -30,10 +30,3 @@ function ShopCard({content}) {
   }
 
 export default ShopCard;
-  // return (
-  //   <div>
-  //     <Search search={search} handleSearch={setSearch}/>
-  //     <h1>{search}</h1>
-  //     <pre>{JSON.stringify(content, null, 2 )}</pre>
-  //     </div>
-  //     );
