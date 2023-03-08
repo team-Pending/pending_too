@@ -3,6 +3,7 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID
+    userName: String
     firstName: String
     lastName: String
     email: String
@@ -88,7 +89,17 @@ const typeDefs = gql`
 
     updateProduct(_id: ID!, quantity: Int!): Product
   }
+
+  type Mutation {
+    deleteUser: DeleteUserResponse!
+  }
+
+  type DeleteUserResponse {
+    success: Boolean!
+    message: String!
+  }
 `;
+
 
 module.exports = typeDefs;
 //    updateUser(firstName: String, lastName: String, email: String, password: String, isAdmin: Boolean): User

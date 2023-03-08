@@ -1,6 +1,7 @@
 import React from "react";
 import UserList from "./UserList";
 import ProductList from "./ProductList";
+import "./admin.css"
 
 function Admin(props) {
 

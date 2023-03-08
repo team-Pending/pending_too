@@ -163,6 +163,16 @@ const resolvers = {
       throw new AuthenticationError("Must be logged in");
     },
 
+    deleteUser: async (parent, args, context) => {
+      if (context.user) {
+        const result = await User.deleteOne({ _id: context.user._id });
+        if (result.deletedCount === 1) {
+          return { success: true, message: 'User deleted successfully' };
+        }
+        return { success: false, message: 'User not found' };
+      }
+      throw new AuthenticationError('Must be logged in');
+    },
     // addOrder: async (parent, { products }, context) => {
     //   console.log(context);
     //   if (context.user) {
