@@ -14,32 +14,6 @@ function Navbar() {
 	// const { authData, logout } = useAuth();
 
 	return (
-		// Laura Adding Auth requirement to nav bar.
-		// <nav>
-		//     <ul>
-		//         {authData ? (
-		//         <>
-		//             <li>
-		//                 Welcome, {authData.username}!
-		//             </li>
-		//             <li>
-		//                 <button onClick={logout}>Log Out</button>
-		//             </li>
-		//         </>
-		//     ) : (
-		//         <>
-		//             <li>
-		//                 <a href="/login">Log In</a>
-		//             </li>
-		//             <li>
-		//                 <a href="/signup">Sign Up</a>
-		//             </li>
-		//         </>
-		//     )}
-
-		//     </ul>
-		// </nav>,
-		// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 		<nav className="navbar">
 			<Mediaphile />{' '}

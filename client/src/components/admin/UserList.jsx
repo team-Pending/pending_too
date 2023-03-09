@@ -1,7 +1,6 @@
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, useMutation, gql } from "@apollo/client";
 import { Container, Row, Col } from "reactstrap";
-// import { QUERY_ADMIN_USER } from "../../utils/queries";
 import { DELETE_USER } from "../../utils/queries";
 import "./admin.css"
 
@@ -9,7 +8,7 @@ const QUERY_ADMIN_USER = gql`
 {
     user {
             _id
-            userName
+            username
             firstName
             lastName
             email
@@ -19,28 +18,32 @@ const QUERY_ADMIN_USER = gql`
 `;
 
 function UserList() {
-
     const { loading, error, data } = useQuery(QUERY_ADMIN_USER);
+    const [deleteUser] = useMutation(DELETE_USER);
     console.log(error);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
 
     const userList = data.user.map((user, index) => ({
-        id: user.id,
-        userName: user.userName,
+        id: user._id,
+        username: user.username,
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
         isAdmin: user.isAdmin,
     }));
 
-    async function deleteUser(userId) {
+    async function handleDelete(id) {
         try {
-            const { data } = await client.mutate({
-                mutation: DELETE_USER,
-                variables: { userId },
+            const { data } = await deleteUser({
+                variables: { userId: id },
             });
-            console.log(data); // handle success response
+            if (data.deleteUser.success) {
+                console.log(`User with id ${id} deleted successfully`);
+            } else {
+                console.error(`Failed to delete user with id ${id}: ${data.deleteUser.message}`);
+            // console.log(data.deleteUser); // handle success response
+            }
         } catch (error) {
             console.error(error); // handle error
         }
@@ -58,12 +61,12 @@ function UserList() {
                                     <tbody>
                                     <tr className="user__id">
                                         <td className="contain">ID: <br />{user.id}</td>
-                                        <td className="contain">Username: <br />{user.userName}</td>
+                                        <td className="contain">Username: <br />{user.username}</td>
                                         <td className="contain">First Name: <br />{user.firstName}</td>
                                         <td className="contain">Last Name: <br />{user.lastName}</td>
                                         <td className="contain">Email: <br />{user.email}</td>
                                         <td className="contain">Is Admin: <br />{user.isAdmin ? 'Yes' : 'No'}</td>
-                                        <td className="contain"><button onClick={deleteUser} type="submit">DELETE</button></td>
+                                        <td className="contain"><button onClick={() => handleDelete (user.id)} type="submit">DELETE</button></td>
                                     </tr>
                                     </tbody>
                                 </table>

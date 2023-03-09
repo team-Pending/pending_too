@@ -1,9 +1,8 @@
-const { gql } = require("apollo-server-express");
+const { ApollowServer, gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
     _id: ID
-    userName: String
     firstName: String
     lastName: String
     email: String
@@ -87,14 +86,33 @@ const typeDefs = gql`
       password: String
     ): User
 
+    addProduct(
+      id: ID
+      productName: String
+      productDescription: String
+      price: Float
+      category: String
+      reviews: String
+      rating: Int
+      fileType: String
+      s3key: String
+      thumbsUp: Int
+      thumbsDown: Int
+    ): User
+
     updateProduct(_id: ID!, quantity: Int!): Product
   }
 
   type Mutation {
-    deleteUser: DeleteUserResponse!
+    deleteUser(userId: ID!): User
+    deleteProduct(productId: ID!): Product
   }
 
   type DeleteUserResponse {
+    success: Boolean!
+    message: String!
+  }
+  type DeleteProductResponse {
     success: Boolean!
     message: String!
   }

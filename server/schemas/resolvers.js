@@ -119,10 +119,12 @@ const resolvers = {
           },
         });
       }
-      const token = signToken({
-        email: email,
-      });
-      return { token };
+      const token = signToken(user
+      //   {
+      //   email: email,
+      // }
+      );
+      return { token, user };
     },
 
     addUser: async (
@@ -173,6 +175,20 @@ const resolvers = {
       }
       throw new AuthenticationError('Must be logged in');
     },
+    
+
+
+    deleteProduct: async (parent, args, context) => {
+      if (context.product) {
+        const result = await Product.deleteOne({ _id: context.product._id });
+        if (result.deletedCount === 1) {
+          return { success: true, message: 'Product deleted successfully' };
+        }
+        return { success: false, message: 'Product not found' };
+      }
+      throw new AuthenticationError('Must be logged in');
+    },
+    
     // addOrder: async (parent, { products }, context) => {
     //   console.log(context);
     //   if (context.user) {

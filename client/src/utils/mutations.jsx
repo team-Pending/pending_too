@@ -18,9 +18,35 @@ export const ADD_ORDER = gql`
   }
 `;
 
+export const ADD_PRODUCT = gql`
+  mutation addProduct($products: [ID]!) {
+    addProduct(products: $products)
+      products {
+        _id
+        name
+        description
+        price
+        quantity
+        category {
+          name
+        }
+      }
+    }
+`;
+
+export const DELETE_PRODUCT = gql`
+  mutation deleteProduct(
+    $productId: ID!) {
+      deleteProduct(Id: $productId){
+        id
+        productName
+      }
+    }
+  `;
+
 export const ADD_USER = gql`
   mutation addUser(
-    $userName: String!
+    $username: String!
     $firstName: String!
     $lastName: String!
     $email: String!
@@ -44,8 +70,8 @@ export const ADD_USER = gql`
 export const DELETE_USER = gql`
   mutation deleteUser(
     $userId: ID!) {
-      deleteUser(userId: $userId){
-        successd
+      deleteUser(Id: $userId){
+        success
         message
       }
     }
