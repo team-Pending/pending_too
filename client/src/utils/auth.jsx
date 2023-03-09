@@ -70,6 +70,7 @@ const AuthProvider = (props) => {
 	const handleLogout = () => {
 		setToken();
 		removeStoredJwtToken();
+		location.reload();
 	};
 
 	return (

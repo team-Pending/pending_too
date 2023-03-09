@@ -17,19 +17,19 @@ const LoginForm = () => {
 	// 	variables: { email: email },
 	// });
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async(e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
 		console.log(Object.fromEntries(formData));
-		handleLogin({ email, password });
+		await handleLogin({ email, password });
 		setEmail(email);
 		setPassword('');
+		location.reload();
 	};
 
 	const handleSignUpButton = (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
-		console.log(Object.fromEntries(formData));
 		handleSignup({ username, firstName, lastName, email, password });
 		setEmail('');
 		setPassword('');
