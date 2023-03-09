@@ -14,7 +14,7 @@ import './app.css';
 import Admin from './components/admin/Admin.jsx';
 import LoginForm from './components/account/LoginForm';
 import CategoryMenu from './components/CategoryMenu';
-// import Cart from "../components/Cart/cart";
+import Cart from "./components/Cart";
 import NotFound from './components/NotFound.jsx';
 import Placeholder from './components/placeholderData/Placeholder';
 
@@ -58,7 +58,7 @@ function App() {
 								<Route path="/about" element={<LoginForm />} />
 								<Route path="/account" element={<Account />} />
 								<Route path="/admin" element={<Admin />} />
-								{/* <Route path="/cart" element={<Cart />} /> */}
+								<Route path="/cart" element={<Cart />} />
 								<Route path="/*" element={<NotFound />} />
 							    <Route path="/search/:param" element={<Placeholder />}/>
 

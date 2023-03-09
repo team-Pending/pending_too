@@ -3,7 +3,7 @@ import { useLazyQuery } from '@apollo/client';
 import { loadStripe } from '@stripe/stripe-js';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-// import Auth from '../../utils/auth';
+// import useAuth from '../../utils/auth';
 import CartItem from '../CartItem';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { useStoreContext } from '../../utils/GlobalState';
@@ -93,7 +93,7 @@ const Cart = () => {
             <strong>Total: ${calculateTotal()}</strong>
 
             {/* Check to see if the user is logged in. If so render a button to check out */}
-            {Auth.loggedIn() ? (
+            {useAuth.loggedIn() ? (
               <button onClick={submitCheckout}>Checkout</button>
             ) : (
               <span>(log in to check out)</span>
