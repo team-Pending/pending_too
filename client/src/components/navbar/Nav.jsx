@@ -22,6 +22,7 @@ function Navbar() {
 	const handleLoginModalClose = () => {
 		setIsModalVisible(false);
 	}
+
   return (
     <nav className="navbar">
       <Mediaphile />{" "}
@@ -52,6 +53,8 @@ function Navbar() {
             <button className="noButton" onClick={handleLogout}>Logout</button>
           </li>
         )}
+        {user?.isAdmin && <li>|</li>}
+        {user?.isAdmin && <li><a href="/admin?page=dashboard&user=admin&password=123456">Admin Dashboard</a></li>}
       </ul>
       <ul className="hamburger">
         <li>

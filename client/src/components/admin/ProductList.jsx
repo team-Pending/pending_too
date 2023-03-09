@@ -25,6 +25,7 @@ function ProductList() {
   if (error) return <p>Error :(</p>;
 
   const productList = data.product.map((product) => ({
+    key: product.s3key,
     id: product.id,
     productName: product.productName,
     price: product.price,
@@ -33,16 +34,16 @@ function ProductList() {
     thumbsDown: product.thumbsDown,
   }));
 
-      async function handleDelete(id) {
-        try {
-            const { data } = await deleteProduct({
-                variables: { productId: id },
-            });
-            console.log(data); // handle success response
-        } catch (error) {
-            console.error(error); // handle error
-        }
+  async function handleDelete(id) {
+    try {
+      const { data } = await deleteProduct({
+        variables: { productId: id },
+      });
+      console.log(data); // handle success response
+    } catch (error) {
+      console.error(error); // handle error
     }
+  }
 
   return (
     <section>
@@ -55,15 +56,18 @@ function ProductList() {
                 <table key={product.id}>
                   <tbody>
                     <tr className="product__id">
-                      <td className="contain">ID: <br />{product.id}</td>
-                      <td className="contain">Name: <br />{product.productName}</td>
-                      {/* <td>Description: <br />{product.productDescription}</td> */}
-                      <td className="contain">Price: <br />{product.price}</td>
-                      {/* <td className="container">Quantity: <br />{product.quantity}</td> */}
-                      <td className="contain">fileType: <br />{product.fileType}</td>
-                      <td className="contain">Category: <br />{product.category}</td>
-                      <td className="contain">Review: <br />{product.thumbs ? 'Yes' : 'No'}</td>
-                      <td className="contain"><button onClick={() => handleDelete(product.id)} type="submit">DELETE</button></td>
+                        {/* <td className="contain">Item: <br />
+                        <section key={product.s3key} style={{ backgroundImage: `url('http://localhost:3001/api/s3/${product.s3key}')` }} />
+                        </td> */}
+                        <td className="contain">ID: <br />{product.id}</td>
+                        <td className="contain">Name: <br />{product.productName}</td>
+                        {/* <td>Description: <br />{product.productDescription}</td> */}
+                        <td className="contain">Price: <br />{product.price}</td>
+                        {/* <td className="container">Quantity: <br />{product.quantity}</td> */}
+                        {/* <td className="contain">image: <br />{product.image}</td> */}
+                        <td className="contain">Category: <br />{product.category}</td>
+                        <td className="contain">Review: <br />{product.thumbs ? 'Yes' : 'No'}</td>
+                        <td className="contain"><button onClick={() => handleDelete(product.id)} type="submit">DELETE</button></td>
                     </tr>
                   </tbody>
                 </table>

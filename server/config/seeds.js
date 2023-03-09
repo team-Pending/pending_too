@@ -128,7 +128,7 @@ db.once('open', async () => {
 		lastName: 'Washington',
 		cart: [],
 		isSeller: false,
-		isAdmin: false,
+		isAdmin: true,
 		username: 'MissWashington',
 		email: 'pamela@testmail.com',
 		password: 'password12345',
