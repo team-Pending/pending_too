@@ -99,6 +99,10 @@ export const QUERY_ME = gql`
 		me {
 			firstName
 			lastName
+			email
+			isAdmin
+			seller
+			username
 			orders {
 				_id
 				purchaseDate

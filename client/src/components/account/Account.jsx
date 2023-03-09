@@ -7,11 +7,9 @@ import { useAuth } from '../../utils/auth';
 
 function Account() {
 	const {user} = useAuth();
-	console.log("account-", user);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
-		console.log(Object.fromEntries(formData));
 	};
 
 	return (

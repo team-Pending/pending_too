@@ -25,23 +25,32 @@ const dropIn = {
 }
 
 const LoginModal = ({ onClose }) => {
-
+  
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
   };
+  
   return (
+    <motion.div    
+    initial={{opacity: 0}} 
+    animate={{opacity: 1}}
+    exit={{opacity: 0}}
+    className="modal"
+    onClick={handleBackdropClick}
+    >
+
     <motion.div
       variants={dropIn} 
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="modal" 
-      onClick={handleBackdropClick}>
+      >
 
       <LoginForm />
     </motion.div>
+        </motion.div>
   );
 };
 

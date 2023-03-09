@@ -28,6 +28,7 @@ const AuthProvider = (props) => {
 	const { data: userData } = useQuery(QUERY_ME);
 	console.log(userData, 'userdata');
 	const user = userData?.me;
+	
 	const handleLogin = async ({ email, password }) => {
 		try {
 			const { data } = await login({
@@ -69,6 +70,7 @@ const AuthProvider = (props) => {
 	const handleLogout = () => {
 		setToken();
 		removeStoredJwtToken();
+		location.reload();
 	};
 
 	return (
