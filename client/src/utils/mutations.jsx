@@ -31,7 +31,7 @@ export const ADD_PRODUCT = gql`
 			productName: $productName
 			productDescription: $productDescription
 			price: $price
-			s3Key: $s3Key
+			s3key: $s3key
 		) {
 			success
 			message

@@ -1,0 +1,92 @@
+[
+    {
+        "productName": "Mystic Mountains",
+        "productDescription":"Beautiful landscape of mystic mountains.",
+        "price": 69.99,
+        "reviews": ["Beautiful", "Love mine"],
+        "rating": 5,
+        "fileType": "jpg",
+        "s3key": "mystic mountains.jpg"
+    },
+    {
+        "productName": "Bangin",
+        "productDescription":"Rock music to make your day!",
+        "price": 9.99,
+        "reviews": ["Classic", "Rock out!"],
+        "rating": 7,
+        "fileType": "mp3",
+        "s3key": "istockphoto-1064852106-612x612.jpg"
+    },
+    {
+        "productName": "Puppies",
+        "productDescription":"Paint print of precious puppies",
+        "price": 79.99,
+        "reviews": ["Beautiful", "so cute!"],
+        "rating": 6,
+        "fileType": "jpg",
+        "s3key": "puppies.jpg"
+    },
+    {
+        "productName": "Once Upon A Time...",
+        "productDescription":"A story unlike any other story.",
+        "price": 9.99,
+        "reviews": ["Riveting", "Tender story"],
+        "rating": 3,
+        "fileType": "pdf",
+        "s3key": "01-reference-volcanoes-cb9bmt_2x1.webp"
+    },
+    {
+        "productName": "You can do it!",
+        "productDescription":"Uplifting quote in stylish decor for you to print and put on display",
+        "price": 1.99,
+        "reviews": ["Beautiful", "Powerful!"],
+        "rating": 4,
+        "fileType": "pdf",
+        "s3key": "istockphoto-1140264906-612x612.jpg"
+    },
+    {
+        "productName": "Sunrise",
+        "productDescription":"Breathtaking sunrise photo.",
+        "price": 42.99,
+        "reviews": ["Breathtaking", "Incredible shot!"],
+        "rating": 10,
+        "fileType": "jpg",
+        "s3key": "Sunrise.webp"
+    },
+    {
+        "productName": "Light",
+        "productDescription":"Relaxing, calm, light music.",
+        "price": 9.99,
+        "reviews": ["Beautiful", "Serene"],
+        "rating": 5,
+        "fileType": "mp3",
+        "s3key": "lightbulb.webp"
+    },
+    {
+        "productName": "Mysterious Happenings",
+        "productDescription":"A mystery novel to make you question everything!",
+        "price": 19.99,
+        "reviews": ["Intense!", "Great story!"],
+        "rating": 5,
+        "fileType": "pdf",
+        "s3key": "mysterious.jpg"
+    },
+    {
+        "productName": "Serenity",
+        "productDescription":"Peaceful painting print",
+        "price": 69.99,
+        "reviews": ["An escape!", "Peace in a frame!"],
+        "rating": 6,
+        "fileType": "jpg",
+        "s3key": "11051605_serenity.jpg"
+    },
+    {
+        "productName": "Vintage Wine Labels",
+        "productDescription":"Vintage wine lable printable PDF for all your decor needs.",
+        "price": 1.99,
+        "reviews": ["Beautiful", "Great decor for my kitchen"],
+        "rating": 8,
+        "fileType": "pdf",
+        "s3key": "wine label.jpg"
+    }
+]
