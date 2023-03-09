@@ -15,7 +15,6 @@ function Home() {
     return <p>Loading...</p>;
   }
   const content = data?.products;
-  console.log(content);
   return (
     <div>
       <Search search={search} handleSearch={setSearch} />

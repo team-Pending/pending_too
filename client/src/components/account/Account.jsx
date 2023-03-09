@@ -10,6 +10,7 @@ function Account() {
   };
 
   return (
+    
     <div className='account'>
       <div className="info-container">        
       <h1>Hello</h1>
@@ -17,14 +18,16 @@ function Account() {
       <h4>maybe an about me or something</h4>
       <button onClick={null} className='store-button'>and a link to the store</button>
       </div>
+
       <form onSubmit={handleSubmit}>
         <input type="file" name="upload" id="filename" className='upload'/>
         <input type="submit" value="Submit"    className='submit'/>
       </form>
-      <div className="thumb-container">
 
+      <div className="thumb-container">
       <Thumbnail />
       </div>
+
     </div>
   );
 }

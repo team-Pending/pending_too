@@ -6,7 +6,7 @@ function ShopCard({content}) {
       <section
       key={content.id}
         className="card"
-        style={{ backgroundImage: `url(${content.image})` }}
+        style={{ backgroundImage: `url(/api/s3/${content.s3key})` }}
       >
         <h1>{content.username}</h1>
         <h2>{content.productName}</h2>
