@@ -1,7 +1,7 @@
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
-// import { QUERY_ADMIN_PRODUCT } from "../../utils/queries";
+import { useQuery, useMutation, gql } from "@apollo/client";
 import { Container, Row, Col } from "reactstrap";
+import { DELETE_PRODUCT } from "../../utils/queries";
 import "./admin.css"
 
 const QUERY_ADMIN_PRODUCT = gql`
@@ -17,9 +17,9 @@ const QUERY_ADMIN_PRODUCT = gql`
 }
 `;
 
-
 function ProductList() {
   const { loading, error, data } = useQuery(QUERY_ADMIN_PRODUCT);
+  const [deleteProduct] = useMutation(DELETE_PRODUCT);
   console.log(error);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -28,11 +28,21 @@ function ProductList() {
     id: product.id,
     productName: product.productName,
     price: product.price,
-    // productDescription: product.productDescription,
     category: product.category,
     thumbsUp: product.thumbsUp,
     thumbsDown: product.thumbsDown,
   }));
+
+      async function handleDelete(id) {
+        try {
+            const { data } = await deleteProduct({
+                variables: { productId: id },
+            });
+            console.log(data); // handle success response
+        } catch (error) {
+            console.error(error); // handle error
+        }
+    }
 
   return (
     <section>
@@ -53,7 +63,7 @@ function ProductList() {
                       <td className="contain">fileType: <br />{product.fileType}</td>
                       <td className="contain">Category: <br />{product.category}</td>
                       <td className="contain">Review: <br />{product.thumbs ? 'Yes' : 'No'}</td>
-                      <td className="contain"><button type="submit">DELETE</button></td>
+                      <td className="contain"><button onClick={() => handleDelete(product.id)} type="submit">DELETE</button></td>
                     </tr>
                   </tbody>
                 </table>
