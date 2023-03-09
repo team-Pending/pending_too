@@ -125,6 +125,7 @@ const LoginForm = () => {
 				<button type="submit">Login</button>
 				{/* <a></a> */}
 				<button onClick={handleSwitchToSignUp}>Sign up Instead</button>
+				<button type="submit">Login</button>
 			</form>
 			<div className="title-container">
 				<Mediaphile />
