@@ -30,6 +30,7 @@ const productSchema = new Schema({
 	},
 	fileType: {
 		type: String,
+		required: false,
 	},
 	s3key: {
 		type: String,
