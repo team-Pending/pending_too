@@ -33,21 +33,21 @@ function UserList() {
         isAdmin: user.isAdmin,
     }));
 
-    async function handleDelete(id) {
+    async function handleDelete(_id) {
         try {
-            const { data } = await deleteUser({
-                variables: { userId: id },
-            });
-            if (data.deleteUser.success) {
-                console.log(`User with id ${id} deleted successfully`);
-            } else {
-                console.error(`Failed to delete user with id ${id}: ${data.deleteUser.message}`);
-            // console.log(data.deleteUser); // handle success response
-            }
+          const { data } = await deleteUser({
+            variables: { _id },
+          });
+          if (data.deleteUser.success) {
+            console.log(`User with id ${_id} deleted successfully`);
+          } else {
+            console.error(`Failed to delete user with id ${_id}: ${data.deleteUser.message}`);
+          }
         } catch (error) {
-            console.error(error); // handle error
+          console.error(error);
         }
-    }
+      }
+      
 
     return (
         <section>

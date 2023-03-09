@@ -6,7 +6,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    cart: String
+    cart: [String]
     isAdmin: Boolean
     seller: Boolean
     username: String
@@ -99,11 +99,8 @@ const typeDefs = gql`
     ): User
 
     updateProduct(_id: ID!, quantity: Int!): Product
-  }
-
-  type Mutation {
-    deleteUser(userId: ID!): User
     deleteProduct(productId: ID!): Product
+	deleteUser(_id: ID!): User
   }
 
   type DeleteUserResponse {

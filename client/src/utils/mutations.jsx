@@ -69,8 +69,8 @@ export const ADD_USER = gql`
 
 export const DELETE_USER = gql`
   mutation deleteUser(
-    $userId: ID!) {
-      deleteUser(Id: $userId){
+    $_id: ID!) {
+      deleteUser(_id: $_id){
         success
         message
       }

@@ -24,6 +24,7 @@ const dropIn = {
   },
 }
 
+
 const LoginModal = ({ onClose }) => {
   
   const handleBackdropClick = (event) => {
