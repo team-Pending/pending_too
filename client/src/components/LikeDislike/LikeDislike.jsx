@@ -6,27 +6,31 @@ function LikeDislike() {
     const [ rating, setRating ] = useState('');
     const [ activeBtn , setActiveBtn ] = useState("none");
 
-    const likeCount = () => {
+    const rateLike = () => {
         if (activeBtn === "none") {
+          console.log("rating + 1")
             setRating(rating + 1);
             setActiveBtn("like");
             return;
         }
 
         if (activeBtn === "dislike") {
+          console.log("rating + 1")
             setRating(rating + 1);
             setActiveBtn("like");
         }
     };
 
-    const dislikeCount = () => {
+    const rateDislike = () => {
         if (activeBtn === "none") {
+          console.log("rating - 1")
             setRating(rating - 1);
             setActiveBtn("dislike");
             return;
         }
 
         if (activeBtn === "like") {
+          console.log("rating - 1")
             setRating(rating - 1);
             setActiveBtn("dislike");
         }
@@ -38,16 +42,16 @@ function LikeDislike() {
           <div className="btnLD-container">
             <button
               className={`btnLD thumb ${activeBtn === 'like' ? 'like-active' : ''}`}
-              onClick={likeCount}>
+              onClick={rateLike}>
               <FontAwesomeIcon icon={faThumbsUp} style={{ height: "30px"}}/>
             </button>
     
             <button
               className={`btnLD thumb ${activeBtn === 'dislike' ? 'dislike-active' : ''}`}
-              onClick={dislikeCount}>
+              onClick={rateDislike}>
               <FontAwesomeIcon icon={faThumbsDown} style={{ height: "30px"}}/>
             </button>
-            {rating}
+
           </div>
         </div>
       );
