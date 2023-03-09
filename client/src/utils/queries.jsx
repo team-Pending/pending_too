@@ -1,4 +1,4 @@
-import { gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 export const QUERY_ALL_PRODUCT = gql`
 	{
@@ -10,7 +10,7 @@ export const QUERY_ALL_PRODUCT = gql`
 			reviews
 			rating
 			price
-
+			s3key
 			category {
 				name
 			}
@@ -133,16 +133,16 @@ export const QUERY_SEARCH_PRODUCT = gql`
 			id
 			productName
 			price
+			s3key
 		}
 	}
 `;
 
 export const DELETE_USER = gql`
-  mutation deleteUser(
-    $userId: ID!) {
-      deleteUser(userId: $userId){
-        successd
-        message
-      }
-    }
-  `;
+	mutation deleteUser($userId: ID!) {
+		deleteUser(userId: $userId) {
+			successd
+			message
+		}
+	}
+`;
