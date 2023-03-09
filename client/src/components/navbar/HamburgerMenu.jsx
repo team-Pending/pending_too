@@ -9,9 +9,13 @@ function HamburgerMenu(props) {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isOpen && !event.target.closest(".dropdown") && event.target !== document.querySelector(".hamburger-react")) {
+      if (isOpen 
+        && 
+        event.target !== document.querySelector(".hamburger-react")
+        &&
+        !event.target.closest(".dropdown") 
+       ) {
         setOpen(false);
-        console.log(isOpen, event.target)
       }
     };
 
