@@ -1,5 +1,7 @@
 import "./shopCard.css";
 import LikeDislike from "../LikeDislike/LikeDislike";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 
 function ShopCard({ content }) {
 	console.log(content);
@@ -12,7 +14,9 @@ function ShopCard({ content }) {
 				<li>{content.username}</li>
 				<li>{content.productDescription}</li>
 				<li>
-					<button className="add-to-cart">Add to cart</button>
+					<button className="add-to-cart">
+						<FontAwesomeIcon icon={faCartShopping} />
+						</button>
 					{/* <button className="remove-from-cart">Remove from cart</button> */}
 				</li>
 			</ul>
