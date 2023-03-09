@@ -37,6 +37,12 @@
   font-weight: 400;
 }
 
+.noButton {
+  border: none;
+  background: transparent;
+  font-size: medium;
+}
+
 .main-search {
   border-left: 2px solid black;
   padding-left: 1rem;
