@@ -60,6 +60,7 @@ const typeDefs = gql`
 	type Query {
 		user: [User!]!
 		singleUser(email: String): User!
+		me: User
 		adminUser: [User!]!
 		product: [Product!]!
 		adminProduct: [Product!]!
