@@ -34,6 +34,27 @@ No installation needed, simply navigate to https://mediaphile-shop.herokuapp.com
 ### Scroll or use search bar to find art, like it, dislike it, leave a review, or add it to your cart. 
 ![alt text](./assets/images/home.png)
 
+### As an administer of the account, when you log in, you will have additional access to another page that will allow you to delete users or items if necessary. 
+![alt text](./assets/images/AdminLoggedIn.png)
+
+### Admin Page will provide you with access to a User List and a Product List.
+![alt text](./assets/images/AdminPage.png)
+
+### When you are logged in, you can look at your personal page that offers you a chance to see items you have added, ability to add another item, and offer a chance to add information about yourself.
+![alt text](./assets/images/UsersAcctPage.png)
+
+### If logged in as a regular user without admin privilages, you will still have access to see your personal account. 
+![alt text](./assets/images/UserLoggedIn.png)
+
+### If a user tries to access the Admin page without authorization, they will see the following screen: 
+![alt text](./assets/images/NoAccess.png)
+![alt text](./assets/images/Responsive2.png)
+
+### Our site is also responsive to be viewed on mobile devices.  
+![alt text](./assets/images/Responsive.png)
+
+
+
 ## Credits
 
 Pictures from Google. 

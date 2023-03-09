@@ -23,7 +23,9 @@ function Account() {
 			<div className="info-container">
 				<h1>Hello</h1>
 				<h3>{`${user.firstName} ${user.lastName}`}</h3>
-				<h4>maybe an about me or something</h4>
+				<h4>Welcome to my page and taking a moment to see what I have to offer. <br />
+				I have enjoy outdoor activities and creating unique ways of combining images. <br />
+				Please enjoy my page.  I know I enjoy moving around and checking out what others are up to as well. </h4>
 				
 
 				<button onClick={null} className="store-button">
