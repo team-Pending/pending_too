@@ -72,13 +72,14 @@ export const ADD_USER = gql`
 `;
 
 export const DELETE_USER = gql`
-	mutation deleteUser($userId: ID!) {
-		deleteUser(Id: $userId) {
-			success
-			message
-		}
-	}
-`;
+  mutation deleteUser(
+    $_id: ID!) {
+      deleteUser(_id: $_id){
+        success
+        message
+      }
+    }
+  `;
 
 export const LOGIN = gql`
 	mutation login($email: String!, $password: String!) {

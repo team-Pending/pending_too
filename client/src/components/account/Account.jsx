@@ -24,6 +24,8 @@ function Account() {
 				<h1>Hello</h1>
 				<h3>{`${user.firstName} ${user.lastName}`}</h3>
 				<h4>maybe an about me or something</h4>
+				
+
 				<button onClick={null} className="store-button">
 					and a link to the store
 				</button>
