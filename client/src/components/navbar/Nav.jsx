@@ -22,6 +22,7 @@ function Navbar() {
 	const handleLoginModalClose = () => {
 		setIsModalVisible(false);
 	}
+
   return (
     <nav className="navbar">
       <Mediaphile />{" "}
@@ -30,10 +31,10 @@ function Navbar() {
           <Link to="/">Home</Link>
         </li>
         <li>|</li>
-        <li>
+        {/* <li>
           <Link to="about">About</Link>
         </li>
-        <li>|</li>
+        <li>|</li> */}
         <li>{user ? 
 	<Link to="account"> {user.username} </Link>
 	:
@@ -49,9 +50,13 @@ function Navbar() {
         {user != null && <li>|</li>}
         {user != null && (
           <li>
-            <button className="noButton" onClick={handleLogout}>Logout</button>
+            <button className="noButton" onClick={
+              handleLogout
+              }>Logout</button>
           </li>
         )}
+        {user?.isAdmin && <li>|</li>}
+        {user?.isAdmin && <li><a href="/admin?page=dashboard&user=admin&password=123456">Admin Dashboard</a></li>}
       </ul>
       <ul className="hamburger">
         <li>

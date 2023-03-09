@@ -28,10 +28,10 @@ No installation needed, simply navigate to https://mediaphile-shop.herokuapp.com
 
 ## Usage
 
-Register for an account or login:
+### Register for an account or login:
 ![alt text](./assets/images/login.png)
 
-Scroll or use search bar to find art, like it, dislike it, leave a review, or add it to your cart. 
+### Scroll or use search bar to find art, like it, dislike it, leave a review, or add it to your cart. 
 ![alt text](./assets/images/home.png)
 
 ## Credits

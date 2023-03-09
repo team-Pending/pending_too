@@ -41,6 +41,7 @@
   border: none;
   background: transparent;
   font-size: medium;
+  cursor: pointer;
 }
 
 .main-search {

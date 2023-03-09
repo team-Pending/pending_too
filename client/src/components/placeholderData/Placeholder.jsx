@@ -28,7 +28,7 @@ function Placeholder() {
     <div>
         <h1>Coming Soon</h1>
       <pre>{searchTarget}</pre>
-      <button onClick={() => {handleClick()}}>hello there</button>
+      {/* <button onClick={() => {handleClick()}}>hello there</button> */}
     </div>
   );
 }

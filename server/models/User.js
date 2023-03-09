@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
+const Product = require('./Product');
 
 const userSchema = new Schema({
   firstName: {
@@ -46,6 +47,9 @@ const userSchema = new Schema({
   orders: [
     [Order.schema],
 ],
+  products: [
+    [Product.schema],
+  ],
 });
 
 // set up pre-save middleware to create password

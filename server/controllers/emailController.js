@@ -18,13 +18,12 @@ const transporter = nodemailer.createTransport({
 
 const emailController = {
 	sendTextEmail(req, res) {
-		const { to, subject, text } = req.body;
+		const sendTo = req.params.email
 		const mailData = {
 			from: emailAddress,
-			to: to,
-			subject: subject,
-			text: text,
-			html: '<b>Hey there! </b><br> This is our first message sent with Nodemailer<br/>',
+			to: sendTo,
+			subject: "You forgot your password",
+			text: "That really sucks for you! HaHa!",
 		};
 
 		transporter.sendMail(mailData, (error, info) => {

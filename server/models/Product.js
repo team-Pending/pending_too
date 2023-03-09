@@ -26,9 +26,11 @@ const productSchema = new Schema({
 	],
 	rating: {
 		type: Number,
+		default: 0,
 	},
 	fileType: {
 		type: String,
+		required: false,
 	},
 	s3key: {
 		type: String,

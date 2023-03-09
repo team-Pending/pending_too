@@ -114,6 +114,14 @@ export const QUERY_ME = gql`
 					fileType
 				}
 			}
+			products {
+				category
+			productDescription
+			id
+			productName
+			price
+			s3key
+			}
 		}
 	}
 `;
@@ -133,6 +141,7 @@ export const QUERY_ADMIN_USER = gql`
 export const QUERY_ADMIN_PRODUCT = gql`
 	query AdminProduct($name: String) {
 		product(name: $name) {
+			s3key
 			_id
 			productName
 			productDescription
@@ -155,6 +164,7 @@ export const QUERY_SEARCH_PRODUCT = gql`
 			id
 			productName
 			price
+			rating
 			s3key
 		}
 	}
@@ -162,8 +172,8 @@ export const QUERY_SEARCH_PRODUCT = gql`
 
 export const DELETE_USER = gql`
   mutation deleteUser(
-    $userId: ID!) {
-      deleteUser(userId: $userId){
+    $_id: ID!) {
+      deleteUser(_id: $_id){
         _id
         username
         firstName
