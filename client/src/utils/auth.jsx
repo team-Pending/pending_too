@@ -25,7 +25,7 @@ const AuthProvider = (props) => {
 	const user = token ? getTokenUser(token) : null;
 	useEffect(() => {
 		setToken(getStoredJwtToken());
-	});
+	},[]);
 
 	const getUserData = async (email) => {
 		const { userData, loading } = useQuery(QUERY_GET_USER, {

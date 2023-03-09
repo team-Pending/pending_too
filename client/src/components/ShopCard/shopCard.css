@@ -43,12 +43,17 @@
 }
 .add-to-cart {
   cursor: pointer;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: x-large;
 }
 .add-to-cart:hover {
   color: var(--orange);
 }
 .add-to-cart:active {
   color: var(--bright);
+  box-shadow: none;
 }
 
 .like {

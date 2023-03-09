@@ -60,7 +60,7 @@ function App() {
 								<Route path="/admin" element={<Admin />} />
 								<Route path="/cart" element={<Cart />} />
 								<Route path="/*" element={<NotFound />} />
-							    <Route path="/:target" element={<Placeholder />}/>
+							    <Route path="/search/:param" element={<Placeholder />}/>
 
 							</Routes>
 						</div>
