@@ -6,7 +6,7 @@ import { setContext } from '@apollo/client/link/context';
 import { AuthProvider } from './utils/auth';
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-import Navbar from './components/navbar/Nav';
+import Navbar from "./components/navbar/Nav";
 import Home from './components/Home';
 import ShopCard from './components/ShopCard/ShopCard';
 import Account from './components/account/Account';
@@ -16,6 +16,7 @@ import LoginForm from './components/account/LoginForm';
 import CategoryMenu from './components/CategoryMenu';
 import Cart from "./components/Cart";
 import NotFound from './components/NotFound.jsx';
+import Placeholder from './components/placeholderData/Placeholder';
 
 // Laura adding regarding pulling auth path
 // Construct our main GraphQL API endpoint
@@ -59,6 +60,8 @@ function App() {
 								<Route path="/admin" element={<Admin />} />
 								<Route path="/cart" element={<Cart />} />
 								<Route path="/*" element={<NotFound />} />
+							    <Route path="/:target" element={<Placeholder />}/>
+
 							</Routes>
 						</div>
 					</div>

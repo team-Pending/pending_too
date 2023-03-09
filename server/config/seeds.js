@@ -25,7 +25,7 @@ db.once('open', async () => {
             reviews: ["Beautiful", "Love mine"],
             rating: 5,
             fileType: "jpg",
-            s3key: ""
+            s3key: "mystic mountains.jpg"
         },
         {
             productName: 'Bangin',
@@ -35,7 +35,7 @@ db.once('open', async () => {
             reviews: ["Classic", "Rock out!"],
             rating: 7,
             fileType: "mp3",
-            s3key: ""
+            s3key: "istockphoto-1064852106-612x612.jpg"
         },
         {
             productName: 'Puppies',
@@ -45,7 +45,7 @@ db.once('open', async () => {
             reviews: ["Beautiful", "so cute!"],
             rating: 6,
             fileType: "jpg",
-            s3key: ""
+            s3key: "puppies.jpg"
         },
         {
             productName: 'Once Upon A Time...',
@@ -55,7 +55,7 @@ db.once('open', async () => {
             reviews: ["Riveting", "Tender story"],
             rating: 3,
             fileType: "pdf",
-            s3key: ""
+            s3key: "01-reference-volcanoes-cb9bmt_2x1.webp"
         },
         {
             productName: 'You can do it!',
@@ -65,7 +65,7 @@ db.once('open', async () => {
             reviews: ["Beautiful", "Powerful!"],
             rating: 4,
             fileType: "pdf",
-            s3key: ""
+            s3key: "istockphoto-1140264906-612x612.jpg"
         },
         {
             productName: 'Sunrise',
@@ -75,7 +75,7 @@ db.once('open', async () => {
             reviews: ["Breathtaking", "Incredible shot!"],
             rating: 10,
             fileType: "jpg",
-            s3key: ""
+            s3key: "Sunrise.webp"
         },
         {
             productName: 'Light',
@@ -85,7 +85,7 @@ db.once('open', async () => {
             reviews: ["Beautiful", "Serene"],
             rating: 5,
             fileType: "mp3",
-            s3key: ""
+            s3key: "lightbulb.webp"
         },
         {
             productName: 'Mysterious Happenings',
@@ -95,7 +95,7 @@ db.once('open', async () => {
             reviews: ["Intense!", "Great story!"],
             rating: 5,
             fileType: "pdf",
-            s3key: ""
+            s3key: "mysterious.jpg"
         },
         {
             productName: 'Serenity',
@@ -105,7 +105,7 @@ db.once('open', async () => {
             reviews: ["An escape!", "Peace in a frame!"],
             rating: 6,
             fileType: "jpg",
-            s3key: ""
+            s3key: "11051605_serenity.jpg"
         },
         {
             productName: 'Vintage Wine Labels',
@@ -115,7 +115,7 @@ db.once('open', async () => {
             reviews: ["Beautiful", "Great decor for my kitchen"],
             rating: 8,
             fileType: "pdf",
-            s3key: ""
+            s3key: "wine label.jpg"
         },
     ]);
 
