@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_GET_USER } from '../../utils/queries';
 import Mediaphile from '../Mediaphile';
 import { useAuth } from '../../utils/auth';
 
 const LoginForm = () => {
-	const { handleLogin, handleSignup, error } = useAuth();
+	const { handleLogin, handleSignup, getUserData, error } = useAuth();
 	const [signUp, setSignUp] = useState(false);
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -17,6 +19,14 @@ const LoginForm = () => {
 		const formData = new FormData(e.target);
 		console.log(Object.fromEntries(formData));
 		handleLogin({ email, password });
+		const getUserData = async (email) => {
+			const { userData, loading } = useQuery(QUERY_GET_USER, {
+				variables: { email: email },
+			});
+			console.log(userData + 'userdata');
+			return userData;
+		};
+		getUserData(email);
 		setEmail('');
 		setPassword('');
 	};

@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import jwtDecode from 'jwt-decode';
 import { LOGIN, ADD_USER } from './mutations';
-
+import { QUERY_GET_USER } from './queries';
 const AuthContext = createContext();
 
 const setStoredJwtToken = (token) => sessionStorage.setItem('jwt', token);
@@ -15,6 +15,7 @@ const getTokenUser = (token) => {
 	return data;
 };
 
+
 const AuthProvider = (props) => {
 	const [login] = useMutation(LOGIN);
 	const [addUser] = useMutation(ADD_USER);
@@ -25,6 +26,14 @@ const AuthProvider = (props) => {
 	useEffect(() => {
 		setToken(getStoredJwtToken());
 	});
+
+	const getUserData = async (email) => {
+		const { userData, loading } = useQuery(QUERY_GET_USER, {
+			variables: { email: email },
+		});
+		console.log(userData + 'userdata');
+		return userData;
+	};
 
 	const handleLogin = async ({ email, password }) => {
 		try {
@@ -72,7 +81,7 @@ const AuthProvider = (props) => {
 
 	return (
 		<AuthContext.Provider
-			value={{ user, handleLogin, handleLogout, handleSignup, error }}
+			value={{ user, handleLogin, handleLogout, handleSignup, getUserData, error }}
 			{...props}
 		/>
 	);
