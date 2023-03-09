@@ -114,6 +114,14 @@ export const QUERY_ME = gql`
 					fileType
 				}
 			}
+			products {
+				category
+			productDescription
+			id
+			productName
+			price
+			s3key
+			}
 		}
 	}
 `;

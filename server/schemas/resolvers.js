@@ -174,6 +174,36 @@ const resolvers = {
 			return { token };
 		},
 
+		addProduct: async (
+			parent,
+			{ email, productName, productDescription, price, s3key },
+			context
+		) => {
+			console.log('Hit add Product');
+			var checkUser = await User.findOne({ email });
+			if (!checkUser) {
+				console.log('User does not exist');
+				throw new GraphQLError('This user does not exist', {
+					extensions: {
+						code: AUTHENTICATION_ERROR,
+					},
+				});
+			} else {
+				var newProduct = await new Product({
+					email: email,
+					productName: productName,
+					productDescription: productDescription,
+					price: price,
+					s3key: s3key,
+				});
+				await newProduct.save();
+				console.log('you saved a new product', newProduct);				var updateUser = await User.findOneAndUpdate({email}, {$push: {product: newProduct}});
+				await updateUser.save();
+				console.log();
+				return { success: true, message: 'I think you added a new Product' };
+			}
+		},
+
 		updateUser: async (parent, args, context) => {
 			if (context.user) {
 				return await User.findByIdAndUpdate(context.user._id, args, {
@@ -184,34 +214,32 @@ const resolvers = {
 			throw new AuthenticationError('Must be logged in');
 		},
 
-    deleteUser: async (parent, args, context) => {
-      if (context.user) {
-        const result = await User.deleteOne({ _id: context.user._id });
-        if (result.deletedCount === 1) {
-          return { success: true, message: 'User deleted successfully' };
-        }
-        return { success: false, message: 'User not found' };
-      }
-      throw new AuthenticationError('Must be logged in');
-    },
-    
+		deleteUser: async (parent, args, context) => {
+			if (context.user) {
+				const result = await User.deleteOne({ _id: context.user._id });
+				if (result.deletedCount === 1) {
+					return { success: true, message: 'User deleted successfully' };
+				}
+				return { success: false, message: 'User not found' };
+			}
+			throw new AuthenticationError('Must be logged in');
+		},
 
+		deleteProduct: async (parent, args, context) => {
+			if (context.product) {
+				const result = await Product.deleteOne({ _id: context.product._id });
+				if (result.deletedCount === 1) {
+					return { success: true, message: 'Product deleted successfully' };
+				}
+				return { success: false, message: 'Product not found' };
+			}
+			throw new AuthenticationError('Must be logged in');
+		},
 
-    deleteProduct: async (parent, args, context) => {
-      if (context.product) {
-        const result = await Product.deleteOne({ _id: context.product._id });
-        if (result.deletedCount === 1) {
-          return { success: true, message: 'Product deleted successfully' };
-        }
-        return { success: false, message: 'Product not found' };
-      }
-      throw new AuthenticationError('Must be logged in');
-    },
-    
-    // addOrder: async (parent, { products }, context) => {
-    //   console.log(context);
-    //   if (context.user) {
-    //     const order = new Order({ products });
+		// addOrder: async (parent, { products }, context) => {
+		//   console.log(context);
+		//   if (context.user) {
+		//     const order = new Order({ products });
 
 		//     await User.findByIdAndUpdate(context.user._id, {
 		//       $push: { orders: order },

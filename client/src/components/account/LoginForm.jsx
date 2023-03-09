@@ -123,6 +123,7 @@ const LoginForm = () => {
 					placeholder="Enter Password"
 				/>
 				<button type="submit">Login</button>
+				{/* <a></a> */}
 				<button onClick={handleSwitchToSignUp}>Sign up Instead</button>
 			</form>
 			<div className="title-container">
