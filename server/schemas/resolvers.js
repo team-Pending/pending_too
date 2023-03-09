@@ -184,20 +184,34 @@ const resolvers = {
 			throw new AuthenticationError('Must be logged in');
 		},
 
-		deleteUser: async (parent, args, context) => {
-			if (context.user) {
-				const result = await User.deleteOne({ _id: context.user._id });
-				if (result.deletedCount === 1) {
-					return { success: true, message: 'User deleted successfully' };
-				}
-				return { success: false, message: 'User not found' };
-			}
-			throw new AuthenticationError('Must be logged in');
-		},
-		// addOrder: async (parent, { products }, context) => {
-		//   console.log(context);
-		//   if (context.user) {
-		//     const order = new Order({ products });
+    deleteUser: async (parent, args, context) => {
+      if (context.user) {
+        const result = await User.deleteOne({ _id: context.user._id });
+        if (result.deletedCount === 1) {
+          return { success: true, message: 'User deleted successfully' };
+        }
+        return { success: false, message: 'User not found' };
+      }
+      throw new AuthenticationError('Must be logged in');
+    },
+    
+
+
+    deleteProduct: async (parent, args, context) => {
+      if (context.product) {
+        const result = await Product.deleteOne({ _id: context.product._id });
+        if (result.deletedCount === 1) {
+          return { success: true, message: 'Product deleted successfully' };
+        }
+        return { success: false, message: 'Product not found' };
+      }
+      throw new AuthenticationError('Must be logged in');
+    },
+    
+    // addOrder: async (parent, { products }, context) => {
+    //   console.log(context);
+    //   if (context.user) {
+    //     const order = new Order({ products });
 
 		//     await User.findByIdAndUpdate(context.user._id, {
 		//       $push: { orders: order },

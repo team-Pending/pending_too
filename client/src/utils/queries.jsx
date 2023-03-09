@@ -118,15 +118,16 @@ export const QUERY_ME = gql`
 	}
 `;
 export const QUERY_ADMIN_USER = gql`
-	query AminUser($name: String) {
-		user(name: $name) {
-			_id
-			firstName
-			lastName
-			email
-			isAdmin
-		}
-	}
+ query AdminUser {
+    user {
+      _id
+      username
+      firstName
+      lastName
+      email
+      isAdmin
+    }
+  }
 `;
 
 export const QUERY_ADMIN_PRODUCT = gql`
@@ -160,10 +161,25 @@ export const QUERY_SEARCH_PRODUCT = gql`
 `;
 
 export const DELETE_USER = gql`
-	mutation deleteUser($userId: ID!) {
-		deleteUser(userId: $userId) {
-			successd
-			message
-		}
-	}
-`;
+  mutation deleteUser(
+    $userId: ID!) {
+      deleteUser(userId: $userId){
+        _id
+        username
+        firstName
+        lastName
+        email
+        isAdmin
+      }
+    }
+  `;
+
+export const DELETE_PRODUCT = gql`
+  mutation deleteProduct(
+    $productId: ID!) {
+      deleteProduct(productId: $productId){
+        id
+        productName
+      }
+    }
+  `;

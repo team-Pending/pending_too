@@ -84,15 +84,36 @@ const typeDefs = gql`
 
 		updateUser(firstName: String, lastName: String, email: String, password: String): User
 
-		updateProduct(_id: ID!, quantity: Int!): Product
-		
-		deleteUser: DeleteUserResponse!
-	}
+    addProduct(
+      id: ID
+      productName: String
+      productDescription: String
+      price: Float
+      category: String
+      reviews: String
+      rating: Int
+      fileType: String
+      s3key: String
+      thumbsUp: Int
+      thumbsDown: Int
+    ): User
 
-	type DeleteUserResponse {
-		success: Boolean!
-		message: String!
-	}
+    updateProduct(_id: ID!, quantity: Int!): Product
+  }
+
+  type Mutation {
+    deleteUser(userId: ID!): User
+    deleteProduct(productId: ID!): Product
+  }
+
+  type DeleteUserResponse {
+    success: Boolean!
+    message: String!
+  }
+  type DeleteProductResponse {
+    success: Boolean!
+    message: String!
+  }
 `;
 
 module.exports = typeDefs;
