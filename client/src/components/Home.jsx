@@ -4,7 +4,7 @@ import Search from "./Search";
 import { useQuery } from "@apollo/client";
 import { QUERY_SEARCH_PRODUCT } from "../utils/queries";
 import { QueryManager } from "@apollo/client/core/QueryManager";
-import "./ShopCard/shopcard.css";
+import "./ShopCard/shopCard.css";
 
 function Home() {
   const [search, setSearch] = useState("");
@@ -15,7 +15,6 @@ function Home() {
     return <p>Loading...</p>;
   }
   const content = data?.products;
-  console.log(content);
   return (
     <div>
       <Search search={search} handleSearch={setSearch} />

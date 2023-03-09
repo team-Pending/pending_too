@@ -263,6 +263,7 @@
   padding: 2rem;
 }
 .login-form > form > input {
+  font-size: larger;
   padding: 5px;
   margin-bottom: 1rem;
   border-radius: 5px;

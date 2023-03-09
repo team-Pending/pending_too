@@ -1,6 +1,7 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import {
   faMoon,
   faMusic,
@@ -8,35 +9,48 @@ import {
   faPalette,
   faBook,
   faCouch,
+  faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./dropdown.css";
 
 function DropDown() {
+  let navigate = useNavigate();
+
+  const handleClick = (value) => {
+    navigate(`/search/${value}`)
+  }
+
+
   return (
+    <>
     <motion.div 
     animate={{ y: 10}} 
     transition={{ type: "spring", bounce: 0.75 }}
     className="dropdown">
-            <a href="#" className="menu-item">
+            {/* <a onClick={handleClick('music')} className="menu-item">
         <FontAwesomeIcon icon={faMoon} />
-      </a>
-      <a href="#" className="menu-item">
+      </a> */}
+      <button onClick={() => {handleClick('music')}} className="menu-item"> 
         <FontAwesomeIcon icon={faMusic} />
-      </a>
-      <a href="#" className="menu-item">
+      </button>
+      <button onClick={() => {handleClick('photo')}} className="menu-item">
         <FontAwesomeIcon icon={faCamera} />
-      </a>
-      <a href="#" className="menu-item">
+      </button>
+      <button onClick={() => {handleClick('art')} }className="menu-item">
         <FontAwesomeIcon icon={faPalette} />
-      </a>
-      <a href="#" className="menu-item">
+      </button>
+      <button onClick={() => {handleClick('book')}} className="menu-item">
         <FontAwesomeIcon icon={faBook} />
-      </a>
-      <a href="#" className="menu-item">
+      </button>
+      <button onClick={() => {handleClick('decor')}} className="menu-item">
         <FontAwesomeIcon icon={faCouch} />
+      </button>
+      <a href="#" className="menu-item">
+        <FontAwesomeIcon icon={faShoppingCart} />
       </a>
     </motion.div>
+    </>
   );
 }
 

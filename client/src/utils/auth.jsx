@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import jwtDecode from 'jwt-decode';
 import { LOGIN, ADD_USER } from './mutations';
-
+import { QUERY_ME } from './queries';
 const AuthContext = createContext();
 
 const setStoredJwtToken = (token) => sessionStorage.setItem('jwt', token);
@@ -21,11 +21,13 @@ const AuthProvider = (props) => {
 	const [error, setError] = useState();
 	const [token, setToken] = useState();
 
-	const user = token ? getTokenUser(token) : null;
+	const payload = token ? getTokenUser(token) : null;
 	useEffect(() => {
 		setToken(getStoredJwtToken());
-	});
-
+	}, []);
+	const { data: userData } = useQuery(QUERY_ME);
+	console.log(userData, 'userdata');
+	const user = userData?.me;
 	const handleLogin = async ({ email, password }) => {
 		try {
 			const { data } = await login({
@@ -37,7 +39,6 @@ const AuthProvider = (props) => {
 			const token = data.login.token;
 			setToken(token);
 			setStoredJwtToken(token);
-			console.log(user);
 		} catch ({ message = 'An unexpected error occured' }) {
 			setError(message);
 		}
@@ -72,7 +73,7 @@ const AuthProvider = (props) => {
 
 	return (
 		<AuthContext.Provider
-			value={{ user, handleLogin, handleLogout, handleSignup, error }}
+			value={{ payload, handleLogin, handleLogout, handleSignup, error, user}}
 			{...props}
 		/>
 	);

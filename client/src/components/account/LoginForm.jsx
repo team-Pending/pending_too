@@ -1,23 +1,28 @@
 import React from 'react';
 import { useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_GET_USER } from '../../utils/queries';
 import Mediaphile from '../Mediaphile';
 import { useAuth } from '../../utils/auth';
 
 const LoginForm = () => {
-	const { handleLogin, handleSignup, error } = useAuth();
+	const { handleLogin, handleSignup, getUserData, error } = useAuth();
 	const [signUp, setSignUp] = useState(false);
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [username, setUsername] = useState('');
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setlastName] = useState('');
+	// const { data, loading } = useQuery(QUERY_GET_USER, {
+	// 	variables: { email: email },
+	// });
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
 		console.log(Object.fromEntries(formData));
 		handleLogin({ email, password });
-		setEmail('');
+		setEmail(email);
 		setPassword('');
 	};
 
@@ -78,7 +83,7 @@ const LoginForm = () => {
 						placeholder="Enter Last Name"
 					/>
 					<input
-						type="text"
+						type="password"
 						name="password"
 						id="password"
 						required
@@ -109,7 +114,7 @@ const LoginForm = () => {
 					placeholder="Enter Email"
 				/>
 				<input
-					type="text"
+					type="password"
 					name="password"
 					id="password"
 					required
