@@ -137,6 +137,7 @@ const resolvers = {
 		},
 
 		addUser: async (parent, { username, firstName, lastName, email, password }) => {
+			console.log("Hit add User");
 			const checkUser = await User.findOne({ email });
 			if (checkUser) {
 				console.log('email already exists');
