@@ -11,7 +11,7 @@ const typeDefs = gql`
     seller: Boolean
     username: String
     password: String
-    orders: [Orders]
+    orders: [Order]
   }
 
   type Order {

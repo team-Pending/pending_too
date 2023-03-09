@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import HamburgerMenu from './HamburgerMenu';
 import Search from '../Search';
 import { useAuth } from '../../utils/auth';
-
 import './nav.css';
 import DropDown from './DropDown';
 import Mediaphile from '../Mediaphile';
@@ -54,6 +53,9 @@ function Navbar() {
 				<li>|</li>
 				<li>
 					<Link to="account">{user ? `${user.email}` : 'Account'}</Link>
+				</li>
+				<li>
+					<Link to="cart">Cart</Link>
 				</li>
 				{user != null && (
 				<li>|</li>)}
