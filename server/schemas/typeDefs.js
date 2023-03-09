@@ -1,18 +1,19 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type User {
-    _id: ID
-    firstName: String
-    lastName: String
-    email: String
-    cart: [String]
-    isAdmin: Boolean
-    seller: Boolean
-    username: String
-    password: String
-    orders: [Order]
-  }
+	type User {
+		_id: ID
+		firstName: String
+		lastName: String
+		email: String
+		cart: String
+		isAdmin: Boolean
+		seller: Boolean
+		username: String
+		password: String
+		orders: [Order]
+		products: [Product]
+	}
 
 	type Order {
 		_id: ID
@@ -67,8 +68,6 @@ const typeDefs = gql`
 		products(name: String): [Product!]!
 	}
 
-
-
 	type Mutation {
 		login(email: String!, password: String!): Auth
 
@@ -78,39 +77,34 @@ const typeDefs = gql`
 			lastName: String!
 			email: String!
 			password: String!
-		) : Auth
+		): Auth
 
 		addOrder(products: [ID]!): Order
 
 		updateUser(firstName: String, lastName: String, email: String, password: String): User
 
-    addProduct(
-      id: ID
-      productName: String
-      productDescription: String
-      price: Float
-      category: String
-      reviews: String
-      rating: Int
-      fileType: String
-      s3key: String
-      thumbsUp: Int
-      thumbsDown: Int
-    ): User
+		addProduct(
+			email: String!
+			productName: String
+			productDescription: String
+			price: Float
+			s3key: String
+		): User
 
-    updateProduct(_id: ID!, quantity: Int!): Product
-    deleteProduct(productId: ID!): Product
-	deleteUser(_id: ID!): User
-  }
+		updateProduct(_id: ID!, quantity: Int!): Product
 
-  type DeleteUserResponse {
-    success: Boolean!
-    message: String!
-  }
-  type DeleteProductResponse {
-    success: Boolean!
-    message: String!
-  }
+		deleteUser(userId: ID!): User
+		deleteProduct(productId: ID!): Product
+	}
+
+	type DeleteUserResponse {
+		success: Boolean!
+		message: String!
+	}
+	type DeleteProductResponse {
+		success: Boolean!
+		message: String!
+	}
 `;
 
 module.exports = typeDefs;
