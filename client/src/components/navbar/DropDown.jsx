@@ -28,9 +28,6 @@ function DropDown() {
     animate={{ y: 10}} 
     transition={{ type: "spring", bounce: 0.75 }}
     className="dropdown">
-            {/* <a onClick={handleClick('music')} className="menu-item">
-        <FontAwesomeIcon icon={faMoon} />
-      </a> */}
       <button onClick={() => {handleClick('music')}} className="menu-item"> 
         <FontAwesomeIcon icon={faMusic} />
       </button>
