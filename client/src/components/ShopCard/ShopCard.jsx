@@ -1,5 +1,5 @@
-import './ShopCard.css';
-import LikeDislike from '../LikeDislike/LikeDislike';
+import "./shopCard.css";
+import LikeDislike from "../LikeDislike/LikeDislike";
 
 function ShopCard({ content }) {
 	console.log(content);
