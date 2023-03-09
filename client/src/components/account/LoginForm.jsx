@@ -88,7 +88,7 @@ const LoginForm = () => {
 						placeholder="Enter Last Name"
 					/>
 					<input
-						type="text"
+						type="password"
 						name="password"
 						id="password"
 						required
@@ -119,7 +119,7 @@ const LoginForm = () => {
 					placeholder="Enter Email"
 				/>
 				<input
-					type="text"
+					type="password"
 					name="password"
 					id="password"
 					required
