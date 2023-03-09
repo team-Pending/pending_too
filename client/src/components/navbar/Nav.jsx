@@ -8,7 +8,8 @@ import LoginModal from "../account/LoginModal";
 import "./nav.css";
 import DropDown from "./DropDown";
 import Mediaphile from "../Mediaphile";
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion';
+
 
 function Navbar() {
   const { user, handleLogout } = useAuth();
@@ -34,7 +35,7 @@ function Navbar() {
         </li>
         <li>|</li>
         <li>{user ? 
-	<Link to="account">user.email</Link>
+	<Link to="account"> {user.username} </Link>
 	:
 	<a onClick={handleLoginModalOpen}>Login</a>
 }
