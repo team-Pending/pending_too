@@ -55,7 +55,7 @@ function App() {
 							<Routes>
 								<Route path="/" element={<Home />} />
 								<Route path="/about" element={<LoginForm />} />
-								<Route path="/account" element={<Account />} />
+								{/* <Route path="/account" element={<Account />} /> */}
 								<Route path="/admin" element={<Admin />} />
 								<Route path="/cart" element={<Cart />} />
 								<Route path="/*" element={<NotFound />} />
