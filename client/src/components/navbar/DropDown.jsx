@@ -45,7 +45,7 @@ function DropDown() {
       </button>
       <button onClick={() => {handleClick('decor')}} className="menu-item">
         <FontAwesomeIcon icon={faCouch} />
-      </a>
+      </button>
       <a href="#" className="menu-item">
         <FontAwesomeIcon icon={faShoppingCart} />
       </a>
