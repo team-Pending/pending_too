@@ -156,6 +156,7 @@ export const QUERY_SEARCH_PRODUCT = gql`
 			id
 			productName
 			price
+			rating
 			s3key
 		}
 	}
