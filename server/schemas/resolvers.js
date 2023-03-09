@@ -10,6 +10,7 @@ const resolvers = {
 	Query: {
 		user: async (parent, args, context) => {
 			//added for sake of testing without login
+			console.log('you searched a user');
 			context.user = true;
 			if (context.user) {
 				const user = await User.find();
@@ -20,7 +21,11 @@ const resolvers = {
 			throw new AuthenticationError('Not logged in');
 		},
 		singleUser: async (parent, args, context) => {
-			const user = await User.findOne({ email });
+			console.log('you searched for a single user');
+			const user = await User.findOne({
+				email: args.email,
+			});
+			console.log(user);
 			if (!user) {
 				throw new GraphQLError('User does not exist!', {
 					extensions: {
@@ -28,7 +33,14 @@ const resolvers = {
 					},
 				});
 			}
-			return { user };
+			return user;
+		},
+		me: async (parent, args, context) => {
+			console.log('you searched for a yourself', context.user);
+			const user = await User.findOne({
+				email: context.user.email,
+			});
+			return user;
 		},
 		// Laura added to pull adminUser info
 		adminUser: async (_, __, context) => {
@@ -137,7 +149,7 @@ const resolvers = {
 		},
 
 		addUser: async (parent, { username, firstName, lastName, email, password }) => {
-			console.log("Hit add User");
+			console.log('Hit add User');
 			const checkUser = await User.findOne({ email });
 			if (checkUser) {
 				console.log('email already exists');

@@ -76,20 +76,37 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_GET_USER = gql`
-	query SingleUser($email: String) {
-		user(email: $email) {
+	query singleUser($email: String) {
+		singleUser(email: $email) {
 			firstName
 			lastName
-			email
 			orders {
 				_id
 				purchaseDate
 				product {
-					_id
+					id
 					productName
 					productDescription
 					price
-					quantity
+					fileType
+				}
+			}
+		}
+	}
+`;
+export const QUERY_ME = gql`
+	query me{
+		me {
+			firstName
+			lastName
+			orders {
+				_id
+				purchaseDate
+				product {
+					id
+					productName
+					productDescription
+					price
 					fileType
 				}
 			}
