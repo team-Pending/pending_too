@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react"
 import { Link, Route, Routes } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import {
   faMoon,
   faMusic,
@@ -10,6 +10,7 @@ import {
   faPalette,
   faBook,
   faCouch,
+  faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./dropdown.css";
@@ -49,6 +50,9 @@ function DropDown() {
       </a>
       <a href="#" className="menu-item">
         <FontAwesomeIcon icon={faCouch} />
+      </a>
+      <a href="#" className="menu-item">
+        <FontAwesomeIcon icon={faShoppingCart} />
       </a>
     </motion.div>
     </>
