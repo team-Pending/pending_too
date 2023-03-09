@@ -90,18 +90,11 @@ const typeDefs = gql`
       productDescription: String
       price: Float
       category: String
-      reviews: String
-      rating: Int
-      fileType: String
       s3key: String
-      thumbsUp: Int
-      thumbsDown: Int
     ): User
 
     updateProduct(_id: ID!, quantity: Int!): Product
-  }
 
-  type Mutation {
     deleteUser(userId: ID!): User
     deleteProduct(productId: ID!): Product
   }

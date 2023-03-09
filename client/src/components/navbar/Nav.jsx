@@ -48,7 +48,9 @@ function Navbar() {
         {user != null && <li>|</li>}
         {user != null && (
           <li>
-            <button className="noButton" onClick={handleLogout}>Logout</button>
+            <button className="noButton" onClick={
+              handleLogout
+              }>Logout</button>
           </li>
         )}
       </ul>
