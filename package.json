@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "server/server.js",
 	"scripts": {
-		"install": "cd server && npm i && cd ../client && npm i",
+		"install": "NPM_CONFIG_PRODUCTION=false cd server && npm i && cd ../client && npm i",
 		"seed": "cd server && npm run seed",
 		"build": "cd client && npm run build",
 		"develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
