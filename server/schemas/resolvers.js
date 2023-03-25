@@ -70,11 +70,12 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    products: async (parent, args, context) => {
-      return Product.find({
-        productName: { $regex: args.name, $options: "i" },
-      });
-    },
+    // products: async (parent, args, context) => {
+    //   return Product.find({
+    //     productName: { $regex: args.name, $options: "i" },
+    //   });
+    // },
+
     // order: async (parent, { _id }, context) => {
     //   if (context.user) {
     // 	const user = await User.findById(context.user._id).populate({
@@ -201,12 +202,13 @@ const resolvers = {
         });
         await newProduct.save();
         console.log("you saved a new product", newProduct);
-        var updateUser = await User.findOneAndUpdate(
-          { email },
-          { $push: { product: newProduct } }
-        );
-        await updateUser.save();
-        console.log();
+        // var updateUser = await User.findOneAndUpdate(
+        //   { email },
+        //   { $push: { products: newProduct } }
+        // );
+        await checkUser.products.push(newProduct._id);
+        await checkUser.save();
+        console.log(checkUser);
         return { success: true, message: "I think you added a new Product" };
       }
     },
