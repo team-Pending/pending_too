@@ -9,12 +9,12 @@ import "./ShopCard/shopCard.css";
 function Home() {
   const [search, setSearch] = useState("");
   const { data, loading } = useQuery(QUERY_SEARCH_PRODUCT, {
-    variables: { name: search },
+    variables: { productName: search },
   });
   if (loading) {
     return <p>Loading...</p>;
   }
-  const content = data?.products;
+  const content = data?.product;
   return (
     <div>
       <Search search={search} handleSearch={setSearch} />
