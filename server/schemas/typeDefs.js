@@ -63,9 +63,8 @@ const typeDefs = gql`
 		singleUser(email: String): User!
 		me: User
 		adminUser: [User!]!
-		product: [Product!]!
 		adminProduct: [Product!]!
-		products(name: String): [Product!]!
+		product(productName: String): [Product!]!
 	}
 
 	type Mutation {
