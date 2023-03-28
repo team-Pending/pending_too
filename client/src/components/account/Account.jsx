@@ -12,7 +12,7 @@ function Account() {
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [selectedFile, setFile] = useState(null);
+  const [selectedFile, setFile] = useState('');
   const [addProduct] = useMutation(ADD_PRODUCT);
 
   const handleSubmit = async (e) => {
@@ -22,15 +22,15 @@ function Account() {
     var productName = formData.productName;
     var productDescription = formData.productDescription;
     var price = formData.price;
-  
+
     var s3Key = await uploadFile(file, productName, email);
     console.log(s3Key);
     addProduct(email, productName, productDescription, price, s3Key);
   };
 
-  const handleFileInput = (e) => {
-    console.log(e.target.files);
-    setFile(e.target.files[0]);
+  const handleFileInput = async(e) => {
+    console.log(e.target.files[0]);
+    await setFile(e.target.files[0]);
     console.log(selectedFile);
   };
 
