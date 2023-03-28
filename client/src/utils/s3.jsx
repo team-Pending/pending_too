@@ -7,9 +7,9 @@ const accessKeyId = import.meta.env.VITE_AWS_ACCESS_KEY;
 const secretAccessKey = import.meta.env.VITE_AWS_SECRET_KEY;
 
 const s3 = new S3({
-	region,
-	accessKeyId,
-	secretAccessKey,
+  region,
+  accessKeyId,
+  secretAccessKey,
 });
 
 // Uploads file to s3
@@ -29,20 +29,17 @@ const s3 = new S3({
 //     }
 //   };
 export const uploadFile = async (file) => {
-	const fileStream = fs.createReadStream(file.path);
-
-	const uploadParams = {
-		Bucket: bucketName,
-		Body: fileStream,
-		Key: file.filename,
-	};
-	return await s3.upload(uploadParams).promise();
+  const uploadParams = {
+    Bucket: bucketName,
+    Body: file,
+    Key: file.filename,
+  };
+  return await s3.upload(uploadParams).promise();
 };
 
-
 export const deletePhoto = async (key) => {
-	const deleteParams = {
-		Bucket: bucketName,
-		Key: key,
-	};
+  const deleteParams = {
+    Bucket: bucketName,
+    Key: key,
+  };
 };
