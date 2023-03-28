@@ -28,11 +28,12 @@ const s3 = new S3({
 //       console.error(err);
 //     }
 //   };
-export const uploadFile = async (file) => {
+export const uploadFile = async (file, productName, email) => {
+  console.log(productName);
   const uploadParams = {
     Bucket: bucketName,
     Body: file,
-    Key: file.filename,
+    Key: `${email}.${productName}`,
   };
   return await s3.upload(uploadParams).promise();
 };

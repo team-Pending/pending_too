@@ -12,30 +12,33 @@ function Account() {
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [file, setFile] = useState('');
+  const [selectedFile, setFile] = useState(null);
   const [addProduct] = useMutation(ADD_PRODUCT);
 
-  const handleSubmit = async (e, file) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     var email = user.email;
     var productName = formData.productName;
     var productDescription = formData.productDescription;
     var price = formData.price;
-    var s3Key = await uploadFile(file);
-
+  
+    var s3Key = await uploadFile(file, productName, email);
+    console.log(s3Key);
     addProduct(email, productName, productDescription, price, s3Key);
   };
 
   const handleFileInput = (e) => {
+    console.log(e.target.files);
     setFile(e.target.files[0]);
+    console.log(selectedFile);
   };
 
   return (
     <div className='account'>
       <div className='info-container'>
         <h1>Hello</h1>
-        <h3>{`${user.firstName} ${user.lastName}`}</h3>
+        <h3>{`${user?.firstName} ${user?.lastName}`}</h3>
         <h4>
           Welcome to my page and taking a moment to see what I have to offer. <br />
           I have enjoy outdoor activities and creating unique ways of combining images. <br />
@@ -47,11 +50,7 @@ function Account() {
           and a link to the store
         </button>
       </div>
-      <form
-        onSubmit={() => {
-          handleSubmit(e, file);
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <input
           type='file'
           name='upload'
