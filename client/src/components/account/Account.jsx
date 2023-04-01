@@ -19,19 +19,14 @@ function Account() {
     e.preventDefault();
     const formData = new FormData(e.target);
     var email = user.email;
-    var productName = formData.productName;
-    var productDescription = formData.productDescription;
-    var price = formData.price;
-
-    var s3Key = await uploadFile(file, productName, email);
+    console.log(email, productName, productDescription, price, selectedFile);
+    console.log('sending to s3 please wait');
+    var s3Key = await uploadFile(selectedFile, productName, email);
+    s3Key = s3Key.Key;
     console.log(s3Key);
-    addProduct(email, productName, productDescription, price, s3Key);
-  };
-
-  const handleFileInput = async(e) => {
-    console.log(e.target.files[0]);
-    await setFile(e.target.files[0]);
-    console.log(selectedFile);
+    await addProduct({
+      variables: { email, productName, productDescription, price, s3Key },
+    });
   };
 
   return (
@@ -57,7 +52,9 @@ function Account() {
           id='filename'
           className='upload'
           required
-          onChange={handleFileInput}
+          onChange={(e) => {
+            setFile(e.target.files[0]);
+          }}
         />
         <input
           type='text'
