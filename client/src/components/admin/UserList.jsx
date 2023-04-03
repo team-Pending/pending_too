@@ -71,7 +71,6 @@ function UserList() {
                                     </tbody>
                                 </table>
                             ))}
-                            {/* <button type="submit">DELETE</button> */}
                         </div>
                     </Col>
                 </Row>

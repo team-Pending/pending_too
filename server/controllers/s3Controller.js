@@ -16,13 +16,11 @@ const s3 = new S3({
 const s3Controller = {
 	async getFile(req, res) {
 		const key = req.params.key;
-		console.log(key);
 		function getFileStream(fileKey) {
 			const downloadParams = {
 				Key: fileKey,
 				Bucket: bucketName,
 			};
-			console.log(downloadParams);
 			return s3.getObject(downloadParams).createReadStream();
 		}
 		const readStream = await getFileStream(key);

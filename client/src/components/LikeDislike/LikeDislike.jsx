@@ -8,14 +8,12 @@ function LikeDislike() {
 
     const rateLike = () => {
         if (activeBtn === "none") {
-          console.log("rating + 1")
             setRating(rating + 1);
             setActiveBtn("like");
             return;
         }
 
         if (activeBtn === "dislike") {
-          console.log("rating + 1")
             setRating(rating + 1);
             setActiveBtn("like");
         }
@@ -23,14 +21,12 @@ function LikeDislike() {
 
     const rateDislike = () => {
         if (activeBtn === "none") {
-          console.log("rating - 1")
             setRating(rating - 1);
             setActiveBtn("dislike");
             return;
         }
 
         if (activeBtn === "like") {
-          console.log("rating - 1")
             setRating(rating - 1);
             setActiveBtn("dislike");
         }

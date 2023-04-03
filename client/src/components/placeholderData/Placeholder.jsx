@@ -19,16 +19,12 @@ function Placeholder() {
   } 
 
   let location = useLocation();
-
-  console.log(location)
   let searchTarget = location.pathname.slice(8);
-  console.log(searchTarget)
   
   return (
     <div>
         <h1>Coming Soon</h1>
       <pre>{searchTarget}</pre>
-      {/* <button onClick={() => {handleClick()}}>hello there</button> */}
     </div>
   );
 }

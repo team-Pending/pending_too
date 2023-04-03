@@ -9,7 +9,6 @@ const productController = {
         res.json(dbProductData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -25,7 +24,6 @@ const productController = {
         res.json(dbProductData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -36,7 +34,6 @@ const productController = {
         res.json(dbProductData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -59,7 +56,6 @@ const productController = {
         res.json(dbProductData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -71,14 +67,13 @@ const productController = {
           return res.status(404).json({ message: 'No product with this id!' });
         }
 
-        // Get ids of product's `reviews` and delete them all
+        // Get ids of product's reviews and delete them all
         return Review.deleteMany({ _id: { $in: dbProductData.reviews } });
       })
       .then(() => {
         res.json({ message: 'Product and associated reviews deleted!' });
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },

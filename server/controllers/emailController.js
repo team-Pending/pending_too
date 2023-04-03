@@ -1,9 +1,6 @@
 require('dotenv').config();
-// const { transporter } = require('../config/nodeMailer');
 const nodemailer = require('nodemailer');
 const emailPassword = process.env.EMAIL_PASSWORD;
-// const emailAddress = process.env.EMAIL_ADDRESS;
-// console.log('hello');
 const emailAddress = process.env.EMAIL_ADDRESS;
 
 const transporter = nodemailer.createTransport({

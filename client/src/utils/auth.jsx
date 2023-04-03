@@ -11,7 +11,6 @@ const removeStoredJwtToken = () => sessionStorage.removeItem('jwt');
 // use this to decode a token and get the user's information out of it
 const getTokenUser = (token) => {
 	const { data } = jwtDecode(token);
-	console.log(data);
 	return data;
 };
 
@@ -26,7 +25,6 @@ const AuthProvider = (props) => {
 		setToken(getStoredJwtToken());
 	}, []);
 	const { data: userData } = useQuery(QUERY_ME);
-	console.log(userData, 'userdata');
 	const user = userData?.me;
 	
 	const handleLogin = async ({ email, password }) => {
@@ -47,7 +45,6 @@ const AuthProvider = (props) => {
 
 	const handleSignup = async ({ username, firstName, lastName, email, password }) => {
 		try {
-			console.log('hello');
 			const { data } = await addUser({
 				variables: {
 					username,
@@ -57,11 +54,9 @@ const AuthProvider = (props) => {
 					password,
 				},
 			});
-			console.log('hello2');
 			const token = data.login.token;
 			setToken(token);
 			setStoredJwtToken(token);
-			console.log(user);
 		} catch ({ message = 'An unexpected error occured' }) {
 			setError(message);
 		}

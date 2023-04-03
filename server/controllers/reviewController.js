@@ -9,7 +9,6 @@ const reviewController = {
         res.json(dbReviewData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -23,7 +22,6 @@ const reviewController = {
         res.json(dbReviewData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -45,7 +43,6 @@ const reviewController = {
         res.json({ message: 'Review successfully created!' });
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -59,7 +56,6 @@ const reviewController = {
         res.json(dbReviewData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -85,7 +81,6 @@ const reviewController = {
         res.json({ message: 'Review successfully deleted!' });
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   },

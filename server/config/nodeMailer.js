@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer');
 const emailPassword = process.env.EMAIL_PASSWORD;
 const emailAddress = process.env.EMAIL_ADDRESS;
-console.log('hello');
 
 const transporter = nodemailer.createTransport({
 	port: 465,
@@ -13,5 +12,4 @@ const transporter = nodemailer.createTransport({
 	secure: true, // upgrades later with STARTTLS -- change this based on the PORT
 });
 
-console.log(transporter);
 module.exports = transporter;

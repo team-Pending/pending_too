@@ -20,7 +20,6 @@ function ShopCard({ content }) {
           <button className='add-to-cart'>
             <FontAwesomeIcon icon={faCartShopping} />
           </button>
-          {/* <button className="remove-from-cart">Remove from cart</button> */}
         </li>
       </ul>
       <ul className='like'>

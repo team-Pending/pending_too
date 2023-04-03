@@ -10,7 +10,6 @@ const userController = {
 				res.json(dbUserData);
 			})
 			.catch((err) => {
-				console.log(err);
 				res.status(500).json(err);
 			});
 	},
@@ -26,7 +25,6 @@ const userController = {
 				res.json(dbUserData);
 			})
 			.catch((err) => {
-				console.log(err);
 				res.status(500).json(err);
 			});
 	},
@@ -37,7 +35,6 @@ const userController = {
 				res.json(dbUserData);
 			})
 			.catch((err) => {
-				console.log(err);
 				res.status(500).json(err);
 			});
 	},
@@ -60,7 +57,6 @@ const userController = {
 				res.json(dbUserData);
 			})
 			.catch((err) => {
-				console.log(err);
 				res.status(500).json(err);
 			});
 	},
@@ -79,7 +75,6 @@ const userController = {
 				res.json({ message: 'User and associated reviews deleted!' });
 			})
 			.catch((err) => {
-				console.log(err);
 				res.status(500).json(err);
 			});
 	},

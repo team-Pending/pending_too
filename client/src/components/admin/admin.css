@@ -4,7 +4,6 @@
     padding: 5rem;
     margin: 5rem;
     display: flex;
-    /* flex-direction: column; */
  }
 
 .admin__container {
@@ -12,10 +11,8 @@
         flex-direction: column;
         align-items: center;
         padding: 5%;
-        /* justify-content: space-around; */
         width: auto;
         height: auto;
-        /* background: rgb(244, 101, 36); */
         background: radial-gradient(
           circle at top center,
           rgba(244, 101, 36, 1) 0%,
