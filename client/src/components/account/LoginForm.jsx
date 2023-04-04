@@ -13,14 +13,11 @@ const LoginForm = () => {
 	const [username, setUsername] = useState('');
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setlastName] = useState('');
-	// const { data, loading } = useQuery(QUERY_GET_USER, {
-	// 	variables: { email: email },
-	// });
+
 
 	const handleSubmit = async(e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
-		console.log(Object.fromEntries(formData));
 		await handleLogin({ email, password });
 		setEmail(email);
 		setPassword('');

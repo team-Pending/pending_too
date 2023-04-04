@@ -12,24 +12,7 @@ const s3 = new S3({
   secretAccessKey,
 });
 
-// Uploads file to s3
-// export const uploadFile = async () => {
-//     const fileStream = fs.createReadStream(file.path);
-//     const command = new PutObjectCommand({
-//         Bucket: bucketName,
-// 		Body: fileStream,
-// 		Key: file.filename,
-//     });
-
-//     try {
-//       const response = await client.send(command);
-//       console.log(response);
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
 export const uploadFile = async (file, productName, email) => {
-  console.log(productName);
   const uploadParams = {
     Bucket: bucketName,
     Body: file,

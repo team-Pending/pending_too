@@ -1,11 +1,8 @@
-// Laura adding to complete route for auth
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { AuthProvider } from './utils/auth';
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 import Navbar from "./components/navbar/Nav";
 import Home from './components/Home';
 import ShopCard from './components/ShopCard/ShopCard';
@@ -18,11 +15,9 @@ import Cart from "./components/Cart";
 import NotFound from './components/NotFound.jsx';
 import Placeholder from './components/placeholderData/Placeholder';
 
-// Laura adding regarding pulling auth path
-// Construct our main GraphQL API endpoint
+// Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
 	uri: '/graphql',
-	//credentials: 'include'
 });
 
 // Construct link that will attach the JWT token to every request.

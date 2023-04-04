@@ -16,7 +16,6 @@ module.exports = {
 	  }
 	
 	  try {
-		console.log(token)
 		const { data } = jwt.verify(token, JWT_SECRET);
 		req.user = data;
 	  } catch (error){
@@ -27,7 +26,6 @@ module.exports = {
 	  return req;
 	},
 	signToken: function ({ email }) {
-		console.log('this is a test');
 		const payload = { email };
 		return jwt.sign({ data: payload }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
 	},

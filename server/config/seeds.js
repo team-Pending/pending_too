@@ -12,8 +12,6 @@ db.once('open', async () => {
 		{ name: 'Decor' },
 	]);
 
-	console.log('categories seeded');
-
 	await Product.deleteMany();
 
     const products = await Product.insertMany([
@@ -119,8 +117,6 @@ db.once('open', async () => {
         },
     ]);
 
-	console.log('products seeded');
-
 	await User.deleteMany();
 
 	await User.create({
@@ -154,8 +150,6 @@ db.once('open', async () => {
             }
         ]
     });
-
-	console.log('users seeded');
 
 	process.exit();
 });

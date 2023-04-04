@@ -19,11 +19,8 @@ function Account() {
     e.preventDefault();
     const formData = new FormData(e.target);
     var email = user.email;
-    console.log(email, productName, productDescription, price, selectedFile);
-    console.log('sending to s3 please wait');
     var s3Key = await uploadFile(selectedFile, productName, email);
     s3Key = s3Key.Key;
-    console.log(s3Key);
     await addProduct({
       variables: { email, productName, productDescription, price, s3Key },
     });

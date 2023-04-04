@@ -107,4 +107,3 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
-//    updateUser(firstName: String, lastName: String, email: String, password: String, isAdmin: Boolean): User
