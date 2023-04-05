@@ -21,9 +21,22 @@ function Account() {
     var email = user.email;
     var s3Key = await uploadFile(selectedFile, productName, email);
     s3Key = s3Key.Key;
-    await addProduct({
-      variables: { email, productName, productDescription, price, s3Key },
-    });
+    var itemPrice = parseFloat(price);
+    console.log(email, productName, productDescription, itemPrice, s3Key);
+    try {
+      const data = await addProduct({
+        variables: {
+          email,
+          productName,
+          productDescription,
+          itemPrice,
+          s3Key,
+        },
+      });
+      console.log(data);
+    } catch ({ message = 'An unexpected error occured' }) {
+      setError(message);
+    }
   };
 
   return (
