@@ -47,13 +47,18 @@ const resolvers = {
       const product = await Product.find();
       return product;
     },
-
+    // return Product.find({productName: { $regex : args.name, $options: 'i'}});
     product: async (parent, args, context) => {
       context.product = true;
       if (context.product) {
-        const product = await Product.find();
+        console.log(args);
+        if (args.productName === '') {
+          const product = await Product.find();
+          return product;
+        } else {
+          return Product.find({ productName: { $regex: args.productName, $options: 'i' } });
+        }
 
-        return product;
       }
 
       throw new AuthenticationError('Not logged in');

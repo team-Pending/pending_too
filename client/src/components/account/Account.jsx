@@ -11,7 +11,7 @@ function Account() {
   const { user } = useAuth();
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
-  const [price, setPrice] = useState('');
+  const [itemPrice, setPrice] = useState('');
   const [selectedFile, setFile] = useState('');
   const [addProduct] = useMutation(ADD_PRODUCT);
 
@@ -21,15 +21,15 @@ function Account() {
     var email = user.email;
     var s3Key = await uploadFile(selectedFile, productName, email);
     s3Key = s3Key.Key;
-    var itemPrice = parseFloat(price);
-    console.log(email, productName, productDescription, itemPrice, s3Key);
+    var price = parseFloat(itemPrice);
+    console.log(email, productName, productDescription, price, s3Key);
     try {
       const data = await addProduct({
         variables: {
           email,
           productName,
           productDescription,
-          itemPrice,
+          price,
           s3Key,
         },
       });
@@ -86,10 +86,10 @@ function Account() {
         />
         <input
           type='text'
-          name='price'
-          id='price'
+          name='itemPrice'
+          id='itemPrice'
           required
-          value={price}
+          value={itemPrice}
           onChange={(event) => setPrice(event.target.value)}
           placeholder='Enter Price'
         />
